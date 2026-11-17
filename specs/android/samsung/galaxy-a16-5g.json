@@ -1,0 +1,84 @@
+{
+  "id": "galaxy-a16-5g",
+  "name": "Galaxy A16 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-10-25",
+  "models": [
+    "SM-A166B",
+    "SM-A166B/DS",
+    "SM-A166P",
+    "SM-A166P/DS",
+    "SM-A166E",
+    "SM-A166E/DS",
+    "SM-A166W",
+    "SM-A166U",
+    "SM-A166U1",
+    "SM-S166V",
+    "SM-A166M",
+    "SM-A1660"
+  ],
+  "devices": [
+    "a16x",
+    "a16xm"
+  ],
+  "boardPlatforms": [
+    "s5e8535",
+    "mt6835"
+  ],
+  "socModels": [],
+  "chip": "Exynos 1330 (MediaTek Dimensity 6300 in SM-A166P)",
+  "ramGB": [
+    4,
+    6,
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "designCapacityMah": [
+      4860
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM; Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "5MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "IP54",
+    "NFC",
+    "eSIM",
+    "microSD slot"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "20",
+  "weightGrams": 200,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a16_5g-13346.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ca/smartphones/galaxy-a/galaxy-a16-5g-blue-black-128gb-sm-a166wzkaxac/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Codename a16x (Exynos 1330); a16xm for the MediaTek Dimensity 6300 model SM-A166P (India)."
+}

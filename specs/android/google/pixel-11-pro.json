@@ -1,0 +1,75 @@
+{
+  "id": "pixel-11-pro",
+  "name": "Pixel 11 Pro",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2026-08-20",
+  "models": [
+    "Pixel 11 Pro",
+    "GM45K",
+    "G7SWN"
+  ],
+  "devices": [
+    "grizzly"
+  ],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Google Tensor G6",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "LTPO OLED",
+    "resolution": "1280x2856",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4707
+    ],
+    "typicalMah": 4850,
+    "wiredChargingW": 30,
+    "wirelessCharging": "25W wireless (magnetic), Qi2.2"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; eSIM + eSIM (8 or more, max 2 at a time; USA)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "48MP periscope telephoto 5x",
+      "48MP ultrawide"
+    ],
+    "front": "42MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "17",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "24",
+  "weightGrams": 204,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_11_pro_5g-14801.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/product/pixel_11_pro_specs"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 11 Pro\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about August 2033 and assumes Android major releases continue each June. Tensor G6 ro.board.platform not verified (left empty)."
+}

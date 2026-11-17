@@ -1,0 +1,78 @@
+{
+  "id": "pixel-8-pro",
+  "name": "Pixel 8 Pro",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2023-10-12",
+  "models": [
+    "Pixel 8 Pro",
+    "GC3VE",
+    "G1MNW",
+    "GE9DP"
+  ],
+  "devices": [
+    "husky"
+  ],
+  "boardPlatforms": [
+    "zuma"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G3",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "LTPO OLED",
+    "resolution": "1344x2992",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4950
+    ],
+    "typicalMah": 5050,
+    "wiredChargingW": 30,
+    "wirelessCharging": "23W wireless; Reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "48MP periscope telephoto 5x",
+      "48MP ultrawide"
+    ],
+    "front": "10.5MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "21",
+  "weightGrams": 213,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_8_pro-12545.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/in/product/pixel_8_pro_specs?hl=en-GB"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 8 Pro\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about October 2030 and assumes Android major releases continue each June."
+}

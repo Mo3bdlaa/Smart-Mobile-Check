@@ -1,0 +1,79 @@
+{
+  "id": "galaxy-a55",
+  "name": "Galaxy A55 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-03-15",
+  "models": [
+    "SM-A556V",
+    "SM-A556B",
+    "SM-A556B/DS",
+    "SM-A556E",
+    "SM-A556E/DS",
+    "SM-A5560",
+    "SCG27",
+    "SC-53E",
+    "SM-A556S"
+  ],
+  "devices": [
+    "a55x"
+  ],
+  "boardPlatforms": [
+    "s5e8845"
+  ],
+  "socModels": [],
+  "chip": "Exynos 1480",
+  "ramGB": [
+    6,
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.6,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM; Nano-SIM + eSIM; Nano-SIM + Nano-SIM; Nano-SIM + Nano-SIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "12MP ultrawide",
+      "5MP macro"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP67",
+    "NFC",
+    "eSIM",
+    "microSD slot"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 213,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a55-12824.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a55-5g-awesome-navy-128gb-sm-a556bzkaeeb/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. SCG27 / SC-53E are the Japanese au / docomo models."
+}

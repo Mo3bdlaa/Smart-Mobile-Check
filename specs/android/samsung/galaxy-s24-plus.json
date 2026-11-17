@@ -1,0 +1,82 @@
+{
+  "id": "galaxy-s24-plus",
+  "name": "Galaxy S24+",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-01-24",
+  "models": [
+    "SM-S926B",
+    "SM-S926B/DS",
+    "SM-S926U",
+    "SM-S926U1",
+    "SM-S926W",
+    "SM-S926N",
+    "SM-S9260",
+    "SM-S926E",
+    "SM-S926E/DS"
+  ],
+  "devices": [
+    "e2s",
+    "e2q"
+  ],
+  "boardPlatforms": [
+    "pineapple",
+    "s5e9945"
+  ],
+  "socModels": [],
+  "chip": "Exynos 2400 / Snapdragon 8 Gen 3 for Galaxy",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4755
+    ],
+    "typicalMah": 4900,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "10MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "21",
+  "weightGrams": 196,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s24+-12772.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.techradar.com/phones/samsung-galaxy-phones/the-samsung-galaxy-s25s-battery-might-not-impress-or-overly-disappoint"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Exynos 2400 (e2s) in SM-S926B/N and most of EMEA incl. Egypt/Middle East; Snapdragon 8 Gen 3 (e2q) in US, Canada, China, Japan. socModels left empty because the ro.soc.model of the non-Qualcomm variant is unverified (Qualcomm variant: SM8650)."
+}

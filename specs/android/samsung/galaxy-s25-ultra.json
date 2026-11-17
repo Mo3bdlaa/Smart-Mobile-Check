@@ -1,0 +1,90 @@
+{
+  "id": "galaxy-s25-ultra",
+  "name": "Galaxy S25 Ultra",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-02-03",
+  "models": [
+    "SM-S938B",
+    "SM-S938B/DS",
+    "SM-S938U",
+    "SM-S938U1",
+    "SM-S938W",
+    "SM-S938N",
+    "SM-S9380",
+    "SM-S938E",
+    "SM-S938E/DS",
+    "SM-S938Q",
+    "SM-S938Z",
+    "SCG32",
+    "SC-52F"
+  ],
+  "devices": [
+    "pa3q"
+  ],
+  "boardPlatforms": [
+    "sun"
+  ],
+  "socModels": [
+    "SM8750"
+  ],
+  "chip": "Snapdragon 8 Elite for Galaxy",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.9,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4855
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi2 Ready); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "10MP telephoto 3x",
+      "50MP periscope telephoto 5x",
+      "50MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX",
+    "S Pen (built-in, no Bluetooth)"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 218,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s25_ultra-13322.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ca/business/smartphones/galaxy-s/galaxy-s25-sm-s931wzkexac/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions."
+}

@@ -1,0 +1,80 @@
+{
+  "id": "galaxy-a25",
+  "name": "Galaxy A25 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-12-16",
+  "models": [
+    "SM-A256E",
+    "SM-A256E/DS",
+    "SM-A256E/DSN",
+    "SM-A256B",
+    "SM-A256B/DS",
+    "SM-A256B/DSN",
+    "SM-A256U",
+    "SM-A256U1",
+    "SM-A256N",
+    "SM-S256VL",
+    "SM-A2560"
+  ],
+  "devices": [
+    "a25x"
+  ],
+  "boardPlatforms": [
+    "s5e8825"
+  ],
+  "socModels": [],
+  "chip": "Exynos 1280",
+  "ramGB": [
+    4,
+    6,
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.5,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "NFC",
+    "microSD slot",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 197,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a25-12555.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/in/multistore/incs/feature.SM-A256EZKHINS/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. The Japanese \"Galaxy A25 5G\" (SM-A253Q, SCG33, SC-53F, codename a25ex) is a different, MediaTek-based phone and is intentionally not listed here."
+}

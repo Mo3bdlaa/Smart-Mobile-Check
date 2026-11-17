@@ -1,0 +1,78 @@
+{
+  "id": "galaxy-a37",
+  "name": "Galaxy A37 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-04-09",
+  "models": [
+    "SM-A376E",
+    "SM-A376E/DS",
+    "SM-A376B",
+    "SM-A376B/DS",
+    "SM-A376U",
+    "SM-A376U1",
+    "SM-A376W",
+    "SM-A3760",
+    "SM-S376V"
+  ],
+  "devices": [
+    "a37x"
+  ],
+  "boardPlatforms": [
+    "s5e8845"
+  ],
+  "socModels": [],
+  "chip": "Exynos 1480",
+  "ramGB": [
+    6,
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "5MP macro"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 196,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a37_5g-14378.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://news.samsung.com/global/samsung-unveils-galaxy-a57-5g-and-galaxy-a37-5g-packing-pro-level-features-at-awesome-price"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Rated capacity 4905 mAh taken from the shared A57/A37 launch material (A57 product page confirms 4905 mAh); not seen on an A37-specific page."
+}

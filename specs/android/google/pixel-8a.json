@@ -1,0 +1,75 @@
+{
+  "id": "pixel-8a",
+  "name": "Pixel 8a",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2024-05-14",
+  "models": [
+    "Pixel 8a",
+    "GKV4X",
+    "G6GPR",
+    "G8HHN",
+    "G576D",
+    "G8HNN"
+  ],
+  "devices": [
+    "akita"
+  ],
+  "boardPlatforms": [
+    "zuma"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G3",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "OLED",
+    "resolution": "1080x2400",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4404
+    ],
+    "typicalMah": 4492,
+    "wiredChargingW": 18,
+    "wirelessCharging": "7.5W wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "64MP wide",
+      "13MP ultrawide"
+    ],
+    "front": "13MP ultrawide"
+  },
+  "features": [
+    "IP67",
+    "Wireless charging",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "21",
+  "weightGrams": 188,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_8a-12937.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/magazine/compare_pixel"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 8a\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about May 2031 and assumes Android major releases continue each June. GSMArena lists hardware model G8HHN and MobileModels lists G8HNN; both spellings are included."
+}

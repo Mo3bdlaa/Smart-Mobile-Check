@@ -1,0 +1,71 @@
+{
+  "id": "redmi-note-13-pro-4g",
+  "name": "Redmi Note 13 Pro 4G",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2024-01-15",
+  "models": [
+    "23117RA68G"
+  ],
+  "devices": [
+    "emerald"
+  ],
+  "boardPlatforms": [
+    "mt6789"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Helio G99-Ultra",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1080x2400",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 67,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "16MP wide"
+  },
+  "features": [
+    "IP54",
+    "NFC",
+    "microSD slot",
+    "IR blaster",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "3 OS upgrades / 4 years security updates",
+  "maxAndroid": "16",
+  "weightGrams": 188,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_redmi_note_13_pro_4g-12749.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 23117RA68G); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Redmi sub-brand; LTE-only. GSMArena also lists 2312FPCA6G, which is the POCO M6 Pro (4G) model code, so it is excluded here."
+}

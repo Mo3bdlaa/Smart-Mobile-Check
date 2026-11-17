@@ -1,0 +1,76 @@
+{
+  "id": "xiaomi-14",
+  "name": "Xiaomi 14",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2023-11-01",
+  "models": [
+    "23127PN0CC",
+    "23127PN0CG"
+  ],
+  "devices": [
+    "houji"
+  ],
+  "boardPlatforms": [
+    "pineapple"
+  ],
+  "socModels": [
+    "SM8650"
+  ],
+  "chip": "Snapdragon 8 Gen 3",
+  "ramGB": [
+    8,
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.36,
+    "technology": "LTPO OLED",
+    "resolution": "1200x2670",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4610
+    ],
+    "typicalMah": 4610,
+    "wiredChargingW": 90,
+    "wirelessCharging": "50W wireless, 100% in 46 min; 10W reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP telephoto 3.2x",
+      "50MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 188,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_14-12626.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 23127PN0CG); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found."
+}

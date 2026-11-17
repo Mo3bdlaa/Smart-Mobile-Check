@@ -1,0 +1,75 @@
+{
+  "id": "xiaomi-14t-pro",
+  "name": "Xiaomi 14T Pro",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2024-09-26",
+  "models": [
+    "2407FPN8EG",
+    "2407FPN8ER",
+    "XIG06",
+    "A402XM"
+  ],
+  "devices": [
+    "rothko"
+  ],
+  "boardPlatforms": [
+    "mt6989"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 9300+",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1220x2712",
+    "maxRefreshHz": 144
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 120,
+    "wirelessCharging": "50W wireless, 100% in 45 min"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; eSIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP telephoto 2.6x",
+      "12MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 209,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_14t_pro-13328.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md",
+    "https://www.gizchina.com/2025/05/15/is-your-xiaomi-device-eligible-for-extended-software-support"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 2407FPN8EG); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Update policy (4 OS / 5 years, security to about Sept 2029) from secondary sources; moderate confidence."
+}

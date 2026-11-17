@@ -1,0 +1,78 @@
+{
+  "id": "redmi-note-13-pro-5g",
+  "name": "Redmi Note 13 Pro 5G",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2023-09-21",
+  "models": [
+    "2312DRA50C",
+    "2312CRAD3C",
+    "2312DRA50G",
+    "2312DRA50I",
+    "XIG05"
+  ],
+  "devices": [
+    "garnet"
+  ],
+  "boardPlatforms": [
+    "parrot"
+  ],
+  "socModels": [
+    "SM7435"
+  ],
+  "chip": "Snapdragon 7s Gen 2",
+  "ramGB": [
+    8,
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1220x2712",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5100
+    ],
+    "typicalMah": 5100,
+    "wiredChargingW": 67,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "16MP wide"
+  },
+  "features": [
+    "IP54",
+    "NFC",
+    "eSIM",
+    "IR blaster",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "3 OS upgrades / 4 years security updates",
+  "maxAndroid": "16",
+  "weightGrams": 187,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_redmi_note_13_pro-12581.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 2312DRA50G); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Redmi sub-brand. Same hardware (codename garnet) is sold as POCO X6 5G under different model codes, which are not listed here."
+}

@@ -1,0 +1,73 @@
+{
+  "id": "pixel-10",
+  "name": "Pixel 10",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2025-08-28",
+  "models": [
+    "Pixel 10",
+    "GK2MP",
+    "GLBW0",
+    "GL066"
+  ],
+  "devices": [
+    "frankel"
+  ],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Google Tensor G5",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "OLED",
+    "resolution": "1080x2424",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4835
+    ],
+    "typicalMah": 4970,
+    "wiredChargingW": 30,
+    "wirelessCharging": "15W wireless (magnetic), Qi2"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; eSIM + eSIM (8 or more, max 2 at a time; USA)"
+  },
+  "cameras": {
+    "rear": [
+      "48MP wide",
+      "10.8MP telephoto 5x",
+      "13MP ultrawide"
+    ],
+    "front": "10.5MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "23",
+  "weightGrams": 204,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_10_5g-13979.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/product/pixel_10_specs"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 10\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about August 2032 and assumes Android major releases continue each June. Tensor G5 SoC codename is \"laguna\"; ro.board.platform not verified on a device, so boardPlatforms is left empty."
+}

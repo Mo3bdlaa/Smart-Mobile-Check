@@ -1,0 +1,81 @@
+{
+  "id": "galaxy-z-flip7",
+  "name": "Galaxy Z Flip7",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-07-25",
+  "models": [
+    "SM-F766B",
+    "SM-F766B/DS",
+    "SM-F766U",
+    "SM-F766U1",
+    "SM-F766W",
+    "SM-F7660",
+    "SM-F766N",
+    "SM-F766Q",
+    "SM-F766Z",
+    "SCG35",
+    "SC-55F"
+  ],
+  "devices": [
+    "b7s"
+  ],
+  "boardPlatforms": [
+    "s5e9955"
+  ],
+  "socModels": [],
+  "chip": "Exynos 2500",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.9,
+    "technology": "Foldable Dynamic LTPO AMOLED 2X",
+    "resolution": "1080x2520",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4174
+    ],
+    "typicalMah": 4300,
+    "wiredChargingW": 25,
+    "wirelessCharging": "15W wireless; 4.5W reverse wireless"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM + eSIM (max 2 at a time); Nano-SIM + multiple eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "12MP ultrawide"
+    ],
+    "front": "10MP wide"
+  },
+  "features": [
+    "IP48",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "23",
+  "weightGrams": 188,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_z_flip7-13712.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/levant/smartphones/galaxy-z-flip7/specs",
+    "https://www.samsung.com/uk/business/smartphones/galaxy-z/galaxy-z-flip7-jetblack-256gb-enterprise-edition-sm-f766bzkgeeb/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Exynos 2500 in all regions (codename b7s). display = main (inner) foldable panel; cover display: Super AMOLED, 120Hz, 2600 nits (peak), 4.1 inches, 948 x 1048 pixels (Gorilla Glass Victus 2)."
+}

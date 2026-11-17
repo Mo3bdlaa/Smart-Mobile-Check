@@ -1,0 +1,80 @@
+{
+  "id": "galaxy-z-flip5",
+  "name": "Galaxy Z Flip5",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-08-11",
+  "models": [
+    "SM-F731B",
+    "SM-F731B/DS",
+    "SM-F731U",
+    "SM-F731U1",
+    "SM-F731W",
+    "SM-F731N",
+    "SM-F7310",
+    "SM-F731Q",
+    "SCG23",
+    "SC-54D"
+  ],
+  "devices": [
+    "b5q"
+  ],
+  "boardPlatforms": [
+    "kalama"
+  ],
+  "socModels": [
+    "SM8550"
+  ],
+  "chip": "Snapdragon 8 Gen 2 for Galaxy",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Foldable Dynamic AMOLED 2X",
+    "resolution": "1080x2640",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      3591
+    ],
+    "typicalMah": 3700,
+    "wiredChargingW": 25,
+    "wirelessCharging": "15W wireless; 4.5W reverse wireless"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "12MP wide",
+      "12MP ultrawide"
+    ],
+    "front": "10MP wide"
+  },
+  "features": [
+    "IPX8",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "17",
+  "weightGrams": 187,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_z_flip5-12252.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/uk/business/smartphones/galaxy-z/galaxy-z-flip7-jetblack-256gb-enterprise-edition-sm-f766bzkgeeb/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions. display = main (inner) foldable panel; cover display: Super AMOLED, 60Hz, 3.4 inches, 720 x 748 pixels (Gorilla Glass Victus 2), 306 ppi."
+}

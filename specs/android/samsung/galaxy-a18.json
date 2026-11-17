@@ -1,0 +1,64 @@
+{
+  "id": "galaxy-a18",
+  "name": "Galaxy A18",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-09-18",
+  "models": [
+    "SM-A185F",
+    "SM-A185F/DS",
+    "SM-A185M",
+    "SM-A185M/DS",
+    "SM-A185F/DSB"
+  ],
+  "devices": [],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Exynos 1610",
+  "ramGB": [
+    4
+  ],
+  "storageOptionsGB": [
+    64,
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "5MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "IP64",
+    "NFC",
+    "microSD slot"
+  ],
+  "launchAndroid": "17",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "23",
+  "weightGrams": 196,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a18-14941.php"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. 4G (LTE) model announced September 2026; launched with Android 17. Codename and board platform not verified (left empty). Rated battery capacity not found; designCapacityMah omitted (5000 mAh typical)."
+}

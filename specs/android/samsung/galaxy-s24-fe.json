@@ -1,0 +1,79 @@
+{
+  "id": "galaxy-s24-fe",
+  "name": "Galaxy S24 FE",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-10-03",
+  "models": [
+    "SM-S721B",
+    "SM-S721B/DS",
+    "SM-S721U1",
+    "SM-S721U",
+    "SM-S721W",
+    "SM-S7210",
+    "SM-S721N",
+    "SM-S721Q",
+    "SCG30"
+  ],
+  "devices": [
+    "r12s"
+  ],
+  "boardPlatforms": [
+    "s5e9945"
+  ],
+  "socModels": [],
+  "chip": "Exynos 2400e",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Dynamic AMOLED 2X",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4565
+    ],
+    "typicalMah": 4700,
+    "wiredChargingW": 25,
+    "wirelessCharging": "15W wireless; Reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM; Nano-SIM + eSIM; eSIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "10MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "21",
+  "weightGrams": 213,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s24_fe-13262.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Exynos 2400e in all regions (same s5e9945 platform as Exynos 2400). Rated capacity 4565 mAh per Samsung store listing."
+}

@@ -1,0 +1,69 @@
+{
+  "id": "oppo-reno13",
+  "name": "OPPO Reno13",
+  "brand": "OPPO",
+  "platform": "android",
+  "releaseDate": "2024-11-29",
+  "models": [
+    "CPH2689",
+    "PKM110"
+  ],
+  "devices": [],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 8350",
+  "ramGB": [
+    8,
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.59,
+    "technology": "AMOLED",
+    "resolution": "1256x2760",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5600
+    ],
+    "typicalMah": 5600,
+    "wiredChargingW": 80,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM (max 2 at a time); Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "Auxiliary lens"
+    ],
+    "front": "50MP wide"
+  },
+  "features": [
+    "IP68/IP69",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "Not verified",
+  "maxAndroid": null,
+  "weightGrams": 181,
+  "sources": [
+    "https://www.gsmarena.com/oppo_reno13-13515.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/oppo_global_en.md"
+  ],
+  "notes": "ro.product.model is the regional model code (e.g. CPH2689). ro.product.device values were not verified for this brand, so devices is left empty; project codename: milkyway (variant milkyway-s2). designCapacityMah holds the manufacturer's published (typical) capacity; a rated/minimum value was not found. PKM110 = China model. Dimensity 8350 board platform not verified. Reno13 F / Reno13 F 4G are different phones."
+}

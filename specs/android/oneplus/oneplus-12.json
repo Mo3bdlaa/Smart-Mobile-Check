@@ -1,0 +1,76 @@
+{
+  "id": "oneplus-12",
+  "name": "OnePlus 12",
+  "brand": "OnePlus",
+  "platform": "android",
+  "releaseDate": "2023-12-11",
+  "models": [
+    "PJD110",
+    "CPH2573",
+    "CPH2581",
+    "CPH2583"
+  ],
+  "devices": [],
+  "boardPlatforms": [
+    "pineapple"
+  ],
+  "socModels": [
+    "SM8650"
+  ],
+  "chip": "Snapdragon 8 Gen 3",
+  "ramGB": [
+    12,
+    16,
+    24
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.82,
+    "technology": "LTPO AMOLED",
+    "resolution": "1440x3168",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5400
+    ],
+    "typicalMah": 5400,
+    "wiredChargingW": 100,
+    "wirelessCharging": "50W wireless, 100% in 55 min; 10W reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM + eSIM (max 2 at a time); Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "64MP periscope telephoto 3x",
+      "48MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP65",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 220,
+  "sources": [
+    "https://www.gsmarena.com/oneplus_12-12725.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/oneplus_en.md"
+  ],
+  "notes": "ro.product.model is the regional model code (e.g. CPH2581). ro.product.device values were not verified for this brand, so devices is left empty; project codename: waffle. designCapacityMah holds the manufacturer's published (typical) capacity; a rated/minimum value was not found. PJD110 = China."
+}

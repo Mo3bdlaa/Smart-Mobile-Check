@@ -1,0 +1,75 @@
+{
+  "id": "pixel-10-pro-xl",
+  "name": "Pixel 10 Pro XL",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2025-08-28",
+  "models": [
+    "Pixel 10 Pro XL",
+    "G45RY",
+    "GUL82",
+    "GYPW4"
+  ],
+  "devices": [
+    "mustang"
+  ],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Google Tensor G5",
+  "ramGB": [
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.8,
+    "technology": "LTPO OLED",
+    "resolution": "1344x2992",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5079
+    ],
+    "typicalMah": 5200,
+    "wiredChargingW": 45,
+    "wirelessCharging": "25W wireless (magnetic), Qi2"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; eSIM + eSIM (8 or more, max 2 at a time; USA)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "48MP periscope telephoto 5x",
+      "48MP ultrawide"
+    ],
+    "front": "42MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "23",
+  "weightGrams": 232,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_10_pro_xl_5g-13988.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/product/pixel_10_pro_specs"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 10 Pro XL\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about August 2032 and assumes Android major releases continue each June. Tensor G5 SoC codename is \"laguna\"; ro.board.platform not verified on a device, so boardPlatforms is left empty."
+}

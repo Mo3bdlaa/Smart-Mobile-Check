@@ -1,0 +1,87 @@
+{
+  "id": "galaxy-s24-ultra",
+  "name": "Galaxy S24 Ultra",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-01-24",
+  "models": [
+    "SM-S928B",
+    "SM-S928B/DS",
+    "SM-S928U",
+    "SM-S928U1",
+    "SM-S928W",
+    "SM-S928N",
+    "SM-S9280",
+    "SM-S928E",
+    "SM-S928E/DS",
+    "SM-S928Q",
+    "SCG26",
+    "SC-52E"
+  ],
+  "devices": [
+    "e3q"
+  ],
+  "boardPlatforms": [
+    "pineapple"
+  ],
+  "socModels": [
+    "SM8650"
+  ],
+  "chip": "Snapdragon 8 Gen 3 for Galaxy",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.8,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4855
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "10MP telephoto 3x",
+      "50MP periscope telephoto 5x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX",
+    "S Pen (built-in)"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "21",
+  "weightGrams": 232,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s24_ultra-12771.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions."
+}

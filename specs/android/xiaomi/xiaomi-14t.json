@@ -1,0 +1,72 @@
+{
+  "id": "xiaomi-14t",
+  "name": "Xiaomi 14T",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2024-09-26",
+  "models": [
+    "2406APNFAG",
+    "XIG07"
+  ],
+  "devices": [
+    "degas"
+  ],
+  "boardPlatforms": [
+    "mt6897"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 8300-Ultra",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1220x2712",
+    "maxRefreshHz": 144
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 67,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; eSIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP telephoto 2x",
+      "12MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 193,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_14t-13329.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md",
+    "https://www.gizchina.com/2025/05/15/is-your-xiaomi-device-eligible-for-extended-software-support"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 2406APNFAG); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Update policy (4 OS / 5 years) from secondary sources; moderate confidence."
+}

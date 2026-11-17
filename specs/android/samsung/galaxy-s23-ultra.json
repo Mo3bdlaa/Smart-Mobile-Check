@@ -1,0 +1,89 @@
+{
+  "id": "galaxy-s23-ultra",
+  "name": "Galaxy S23 Ultra",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-02-17",
+  "models": [
+    "SM-S918B",
+    "SM-S918B/DS",
+    "SM-S918U",
+    "SM-S918U1",
+    "SM-S918W",
+    "SM-S918N",
+    "SM-S9180",
+    "SM-S918E",
+    "SM-S918E/DS",
+    "SCG20",
+    "SM-S918Q",
+    "SC-52D"
+  ],
+  "devices": [
+    "dm3q"
+  ],
+  "boardPlatforms": [
+    "kalama"
+  ],
+  "socModels": [
+    "SM8550"
+  ],
+  "chip": "Snapdragon 8 Gen 2 for Galaxy",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.8,
+    "technology": "Dynamic AMOLED 2X",
+    "resolution": "1440x3088",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4855
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "10MP telephoto 3x",
+      "10MP periscope telephoto 10x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX",
+    "S Pen (built-in)"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "17",
+  "weightGrams": 234,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s23_ultra-12024.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://news.samsung.com/au/infographic-galaxy-s23-ultra-ultimate-power-epic-camera"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions."
+}

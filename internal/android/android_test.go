@@ -23,7 +23,10 @@ func find(r *android.Result, id string) *inspect.Check {
 func db(t *testing.T) *specs.DB {
 	d := specs.Load(smartcheck.Specs, "")
 	for _, w := range d.Warnings {
-		t.Logf("spec warning: %s", w)
+		t.Errorf("spec warning: %s", w)
+	}
+	if len(d.Android()) < 80 {
+		t.Errorf("expected the Android spec database, got %d models", len(d.Android()))
 	}
 	return d
 }
@@ -109,7 +112,10 @@ func TestCloneAndLocksCaught(t *testing.T) {
 	ids := []string{"consistency", "accounts", "mdm", "knox-guard", "bootloader", "root", "selinux", "knox-warranty", "sensors", "serial", "imei"}
 	if r.Spec != nil {
 		// Spec-based checks need the model in the Android spec database.
-		ids = append(ids, "android-version", "chip", "ram", "storage", "screen")
+		ids = append(ids, "android-version", "chip", "ram", "storage")
+		if c := find(r, "screen"); c == nil || c.Status != inspect.Warn {
+			t.Errorf("screen mismatch should warn: %+v", c)
+		}
 	} else {
 		t.Log("Galaxy S24 Ultra spec not in database yet; spec-based checks not asserted")
 	}

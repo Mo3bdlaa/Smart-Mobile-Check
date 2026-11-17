@@ -1,0 +1,70 @@
+{
+  "id": "galaxy-a06",
+  "name": "Galaxy A06",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-08-22",
+  "models": [
+    "SM-A065F",
+    "SM-A065F/DS",
+    "SM-A065M",
+    "SM-A065M/DS"
+  ],
+  "devices": [
+    "a06"
+  ],
+  "boardPlatforms": [
+    "mt6768"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Helio G85",
+  "ramGB": [
+    4,
+    6
+  ],
+  "storageOptionsGB": [
+    64,
+    128
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "PLS LCD",
+    "resolution": "720x1600",
+    "maxRefreshHz": 60
+  },
+  "battery": {
+    "designCapacityMah": [
+      4855
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "Auxiliary lens"
+    ],
+    "front": "8MP wide"
+  },
+  "features": [
+    "microSD slot",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "2 OS upgrades / 4 years security updates",
+  "maxAndroid": "16",
+  "weightGrams": 189,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a06-13265.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/in/smartphones/galaxy-a/galaxy-a06-gold-128gb-sm-a065fzdgins/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. LTE-only model."
+}

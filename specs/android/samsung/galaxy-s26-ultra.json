@@ -1,0 +1,92 @@
+{
+  "id": "galaxy-s26-ultra",
+  "name": "Galaxy S26 Ultra",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-03-06",
+  "models": [
+    "SM-S948B",
+    "SM-S948B/DS",
+    "SM-S948U",
+    "SM-S948U1",
+    "SM-S948W",
+    "SM-S948N",
+    "SM-S9480",
+    "SM-S948E",
+    "SM-S948E/DS",
+    "SM-S948Q",
+    "SM-S948Z",
+    "SM-S948C",
+    "SCG37",
+    "SC-53G"
+  ],
+  "devices": [
+    "m3q"
+  ],
+  "boardPlatforms": [
+    "canoe"
+  ],
+  "socModels": [
+    "SM8850"
+  ],
+  "chip": "Snapdragon 8 Elite Gen 5 for Galaxy",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.9,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4855
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 60,
+    "wirelessCharging": "25W wireless (Qi2.2); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "10MP telephoto 3x",
+      "50MP periscope telephoto 5x",
+      "50MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX",
+    "S Pen (built-in)"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "23",
+  "weightGrams": 214,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s26_ultra_5g-14320.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ca/business/smartphones/galaxy-s/galaxy-s26-ultra-sm-s948wzvaxac/buy/",
+    "https://www.gsmarena.com/samsung_galaxy_s26_s26_and_s26_ultras_eu_energy_labels_confirm_their_battery_capacities-news-71683.php"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions. boardPlatforms \"canoe\" is the Qualcomm platform name of SM8850 (Snapdragon 8 Elite Gen 5)."
+}

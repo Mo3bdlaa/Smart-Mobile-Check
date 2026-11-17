@@ -1,0 +1,85 @@
+{
+  "id": "galaxy-s26-plus",
+  "name": "Galaxy S26+",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-03-06",
+  "models": [
+    "SM-S947B",
+    "SM-S947B/DS",
+    "SM-S947U",
+    "SM-S947U1",
+    "SM-S947W",
+    "SM-S947N",
+    "SM-S9470",
+    "SM-S947E",
+    "SM-S947E/DS",
+    "SM-S947Q",
+    "SM-S947Z",
+    "SM-S947C",
+    "SCG38",
+    "SC-52G"
+  ],
+  "devices": [
+    "m2s",
+    "m2q"
+  ],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Exynos 2600 / Snapdragon 8 Elite Gen 5 for Galaxy",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4755
+    ],
+    "typicalMah": 4900,
+    "wiredChargingW": 45,
+    "wirelessCharging": "20W wireless (Qi2.2); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "10MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "23",
+  "weightGrams": 190,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s26+_5g-14457.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/sa_en/business/smartphones/galaxy-s/galaxy-s26-plus-sm-s947bzdimea/buy/",
+    "https://www.gsmarena.com/samsung_galaxy_s26_s26_and_s26_ultras_eu_energy_labels_confirm_their_battery_capacities-news-71683.php"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Exynos 2600 (codename m2s) in SM-S947B/N; Snapdragon 8 Elite Gen 5 (m2q) in US, Canada, China and Japan models. boardPlatforms left empty because one chip variant's value is unverified (known: canoe); socModels left empty because the ro.soc.model of the non-Qualcomm variant is unverified (Qualcomm variant: SM8850)."
+}

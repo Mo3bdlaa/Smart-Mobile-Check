@@ -1,0 +1,78 @@
+{
+  "id": "xiaomi-14-ultra",
+  "name": "Xiaomi 14 Ultra",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2024-02-22",
+  "models": [
+    "24031PN0DC",
+    "24030PN60G"
+  ],
+  "devices": [
+    "aurora",
+    "aurorapro"
+  ],
+  "boardPlatforms": [
+    "pineapple"
+  ],
+  "socModels": [
+    "SM8650"
+  ],
+  "chip": "Snapdragon 8 Gen 3",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.73,
+    "technology": "LTPO AMOLED",
+    "resolution": "1440x3200",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000,
+      5300
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 90,
+    "wirelessCharging": "80W wireless, 100% in 46 min; 10W reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP telephoto 3.2x",
+      "50MP periscope telephoto 5x",
+      "50MP ultrawide",
+      "TOF 3D depth"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 219.8,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_14_ultra-12827.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 24030PN60G); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. 5000 mAh global / 5300 mAh China. China models list codenames aurora and aurorapro."
+}

@@ -1,0 +1,82 @@
+{
+  "id": "galaxy-s25-plus",
+  "name": "Galaxy S25+",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-02-03",
+  "models": [
+    "SM-S936B",
+    "SM-S936B/DS",
+    "SM-S936U",
+    "SM-S936U1",
+    "SM-S936W",
+    "SM-S936N",
+    "SM-S9360",
+    "SM-S936E",
+    "SM-S936E/DS"
+  ],
+  "devices": [
+    "pa2q"
+  ],
+  "boardPlatforms": [
+    "sun"
+  ],
+  "socModels": [
+    "SM8750"
+  ],
+  "chip": "Snapdragon 8 Elite for Galaxy",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Dynamic LTPO AMOLED 2X",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4755
+    ],
+    "typicalMah": 4900,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi2 Ready); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time) - INT; Nano-SIM + eSIM + eSIM (max 2 at a time) - USA; Nano-SIM + Nano-SIM - CN"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "10MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 190,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s25+-13609.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ca/business/smartphones/galaxy-s/galaxy-s25-plus-sm-s936wlbexac/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions."
+}

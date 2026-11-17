@@ -1,0 +1,73 @@
+{
+  "id": "pixel-9a",
+  "name": "Pixel 9a",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2025-04-10",
+  "models": [
+    "Pixel 9a",
+    "GXQ96",
+    "GTF7P",
+    "G3Y12"
+  ],
+  "devices": [
+    "tegu"
+  ],
+  "boardPlatforms": [
+    "zumapro"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G4",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "P-OLED",
+    "resolution": "1080x2424",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5100,
+    "wiredChargingW": 23,
+    "wirelessCharging": "7.5W wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "48MP wide",
+      "13MP ultrawide"
+    ],
+    "front": "13MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "22",
+  "weightGrams": 186,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_9a-13478.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/product/pixel_9a_specs"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 9a\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about April 2032 and assumes Android major releases continue each June."
+}

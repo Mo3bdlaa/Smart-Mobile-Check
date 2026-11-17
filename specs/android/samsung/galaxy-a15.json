@@ -1,0 +1,76 @@
+{
+  "id": "galaxy-a15",
+  "name": "Galaxy A15 (4G)",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-12-16",
+  "models": [
+    "SM-A155F",
+    "SM-A155F/DSN",
+    "SM-A155M",
+    "SM-A155M/DS",
+    "SM-A155P",
+    "SM-A155R",
+    "SM-A155N"
+  ],
+  "devices": [
+    "a15"
+  ],
+  "boardPlatforms": [
+    "mt6789"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Helio G99",
+  "ramGB": [
+    4,
+    6,
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.5,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "designCapacityMah": [
+      4900
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "5MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "NFC",
+    "microSD slot",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 200,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a15-12637.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ae/smartphones/galaxy-a/galaxy-a15-blue-black-256gb-sm-a155fzkimea/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. LTE-only model; separate from the Galaxy A15 5G (SM-A156)."
+}

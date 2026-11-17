@@ -1,0 +1,67 @@
+{
+  "id": "oppo-reno12",
+  "name": "OPPO Reno12",
+  "brand": "OPPO",
+  "platform": "android",
+  "releaseDate": "2024-06-25",
+  "models": [
+    "CPH2625"
+  ],
+  "devices": [],
+  "boardPlatforms": [
+    "mt6878"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 7300-Energy",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "AMOLED",
+    "resolution": "1080x2412",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 80,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP65",
+    "NFC",
+    "microSD slot",
+    "IR blaster"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "3 OS upgrades / 4 years security updates (per GSMArena)",
+  "maxAndroid": "17",
+  "weightGrams": 177,
+  "sources": [
+    "https://www.gsmarena.com/oppo_reno12-13133.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/oppo_global_en.md"
+  ],
+  "notes": "ro.product.model is the regional model code (e.g. CPH2625). ro.product.device values were not verified for this brand, so devices is left empty; project codename: omega (variant omega-s3). designCapacityMah holds the manufacturer's published (typical) capacity; a rated/minimum value was not found. Global model only; the China Reno12 (PJV110) uses different hardware and is not listed. Reno12 F is a different phone."
+}

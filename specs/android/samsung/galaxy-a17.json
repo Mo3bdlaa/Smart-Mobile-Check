@@ -1,0 +1,75 @@
+{
+  "id": "galaxy-a17",
+  "name": "Galaxy A17 (4G)",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-09-18",
+  "models": [
+    "SM-A175F",
+    "SM-A175F/DS",
+    "SM-A175M",
+    "SM-A175M/DS",
+    "SM-A175F/DSB",
+    "SM-A175N"
+  ],
+  "devices": [
+    "a17"
+  ],
+  "boardPlatforms": [
+    "mt6789"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Helio G99",
+  "ramGB": [
+    4,
+    6,
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "designCapacityMah": [
+      4860
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "5MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "IP54",
+    "NFC",
+    "microSD slot"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "21",
+  "weightGrams": 190,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a17-14157.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a17-gray-128gb-sm-a175fzanmea/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. LTE-only model; separate from the Galaxy A17 5G (SM-A176)."
+}

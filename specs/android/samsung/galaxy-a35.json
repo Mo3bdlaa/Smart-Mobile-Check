@@ -1,0 +1,81 @@
+{
+  "id": "galaxy-a35",
+  "name": "Galaxy A35 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2024-03-15",
+  "models": [
+    "SM-A356E",
+    "SM-A356E/DS",
+    "SM-A356B",
+    "SM-A356B/DS",
+    "SM-A356U",
+    "SM-A356U1",
+    "SM-S356V",
+    "SM-A356W",
+    "SM-A3560",
+    "SM-A356N"
+  ],
+  "devices": [
+    "a35x"
+  ],
+  "boardPlatforms": [
+    "s5e8835"
+  ],
+  "socModels": [],
+  "chip": "Exynos 1380",
+  "ramGB": [
+    4,
+    6,
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.6,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "5MP macro"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "IP67",
+    "NFC",
+    "eSIM",
+    "microSD slot"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "18",
+  "weightGrams": 209,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a35-12705.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://news.samsung.com/us/samsung-galaxy-a35-5g-now-available-in-the-us-offering-awesome-mobile-experiences-to-everyone/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings."
+}

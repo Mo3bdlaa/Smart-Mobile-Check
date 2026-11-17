@@ -1,0 +1,77 @@
+{
+  "id": "xiaomi-15",
+  "name": "Xiaomi 15",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2024-10-29",
+  "models": [
+    "24129PN74G",
+    "24129PN74I",
+    "24129PN74C"
+  ],
+  "devices": [
+    "dada"
+  ],
+  "boardPlatforms": [
+    "sun"
+  ],
+  "socModels": [
+    "SM8750"
+  ],
+  "chip": "Snapdragon 8 Elite",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 6.36,
+    "technology": "LTPO AMOLED",
+    "resolution": "1200x2670",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5240,
+      5400
+    ],
+    "typicalMah": 5240,
+    "wiredChargingW": 90,
+    "wirelessCharging": "50W wireless; 10W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2), DisplayPort",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM; Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP telephoto 2.6x",
+      "50MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "4 OS upgrades / 6 years security updates",
+  "maxAndroid": "19",
+  "weightGrams": 189,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_15-13472.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 24129PN74G); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. 5240 mAh global / 5400 mAh China."
+}

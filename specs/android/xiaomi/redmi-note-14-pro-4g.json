@@ -1,0 +1,72 @@
+{
+  "id": "redmi-note-14-pro-4g",
+  "name": "Redmi Note 14 Pro 4G",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2025-01-16",
+  "models": [
+    "24116RACCG"
+  ],
+  "devices": [
+    "obsidian"
+  ],
+  "boardPlatforms": [
+    "mt6789"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Helio G100-Ultra",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1080x2400",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5500
+    ],
+    "typicalMah": 5500,
+    "wiredChargingW": 45,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP64",
+    "NFC",
+    "microSD slot",
+    "IR blaster",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "Not clearly published (Xiaomi long-support lists do not give an OS-upgrade count)",
+  "maxAndroid": null,
+  "weightGrams": 180,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_redmi_note_14_pro_4g_(global)-13614.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md",
+    "https://www.mi.com/global/product/redmi-note-14-pro/specs/"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 24116RACCG); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Redmi sub-brand; LTE-only, codename obsidian. Helio G100 is a derivative of Helio G99 (MT6789); boardPlatforms mt6789 assumed from that lineage."
+}

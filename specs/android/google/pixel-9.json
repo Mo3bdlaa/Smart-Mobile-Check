@@ -1,0 +1,75 @@
+{
+  "id": "pixel-9",
+  "name": "Pixel 9",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2024-08-22",
+  "models": [
+    "Pixel 9",
+    "G2YBB",
+    "GUR25",
+    "G1B60"
+  ],
+  "devices": [
+    "tokay"
+  ],
+  "boardPlatforms": [
+    "zumapro"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G4",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "OLED",
+    "resolution": "1080x2424",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4558
+    ],
+    "typicalMah": 4700,
+    "wiredChargingW": 27,
+    "wirelessCharging": "15W wireless (w/ Pixel Stand); 12W wireless (w/ Qi compatible charger); Reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "48MP ultrawide"
+    ],
+    "front": "10.5MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "22",
+  "weightGrams": 198,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_9-13219.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/magazine/compare_pixel"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 9\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about August 2031 and assumes Android major releases continue each June."
+}

@@ -1,0 +1,74 @@
+{
+  "id": "pixel-10a",
+  "name": "Pixel 10a",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2026-03-05",
+  "models": [
+    "Pixel 10a",
+    "GE1GQ",
+    "GV0BP",
+    "G4H7L"
+  ],
+  "devices": [
+    "stallion"
+  ],
+  "boardPlatforms": [
+    "zumapro"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G4",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "P-OLED",
+    "resolution": "1080x2424",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5100,
+    "wiredChargingW": 30,
+    "wirelessCharging": "10W wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "48MP wide",
+      "13MP ultrawide"
+    ],
+    "front": "13MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "23",
+  "weightGrams": 183,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_10a_5g-14474.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/product/pixel_10a_specs"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 10a\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about March 2033 and assumes Android major releases continue each June."
+}

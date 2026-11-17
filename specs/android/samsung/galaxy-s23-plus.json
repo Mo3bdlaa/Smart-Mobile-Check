@@ -1,0 +1,82 @@
+{
+  "id": "galaxy-s23-plus",
+  "name": "Galaxy S23+",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-02-17",
+  "models": [
+    "SM-S916B",
+    "SM-S916B/DS",
+    "SM-S916U",
+    "SM-S916U1",
+    "SM-S916W",
+    "SM-S916N",
+    "SM-S9160",
+    "SM-S916E",
+    "SM-S916E/DS"
+  ],
+  "devices": [
+    "dm2q"
+  ],
+  "boardPlatforms": [
+    "kalama"
+  ],
+  "socModels": [
+    "SM8550"
+  ],
+  "chip": "Snapdragon 8 Gen 2 for Galaxy",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.6,
+    "technology": "Dynamic AMOLED 2X",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4565
+    ],
+    "typicalMah": 4700,
+    "wiredChargingW": 45,
+    "wirelessCharging": "15W wireless (Qi); 4.5W reverse wireless"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "10MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "4 OS upgrades / 5 years security updates",
+  "maxAndroid": "17",
+  "weightGrams": 196,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_s23+-12083.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ae/business/smartphones/galaxy-s/galaxy-s23-lime-128gb-sm-s911blgbmea/buy"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions."
+}

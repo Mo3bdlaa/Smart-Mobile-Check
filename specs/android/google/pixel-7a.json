@@ -1,0 +1,73 @@
+{
+  "id": "pixel-7a",
+  "name": "Pixel 7a",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2023-05-10",
+  "models": [
+    "Pixel 7a",
+    "GWKK3",
+    "GHL1X",
+    "G0DZQ",
+    "G82U8"
+  ],
+  "devices": [
+    "lynx"
+  ],
+  "boardPlatforms": [
+    "gs201"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G2",
+  "ramGB": [
+    8
+  ],
+  "storageOptionsGB": [
+    128
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "OLED",
+    "resolution": "1080x2400",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "designCapacityMah": [
+      4300
+    ],
+    "typicalMah": 4385,
+    "wiredChargingW": 18,
+    "wirelessCharging": "7.5W wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "64MP wide",
+      "13MP ultrawide"
+    ],
+    "front": "13MP ultrawide"
+  },
+  "features": [
+    "IP67",
+    "Wireless charging",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "5 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "18",
+  "weightGrams": 193.5,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_7a-12170.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/ie/product/pixel_7a"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 7a\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about May 2028 and assumes Android major releases continue each June. Launched with 3 OS upgrades / 5 years security; Google later extended the Pixel 7 family to 5 years of OS and security updates."
+}

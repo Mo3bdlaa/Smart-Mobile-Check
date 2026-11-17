@@ -1,0 +1,77 @@
+{
+  "id": "pixel-7-pro",
+  "name": "Pixel 7 Pro",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2022-10-13",
+  "models": [
+    "Pixel 7 Pro",
+    "GP4BC",
+    "GE2AE",
+    "GFE4J"
+  ],
+  "devices": [
+    "cheetah"
+  ],
+  "boardPlatforms": [
+    "gs201"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G2",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "LTPO AMOLED",
+    "resolution": "1440x3120",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4926
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 23,
+    "wirelessCharging": "23W wireless; Reverse wireless"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "48MP periscope telephoto 5x",
+      "12MP ultrawide"
+    ],
+    "front": "10.8MP ultrawide"
+  },
+  "features": [
+    "IP68",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "5 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "18",
+  "weightGrams": 212,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_7_pro-11908.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 7 Pro\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about October 2027 and assumes Android major releases continue each June. Minimum (rated) capacity 4926 mAh is from memory of the Google Store spec page and was not re-verified; typical 5000 mAh."
+}

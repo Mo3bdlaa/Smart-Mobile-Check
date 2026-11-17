@@ -1,0 +1,74 @@
+{
+  "id": "galaxy-a05s",
+  "name": "Galaxy A05s",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2023-10-18",
+  "models": [
+    "SM-A057F",
+    "SM-A057F/DS",
+    "SM-A057M",
+    "SM-A057M/DS",
+    "SM-A057G/DSN",
+    "SM-A057G"
+  ],
+  "devices": [
+    "a05s"
+  ],
+  "boardPlatforms": [],
+  "socModels": [
+    "SM6225"
+  ],
+  "chip": "Snapdragon 680 4G",
+  "ramGB": [
+    4,
+    6
+  ],
+  "storageOptionsGB": [
+    64,
+    128
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "PLS LCD",
+    "resolution": "1080x2400",
+    "maxRefreshHz": 90
+  },
+  "battery": {
+    "designCapacityMah": [
+      4900
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "4G LTE",
+    "sim": "Nano-SIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "2MP macro",
+      "Auxiliary lens"
+    ],
+    "front": "13MP wide"
+  },
+  "features": [
+    "NFC",
+    "microSD slot",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "2 OS upgrades / 4 years security updates",
+  "maxAndroid": "15",
+  "weightGrams": 194,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a05s-12584.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/levant/smartphones/galaxy-a/galaxy-a05s-black-64gb-sm-a057fzkdmea/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. LTE-only model. Snapdragon 680 (SM6225) ro.board.platform not verified (left empty)."
+}

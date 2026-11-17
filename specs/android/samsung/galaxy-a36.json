@@ -1,0 +1,79 @@
+{
+  "id": "galaxy-a36",
+  "name": "Galaxy A36 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-03-10",
+  "models": [
+    "SM-A366E",
+    "SM-A366E/DS",
+    "SM-A366B",
+    "SM-A366B/DS",
+    "SM-A366U",
+    "SM-A366U1",
+    "SM-A366W",
+    "SM-S366V",
+    "SM-A3660",
+    "SM-A366N"
+  ],
+  "devices": [
+    "a36xq"
+  ],
+  "boardPlatforms": [],
+  "socModels": [
+    "SM6475"
+  ],
+  "chip": "Snapdragon 6 Gen 3",
+  "ramGB": [
+    6,
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide",
+      "5MP macro"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP67",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "21",
+  "weightGrams": 195,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a36-13497.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/ae/smartphones/galaxy-a/galaxy-a36-5g-awesome-white-256gb-sm-a366bzavmea/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Snapdragon 6 Gen 3 (SM6475) ro.board.platform not verified (left empty)."
+}

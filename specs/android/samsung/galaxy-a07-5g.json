@@ -1,0 +1,70 @@
+{
+  "id": "galaxy-a07-5g",
+  "name": "Galaxy A07 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-01-13",
+  "models": [
+    "SM-A076B",
+    "SM-A076B/DS",
+    "SM-A076M"
+  ],
+  "devices": [
+    "a07x"
+  ],
+  "boardPlatforms": [
+    "mt6835"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 6300",
+  "ramGB": [
+    4,
+    6
+  ],
+  "storageOptionsGB": [
+    64,
+    128
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "PLS LCD",
+    "resolution": "720x1600",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5830
+    ],
+    "typicalMah": 6000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "Auxiliary lens"
+    ],
+    "front": "8MP wide"
+  },
+  "features": [
+    "IP54",
+    "microSD slot",
+    "3.5mm jack"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 199,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a07_5g-14409.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://news.samsung.com/global/samsung-launches-galaxy-a07-5g-bringing-intelligence-and-reliable-performance-to-more-galaxy-a-series-devices"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Announced January 2026. Dimensity 6300 is an MT6835 derivative (board mt6835)."
+}

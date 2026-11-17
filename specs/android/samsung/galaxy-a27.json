@@ -1,0 +1,81 @@
+{
+  "id": "galaxy-a27",
+  "name": "Galaxy A27 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-07-03",
+  "models": [
+    "SM-A276E",
+    "SM-A276E/DS",
+    "SM-A276E/DSN",
+    "SM-A276B",
+    "SM-A276B/DS",
+    "SM-A276B/DSN",
+    "SM-A276U",
+    "SM-A276U1",
+    "SM-A276W",
+    "SM-S276V",
+    "SM-A2760"
+  ],
+  "devices": [
+    "a27xq"
+  ],
+  "boardPlatforms": [],
+  "socModels": [
+    "SM6475"
+  ],
+  "chip": "Snapdragon 6 Gen 3",
+  "ramGB": [
+    6,
+    8
+  ],
+  "storageOptionsGB": [
+    128,
+    256
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4860
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 25,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "5MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP64",
+    "NFC",
+    "eSIM",
+    "microSD slot"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 200,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a27_5g-14606.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/us/smartphones/galaxy-a27-5g/",
+    "https://news.samsung.com/global/samsung-galaxy-a27-5g-brings-an-immersive-display-and-awesome-intelligence-to-more-users"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Snapdragon 6 Gen 3 (SM6475) ro.board.platform not verified (left empty)."
+}

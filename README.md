@@ -5,8 +5,7 @@ Plug the phone into a PC with a USB cable, and the app reads the hardware identi
 diagnostic logs, flags tampering, and walks you through hands-on tests. It then produces a score, a verdict and a
 printable report.
 
-Both routes are implemented: **iPhone** (over Apple's USB service) and **Android** (over USB debugging / ADB).
-The prebuilt release in `releases/` is still v0.2.0 (iPhone only); the Android route ships in the next release build.
+Both routes work end to end: **iPhone** (over Apple's USB service) and **Android** (over USB debugging / ADB).
 See [docs/ROADMAP.md](docs/ROADMAP.md) for what's next.
 
 **Languages:** Arabic is the default. The interface uses simple Arabic with a right-to-left layout, and the check
@@ -15,7 +14,7 @@ button in the top bar; the choice is remembered.
 
 ## Download & run
 
-1. Download [`releases/SmartMobileCheck-0.2.0-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
+1. Download [`releases/SmartMobileCheck-0.3.0-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
 2. Install Apple's USB driver **once**. Use the **Apple Devices** app from the Microsoft Store (recommended) or **iTunes**.
    The app detects whether it is missing and links to it.
 3. Double-click the `.exe`. Windows SmartScreen may warn because the file is not code-signed: click *More info → Run anyway*.
@@ -53,7 +52,7 @@ dl.google.com) into `%LOCALAPPDATA%\SmartMobileCheck\platform-tools`. All comman
 | **Hardware** | Sensors (accelerometer, gyroscope, compass, proximity, light) · camera count · cellular modem · kernel panics and system crashes · SIM state |
 | **Hands-on tests** | Manufacturer diagnostics (Samsung Members, `*#0*#`, Pixel diagnostics, Xiaomi CIT) · battery screen · display & burn-in · touch · fingerprint/face · cameras · audio · buttons & S Pen · charging · connectivity · sensors · body · accounts removed & FRP after reset · IMEI |
 
-Android specs live in `specs/android/<brand>/*.json` (schema in [`specs/android/SCHEMA.md`](specs/android/SCHEMA.md)).
+The Android spec database has **95 models**: Samsung Galaxy S22–S26, A05s–A57 and Z Fold/Flip 5–8, Google Pixel 7–11, Xiaomi / Redmi / POCO, OnePlus, OPPO, HONOR and realme. Specs live in `specs/android/<brand>/*.json` (schema in [`specs/android/SCHEMA.md`](specs/android/SCHEMA.md)).
 
 ### Buying a brand-new iPhone
 
@@ -108,7 +107,7 @@ Builds cross-compile from any OS. No CGO and no Windows machine are required.
 
 ```bash
 go install github.com/tc-hib/go-winres@latest   # optional: icon + manifest + version info
-./build.sh 0.2.0                                 # -> dist/SmartMobileCheck-0.2.0-windows-x64.exe
+./build.sh 0.3.0                                 # -> dist/SmartMobileCheck-0.3.0-windows-x64.exe
 go test ./...                                    # check-engine and report tests
 go run ./cmd/smartcheck --browser                # run locally (UI in the browser)
 ```

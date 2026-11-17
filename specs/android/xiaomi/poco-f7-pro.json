@@ -1,0 +1,69 @@
+{
+  "id": "poco-f7-pro",
+  "name": "POCO F7 Pro",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2025-03-27",
+  "models": [
+    "24117RK2CG"
+  ],
+  "devices": [
+    "zorn"
+  ],
+  "boardPlatforms": [
+    "pineapple"
+  ],
+  "socModels": [
+    "SM8650"
+  ],
+  "chip": "Snapdragon 8 Gen 3",
+  "ramGB": [
+    12
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1440x3200",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      6000
+    ],
+    "typicalMah": 6000,
+    "wiredChargingW": 90,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Ultrasonic in-display fingerprint, face unlock",
+  "port": "USB-C",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "8MP ultrawide"
+    ],
+    "front": "20MP wide"
+  },
+  "features": [
+    "IP68",
+    "NFC",
+    "IR blaster"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "Security updates until about March 2031; sources disagree on 3 vs 4 OS upgrades",
+  "maxAndroid": null,
+  "weightGrams": 206,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_poco_f7_pro-13724.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md",
+    "https://www.gizchina.com/2025/05/15/is-your-xiaomi-device-eligible-for-extended-software-support"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 24117RK2CG); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. POCO sub-brand. Same hardware as Redmi K80 (China)."
+}

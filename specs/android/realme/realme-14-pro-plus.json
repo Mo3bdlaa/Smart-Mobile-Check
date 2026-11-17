@@ -1,0 +1,70 @@
+{
+  "id": "realme-14-pro-plus",
+  "name": "realme 14 Pro+ 5G",
+  "brand": "realme",
+  "platform": "android",
+  "releaseDate": "2025-01-09",
+  "models": [
+    "RMX5051",
+    "RMX5054"
+  ],
+  "devices": [],
+  "boardPlatforms": [
+    "volcano"
+  ],
+  "socModels": [
+    "SM7635"
+  ],
+  "chip": "Snapdragon 7s Gen 3",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.83,
+    "technology": "OLED",
+    "resolution": "1272x2800",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      6000
+    ],
+    "typicalMah": 6000,
+    "wiredChargingW": 80,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM (max 2 at a time); Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "50MP periscope telephoto 3x",
+      "8MP ultrawide"
+    ],
+    "front": "32MP wide"
+  },
+  "features": [
+    "IP68/IP69",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "15",
+  "updatePolicy": "3 OS upgrades (per GSMArena) / security updates",
+  "maxAndroid": "18",
+  "weightGrams": 194,
+  "sources": [
+    "https://www.gsmarena.com/realme_14_pro+-13585.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/realme_global_en.md"
+  ],
+  "notes": "ro.product.model is the regional model code (e.g. RMX5051). ro.product.device values were not verified for this brand, so devices is left empty; project codename: piaget. designCapacityMah holds the manufacturer's published (typical) capacity; a rated/minimum value was not found."
+}

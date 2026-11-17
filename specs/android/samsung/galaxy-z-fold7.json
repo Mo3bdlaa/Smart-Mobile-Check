@@ -1,0 +1,86 @@
+{
+  "id": "galaxy-z-fold7",
+  "name": "Galaxy Z Fold7",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2025-07-25",
+  "models": [
+    "SM-F966B",
+    "SM-F966B/DS",
+    "SM-F966U",
+    "SM-F966U1",
+    "SM-F966W",
+    "SM-F9660",
+    "SM-F966N",
+    "SM-F966Q",
+    "SM-F966Z",
+    "SCG34",
+    "SC-56F"
+  ],
+  "devices": [
+    "q7q"
+  ],
+  "boardPlatforms": [
+    "sun"
+  ],
+  "socModels": [
+    "SM8750"
+  ],
+  "chip": "Snapdragon 8 Elite for Galaxy",
+  "ramGB": [
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "display": {
+    "sizeInches": 8.0,
+    "technology": "Foldable Dynamic LTPO AMOLED 2X",
+    "resolution": "1968x2184",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4272
+    ],
+    "typicalMah": 4400,
+    "wiredChargingW": 25,
+    "wirelessCharging": "15W wireless; 4.5W reverse wireless"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time); Nano-SIM + Nano-SIM + multiple eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "10MP telephoto 3x",
+      "12MP ultrawide"
+    ],
+    "front": "10MP ultrawide"
+  },
+  "features": [
+    "IP48",
+    "Wireless charging",
+    "Reverse wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Samsung DeX"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "7 OS upgrades / 7 years security updates",
+  "maxAndroid": "23",
+  "weightGrams": 215,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_z_fold7-13826.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/levant/smartphones/galaxy-z-fold7/specs/"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS suffix (e.g. SM-S928B); /DS variants are listed because they appear on the box and in Settings > About phone. Snapdragon in all regions. No S Pen support (dropped from Fold7). Cover-screen camera: 10MP wide. display = main (inner) foldable panel; cover display: Dynamic LTPO AMOLED 2X, 120Hz, Corning Gorilla Glass Ceramic 2, 6.5 inches, 1080 x 2520 pixels, 422 ppi."
+}

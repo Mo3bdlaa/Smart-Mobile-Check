@@ -1,0 +1,73 @@
+{
+  "id": "redmi-note-13-pro-plus-5g",
+  "name": "Redmi Note 13 Pro+ 5G",
+  "brand": "Xiaomi",
+  "platform": "android",
+  "releaseDate": "2023-09-21",
+  "models": [
+    "23090RA98C",
+    "23090RA98G",
+    "23090RA98I",
+    "24040RA98R"
+  ],
+  "devices": [
+    "zircon"
+  ],
+  "boardPlatforms": [
+    "mt6886"
+  ],
+  "socModels": [],
+  "chip": "MediaTek Dimensity 7200-Ultra",
+  "ramGB": [
+    8,
+    12,
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.67,
+    "technology": "AMOLED",
+    "resolution": "1220x2712",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      5000
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 120,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM"
+  },
+  "cameras": {
+    "rear": [
+      "200MP wide",
+      "8MP ultrawide",
+      "2MP macro"
+    ],
+    "front": "16MP wide"
+  },
+  "features": [
+    "IP68",
+    "NFC",
+    "eSIM",
+    "IR blaster"
+  ],
+  "launchAndroid": "13",
+  "updatePolicy": "3 OS upgrades / 4 years security updates",
+  "maxAndroid": "16",
+  "weightGrams": 199,
+  "sources": [
+    "https://www.gsmarena.com/xiaomi_redmi_note_13_pro+-12572.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/xiaomi.md"
+  ],
+  "notes": "ro.product.model is the Xiaomi model code (e.g. 23090RA98G); the marketing name is in ro.product.marketname. ro.product.device is the codename. Last letter of the model code = market: G global, C China, I India, R/XIG/A###XM Japan. designCapacityMah holds Xiaomi's published typical (typ) capacity per market; a rated/minimum value was not found. Redmi sub-brand."
+}

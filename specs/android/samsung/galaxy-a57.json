@@ -1,0 +1,75 @@
+{
+  "id": "galaxy-a57",
+  "name": "Galaxy A57 5G",
+  "brand": "Samsung",
+  "platform": "android",
+  "releaseDate": "2026-04-09",
+  "models": [
+    "SM-A576B",
+    "SM-A576B/DS",
+    "SM-A576Q",
+    "SM-A576U1",
+    "SM-A576W",
+    "SM-A576Z",
+    "SM-A5760"
+  ],
+  "devices": [
+    "a57x"
+  ],
+  "boardPlatforms": [],
+  "socModels": [],
+  "chip": "Exynos 1680",
+  "ramGB": [
+    8,
+    12
+  ],
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super AMOLED+",
+    "resolution": "1080x2340",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4905
+    ],
+    "typicalMah": 5000,
+    "wiredChargingW": 45,
+    "wirelessCharging": "No"
+  },
+  "biometrics": "Optical in-display fingerprint, face unlock",
+  "port": "USB-C (USB 2.0)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM; Nano-SIM + Nano-SIM + eSIM + eSIM (max 2 at a time)"
+  },
+  "cameras": {
+    "rear": [
+      "50MP wide",
+      "12MP ultrawide",
+      "5MP macro"
+    ],
+    "front": "12MP wide"
+  },
+  "features": [
+    "IP68",
+    "NFC",
+    "eSIM"
+  ],
+  "launchAndroid": "16",
+  "updatePolicy": "6 OS upgrades / 6 years security updates",
+  "maxAndroid": "22",
+  "weightGrams": 179,
+  "sources": [
+    "https://www.gsmarena.com/samsung_galaxy_a57_5g-14379.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/samsung_global_en.md",
+    "https://www.samsung.com/uk/business/smartphones/galaxy-a/galaxy-a57-5g-awesome-gray-128gb-sm-a576bzabeeb/",
+    "https://news.samsung.com/global/samsung-unveils-galaxy-a57-5g-and-galaxy-a37-5g-packing-pro-level-features-at-awesome-price"
+  ],
+  "notes": "Samsung ro.product.model normally reports the code without the /DS, /DSN or /DSB suffix; suffixed variants are listed because they appear on the box and in Settings. Exynos 1680 ro.board.platform not verified (left empty)."
+}

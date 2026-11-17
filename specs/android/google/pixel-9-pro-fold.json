@@ -1,0 +1,75 @@
+{
+  "id": "pixel-9-pro-fold",
+  "name": "Pixel 9 Pro Fold",
+  "brand": "Google",
+  "platform": "android",
+  "releaseDate": "2024-09-04",
+  "models": [
+    "Pixel 9 Pro Fold",
+    "GGH2X",
+    "GC15S"
+  ],
+  "devices": [
+    "comet"
+  ],
+  "boardPlatforms": [
+    "zumapro"
+  ],
+  "socModels": [],
+  "chip": "Google Tensor G4",
+  "ramGB": [
+    16
+  ],
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "display": {
+    "sizeInches": 8.0,
+    "technology": "Foldable LTPO OLED",
+    "resolution": "2076x2152",
+    "maxRefreshHz": 120
+  },
+  "battery": {
+    "designCapacityMah": [
+      4560
+    ],
+    "typicalMah": 4650,
+    "wiredChargingW": 21,
+    "wirelessCharging": "7.5W wireless"
+  },
+  "biometrics": "Side-mounted fingerprint (power key), face unlock",
+  "port": "USB-C (USB 3.2)",
+  "cellular": {
+    "generation": "5G",
+    "sim": "Nano-SIM + eSIM"
+  },
+  "cameras": {
+    "rear": [
+      "48MP wide",
+      "10.8MP telephoto 5x",
+      "10.5MP ultrawide"
+    ],
+    "front": "10MP wide"
+  },
+  "features": [
+    "IPX8",
+    "Wireless charging",
+    "NFC",
+    "eSIM",
+    "UWB",
+    "Satellite SOS"
+  ],
+  "launchAndroid": "14",
+  "updatePolicy": "7 years of OS and security updates from US Google Store availability",
+  "maxAndroid": "22",
+  "weightGrams": 257,
+  "sources": [
+    "https://www.gsmarena.com/google_pixel_9_pro_fold-13220.php",
+    "https://github.com/KHwang9883/MobileModels/blob/master/brands/google.md",
+    "https://source.android.com/docs/setup/reference/build-numbers",
+    "https://support.google.com/pixelphone/answer/4457705",
+    "https://store.google.com/us/magazine/compare_pixel"
+  ],
+  "notes": "ro.product.model is the marketing name (\"Pixel 9 Pro Fold\"); the G-prefixed codes are the regulatory/hardware model numbers printed on the box and in Settings > About phone > Regulatory labels. ro.product.device is the codename. maxAndroid is projected: support runs until about September 2031 and assumes Android major releases continue each June. Cover-screen camera: 10MP wide. display = main (inner) foldable panel; cover display: OLED, 120Hz, HDR, Corning Gorilla Glass Victus 2, 6.3 inches, 1080 x 2424 pixels, 20:9 ratio, 422 ppi, 1800 nits (HBM), 2700 nits (peak)."
+}
