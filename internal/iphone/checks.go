@@ -22,12 +22,20 @@ const (
 	CatBattery  = "Battery"
 	CatHardware = "Hardware & diagnostics"
 	CatHands    = "Hands-on tests"
+	CatNew      = "New-device checks"
+)
+
+// Purchase modes.
+const (
+	ModeUsed = "used"
+	ModeNew  = "new"
 )
 
 // Categories lists the categories in display order.
-var Categories = []string{CatIdentity, CatOwner, CatSoftware, CatBattery, CatHardware, CatHands}
+var Categories = []string{CatNew, CatIdentity, CatOwner, CatSoftware, CatBattery, CatHardware, CatHands}
 
 type evaluator struct {
+	mode   string
 	s      *Snapshot
 	spec   *specs.Device
 	db     *specs.DB
@@ -57,9 +65,17 @@ func (e *evaluator) gestalt(key string) string {
 	return str(e.s.Gestalt[key])
 }
 
-// Evaluate runs every check against a snapshot.
+// Evaluate runs every check against a snapshot for a used-phone purchase.
 func Evaluate(s *Snapshot, db *specs.DB, appVersion string) *Result {
-	e := &evaluator{s: s, db: db}
+	return EvaluateMode(s, db, appVersion, ModeUsed)
+}
+
+// EvaluateMode runs every check; mode "new" adds the brand-new-device checks.
+func EvaluateMode(s *Snapshot, db *specs.DB, appVersion, mode string) *Result {
+	if mode != ModeNew {
+		mode = ModeUsed
+	}
+	e := &evaluator{s: s, db: db, mode: mode}
 	if s.Lockdown == nil {
 		s.Lockdown = map[string]any{}
 	}
@@ -71,6 +87,9 @@ func Evaluate(s *Snapshot, db *specs.DB, appVersion string) *Result {
 	e.softwareChecks()
 	batt := e.batteryChecks()
 	e.hardwareChecks()
+	if mode == ModeNew {
+		e.newDeviceChecks(batt)
+	}
 
 	res := &Result{
 		Snapshot:    s,
@@ -79,6 +98,7 @@ func Evaluate(s *Snapshot, db *specs.DB, appVersion string) *Result {
 		GeneratedAt: time.Now(),
 		AppVersion:  appVersion,
 		Storage:     e.storageInfo(),
+		Mode:        mode,
 	}
 	if e.spec != nil {
 		res.Spec = e.spec
@@ -436,6 +456,15 @@ func (e *evaluator) ownershipChecks() {
 	case "Activated", "FactoryActivated":
 		e.add(Check{ID: "activation", Category: CatOwner, Title: "Activation", Status: Pass, Actual: st,
 			Summary: "Device is activated."})
+	case "Unactivated":
+		if e.mode == ModeNew {
+			e.add(Check{ID: "activation", Category: CatOwner, Title: "Activation", Status: Pass, Actual: st,
+				Summary: "Not activated yet — expected for a sealed phone. Activate it in front of the seller."})
+			break
+		}
+		e.add(Check{ID: "activation", Category: CatOwner, Title: "Activation", Status: Warn, Severity: Major, Actual: st,
+			Summary: "Device is not activated.",
+			Advice:  "Activate it in front of you (insert a SIM / connect to Wi-Fi). If it asks for the previous owner's Apple Account, it is Activation Locked — do not buy."})
 	default:
 		e.add(Check{ID: "activation", Category: CatOwner, Title: "Activation", Status: Warn, Severity: Major, Actual: st,
 			Summary: "Device is not activated.",

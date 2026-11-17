@@ -125,7 +125,7 @@ footer{margin-top:32px;color:var(--mute);font-size:12px;text-align:center}
  <circle cx="65" cy="65" r="52" fill="none" stroke="{{.Color}}" stroke-width="12" stroke-linecap="round" stroke-dasharray="{{.Ring}} 400" transform="rotate(-90 65 65)"/>
  <text x="65" y="72" text-anchor="middle" font-size="30" font-weight="700" fill="#0f172a">{{.R.Score}}</text></svg>
  <div><div class="sub">Smart Mobile Check · Inspection report</div><h1>{{.R.ModelName}}</h1>
- <div class="sub">{{.Date}}{{if .R.Snapshot}}{{if .R.Snapshot.Demo}} · DEMO DATA{{end}}{{end}}</div>
+ <div class="sub">{{if eq .R.Mode "new"}}New-iPhone purchase check{{else}}Used-iPhone purchase check{{end}} · {{.Date}}{{if .R.Snapshot}}{{if .R.Snapshot.Demo}} · DEMO DATA{{end}}{{end}}</div>
  <div class="verdict">{{.R.VerdictText}}</div>
  <div class="sub" style="margin-top:8px">{{cnt .R.Counts "pass"}} passed · {{cnt .R.Counts "warn"}} warnings · {{cnt .R.Counts "fail"}} failed{{if not .Hands}} · hands-on tests not recorded{{end}}</div></div>
 </header>

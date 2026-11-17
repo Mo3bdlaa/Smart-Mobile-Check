@@ -9,7 +9,7 @@ The **iPhone route works end to end**. The Android route is on the roadmap (see 
 
 ## Download & run
 
-1. Download [`releases/SmartMobileCheck-0.1.1-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
+1. Download [`releases/SmartMobileCheck-0.1.2-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
 2. Install Apple's USB driver **once**. Use the **Apple Devices** app from the Microsoft Store (recommended) or **iTunes**.
    The app detects whether it is missing and links to it.
 3. Double-click the `.exe`. Windows SmartScreen may warn because the file is not code-signed: click *More info → Run anyway*.
@@ -31,6 +31,33 @@ If WebView2 is missing, the app opens in your default browser instead. Reports a
 | **Battery** | Health % (max capacity) · cycle count vs rated cycles (500, or 1000 for iPhone 15 and later) · **design capacity vs factory battery** (detects replaced or third-party batteries) · cycle counter reset with worn capacity (gauge tampering) · temperature · gauge serial |
 | **Hardware & diagnostics** | Kernel **panic logs** parsed for "Missing sensor(s)", which points to disconnected or non-original parts after a bad repair · cellular modem (baseband) · Wi-Fi/Bluetooth chips · storage controller self-test · SIM state |
 | **Hands-on tests (guided)** | Parts & Service History · Battery Health screen · True Tone (screen originality) · dead pixels / burn-in · touch · Face ID / Touch ID · cameras · speakers & microphones · buttons & haptics · charging · cellular/Wi-Fi/BT/GPS · carrier lock · sensors · body & water exposure · Apple Account signed out |
+
+### Buying a brand-new iPhone
+
+Choose **New / sealed iPhone** on the connect screen, or open **"Buying a brand-new iPhone?"** on the home screen.
+You can start this checklist before the phone is even unboxed.
+
+- **Automatic new-device checks:**
+  - Retail part number (M), with no refurbished, replacement or demo units.
+  - Battery at 0–5 cycles and 100% capacity.
+  - No previous owner's apps or stored data.
+  - Clean crash history.
+  - Activation state.
+- **New-iPhone checklist:**
+  - Factory seal and pull-tabs.
+  - Box label serial and IMEI match the phone.
+  - Part number on the box starts with M.
+  - Apple coverage shows the phone was never activated.
+  - First start shows the "Hello" screen.
+  - No Activation Lock.
+  - Battery Health 100% with 0 cycles.
+  - No Parts & Service History.
+  - eSIM / region suitability.
+  - Local registration or customs.
+  - Pristine body and complete box.
+  - The functional tests.
+
+A used phone that is sold as new is flagged **"Do not buy"**.
 
 Scoring: each failed or warned check deducts points by severity (critical / major / minor). Any **critical** failure,
 such as Activation Lock, MDM, jailbreak or spoofed identity, forces the verdict **"Do not buy"**.
@@ -58,7 +85,7 @@ Builds cross-compile from any OS. No CGO and no Windows machine are required.
 
 ```bash
 go install github.com/tc-hib/go-winres@latest   # optional: icon + manifest + version info
-./build.sh 0.1.1                                 # -> dist/SmartMobileCheck-0.1.1-windows-x64.exe
+./build.sh 0.1.2                                 # -> dist/SmartMobileCheck-0.1.2-windows-x64.exe
 go test ./...                                    # check-engine and report tests
 go run ./cmd/smartcheck --browser                # run locally (UI in the browser)
 ```

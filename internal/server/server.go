@@ -177,6 +177,7 @@ func (s *Server) handleScan(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		UDID string `json:"udid"`
 		Demo string `json:"demo"`
+		Mode string `json:"mode"`
 	}
 	if err := readJSON(r, &req); err != nil {
 		http.Error(w, "bad request", http.StatusBadRequest)
@@ -194,11 +195,11 @@ func (s *Server) handleScan(w http.ResponseWriter, r *http.Request) {
 	s.notes = ""
 	s.mu.Unlock()
 
-	go s.runScan(id, req.UDID, req.Demo)
+	go s.runScan(id, req.UDID, req.Demo, req.Mode)
 	writeJSON(w, map[string]any{"id": id})
 }
 
-func (s *Server) runScan(id int, udid, demo string) {
+func (s *Server) runScan(id int, udid, demo, mode string) {
 	progress := func(step, total int, label string) {
 		s.mu.Lock()
 		if s.scan.ID == id {
@@ -229,7 +230,7 @@ func (s *Server) runScan(id int, udid, demo string) {
 		s.scan.Error = err.Error()
 		return
 	}
-	res := iphone.Evaluate(snap, s.DB, s.Version)
+	res := iphone.EvaluateMode(snap, s.DB, s.Version, mode)
 	s.scan.base = res
 	s.scan.Result = iphone.ApplyManual(res, s.manual)
 	s.scan.Status = "done"

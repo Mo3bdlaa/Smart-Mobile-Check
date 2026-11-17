@@ -137,4 +137,5 @@ type Result struct {
 	Storage     map[string]any `json:"storage"`
 	GeneratedAt time.Time      `json:"generatedAt"`
 	AppVersion  string         `json:"appVersion"`
+	Mode        string         `json:"mode"`
 }

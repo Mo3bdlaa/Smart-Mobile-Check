@@ -11,15 +11,20 @@ var DemoProfiles = []struct {
 	ID    string `json:"id"`
 	Title string `json:"title"`
 	Desc  string `json:"desc"`
+	Mode  string `json:"mode"`
 }{
-	{"healthy", "iPhone 17 Pro Max — clean", "A genuine, healthy phone with a few minor notes."},
-	{"tampered", "iPhone 13 Pro — red flags", "Activation Lock, jailbreak, replaced battery and spoofed readings."},
+	{"healthy", "Used iPhone 17 Pro Max — clean", "A genuine, healthy used phone with a few minor notes.", ModeUsed},
+	{"tampered", "Used iPhone 13 Pro — red flags", "Activation Lock, jailbreak, replaced battery and spoofed readings.", ModeUsed},
+	{"new", "New iPhone 17 Pro Max — sealed", "A brand-new phone checked in new-device mode.", ModeNew},
 }
 
 // DemoSnapshot builds a realistic snapshot for a demo profile.
 func DemoSnapshot(profile string) *Snapshot {
-	if profile == "tampered" {
+	switch profile {
+	case "tampered":
 		return demoTampered()
+	case "new":
+		return demoNew()
 	}
 	return demoHealthy()
 }
@@ -151,4 +156,24 @@ func demoTampered() *Snapshot {
 		AFC2Open:   true,
 		Errors:     map[string]string{},
 	}
+}
+
+func demoNew() *Snapshot {
+	s := demoHealthy()
+	s.Lockdown["DeviceName"] = "iPhone"
+	s.Lockdown["ActivationState"] = "Unactivated"
+	s.Lockdown["PasswordProtected"] = false
+	s.Lockdown["SerialNumber"] = "M2QX7KV9TD"
+	s.Domains["com.apple.disk_usage"] = map[string]any{"TotalDiskCapacity": uint64(256_000_000_000), "TotalDataCapacity": uint64(243_000_000_000), "TotalDataAvailable": uint64(234_100_000_000)}
+	s.Domains["com.apple.mobile.battery"] = map[string]any{"BatteryCurrentCapacity": uint64(81), "ExternalConnected": true}
+	s.Battery = map[string]any{"CycleCount": uint64(1), "DesignCapacity": uint64(5088), "NominalChargeCapacity": uint64(5141),
+		"Temperature": uint64(2710), "Voltage": uint64(4105), "Serial": "F8Y5108K2QW1N3B"}
+	s.Apps = []AppEntry{
+		{BundleID: "com.apple.mobilesafari", Name: "Safari", Type: "System"},
+		{BundleID: "com.apple.camera", Name: "Camera", Type: "System"},
+		{BundleID: "com.apple.Keynote", Name: "Keynote", Type: "User"},
+	}
+	s.CrashReports = []string{"Analytics-2026-11-17-090000.ips.ca.synced"}
+	s.Panics = nil
+	return s
 }

@@ -88,3 +88,33 @@ func TestHelpers(t *testing.T) {
 		t.Error("compareVersions")
 	}
 }
+
+func TestNewDeviceMode(t *testing.T) {
+	db := loadDB(t)
+	r := EvaluateMode(DemoSnapshot("new"), db, "test", ModeNew)
+	for _, id := range []string{"activation", "new-retail", "new-cycles", "new-health", "new-apps", "new-data", "new-panics", "new-activation"} {
+		if c := find(r, id); c == nil || c.Status != Pass {
+			t.Errorf("%s should pass on a sealed phone: %+v", id, c)
+		}
+	}
+	if r.Verdict != "good" {
+		t.Errorf("verdict %s %d", r.Verdict, r.Score)
+	}
+	// A used phone sold as new must be caught.
+	u := EvaluateMode(DemoSnapshot("healthy"), db, "test", ModeNew)
+	if c := find(u, "new-cycles"); c == nil || c.Status != Fail {
+		t.Errorf("212-cycle phone sold as new should fail: %+v", c)
+	}
+	if u.Verdict != "risk" {
+		t.Errorf("used phone sold as new: verdict %s", u.Verdict)
+	}
+	// Used mode never runs new-device checks.
+	if find(Evaluate(DemoSnapshot("new"), db, "test"), "new-cycles") != nil {
+		t.Error("new-device checks leaked into used mode")
+	}
+	// Checklist is filtered by mode.
+	m := ApplyManual(r, map[string]ManualResult{"box-seal": {Status: Pass}, "body": {Status: Fail}})
+	if find(m, "manual-box-seal") == nil || find(m, "manual-body") != nil {
+		t.Error("manual tests not filtered by mode")
+	}
+}

@@ -25,7 +25,7 @@
   const SEV = { critical: 0, major: 1, minor: 2, info: 3 };
   const CAT_ICON = {
     "Identity & authenticity": "🪪", "Ownership & locks": "🔐", "Software integrity": "🛡️",
-    "Battery": "🔋", "Hardware & diagnostics": "🧪", "Hands-on tests": "✋",
+    "Battery": "🔋", "Hardware & diagnostics": "🧪", "Hands-on tests": "✋", "New-device checks": "📦",
   };
   const COLOR = { good: "#22c55e", caution: "#f59e0b", risk: "#ef4444" };
 
@@ -44,10 +44,21 @@
     specFilter: "",
     appFilter: "",
     demoProfiles: [],
+    mode: (() => { try { return localStorage.getItem("smc-mode") || "used"; } catch (e) { return "used"; } })(),
+    manualFor: null,  // "pending" when the checklist was started before scanning
   };
   let timers = [];
   const every = (fn, ms) => { fn(); timers.push(setInterval(fn, ms)); };
   const clearTimers = () => { timers.forEach(clearInterval); timers = []; };
+
+  const setMode = (m) => { state.mode = m; try { localStorage.setItem("smc-mode", m); } catch (e) { /* ignore */ } };
+  const testsFor = (mode) => state.manualTests.filter((t) => (t.modes || ["used", "new"]).includes(mode));
+  const doneCount = (tests) => tests.filter((t) => state.manual[t.id] && state.manual[t.id].status).length;
+  const modeLabel = (m) => (m === "new" ? "New / sealed iPhone" : "Used iPhone");
+  const modeBar = () => `<div class="mode-bar"><span class="muted">I'm buying a</span>
+      <div class="seg mode-seg">${["used", "new"].map((m) => `<button class="${state.mode === m ? "on mode" : ""}" data-mode="${m}">${m === "new" ? "New / sealed iPhone" : "Used iPhone"}</button>`).join("")}</div>
+      <span class="dim" style="font-size:12px">${state.mode === "new" ? "Adds checks that prove the phone was never used, plus the new-iPhone checklist." : "Full inspection for a second-hand phone."}</span></div>`;
+  const bindModeBar = (root, after) => root.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { setMode(b.dataset.mode); after(); }));
 
   const crumbs = (items) => {
     $crumbs.innerHTML = items.map((it, i) => (i ? '<span class="sep">›</span>' : "") + (it.href ? `<a href="${it.href}">${esc(it.label)}</a>` : `<span>${esc(it.label)}</span>`)).join("");
@@ -87,6 +98,7 @@
     "scan": viewScan,
     "result": viewResult,
     "specs": viewSpecs,
+    "checklist": viewChecklist,
     "android": viewAndroid,
   };
   function route() {
@@ -103,7 +115,7 @@
     crumbs([{ label: "Home" }]);
     $app.innerHTML = `
       <section class="hero fade-in">
-        <span class="badge">Used-phone inspection</span>
+        <span class="badge">Used & new phone inspection</span>
         <h1 style="margin-top:14px">Know exactly what you're buying.<br><span class="grad">Before you pay.</span></h1>
         <p>Connect the phone with a USB cable. Smart Mobile Check reads the hardware identity, locks, battery wear and diagnostic logs, flags tampering, then guides you through the hands-on tests.</p>
       </section>
@@ -132,6 +144,11 @@
           <ul><li>FRP / account lock</li><li>Root & bootloader state</li><li>Battery & hardware diagnostics</li></ul>
         </div>
       </section>
+      <a class="new-banner fade-in" href="#/checklist">
+        <span class="nb-icon">📦</span>
+        <span><b>Buying a brand-new iPhone?</b><br><span class="muted">Open the new-iPhone checklist: box seal, serial & IMEI match, warranty status, first start, battery and more.</span></span>
+        <span class="btn small">Open checklist ›</span>
+      </a>
       <div class="status-strip" id="envStrip"><span class="pill"><span class="spinner"></span> Checking Apple device service…</span></div>
       <div class="status-strip" id="demoStrip"></div>`;
     $app.querySelectorAll("[data-go]").forEach((el) => {
@@ -160,7 +177,11 @@
       <span class="pill">v${esc(e.version || "")}</span>`;
   }
   function bindDemo() {
-    $app.querySelectorAll("[data-demo]").forEach((b) => b.addEventListener("click", () => startScan({ demo: b.dataset.demo })));
+    $app.querySelectorAll("[data-demo]").forEach((b) => b.addEventListener("click", () => {
+      const p = state.demoProfiles.find((x) => x.id === b.dataset.demo);
+      if (p && p.mode) setMode(p.mode);
+      startScan({ demo: b.dataset.demo });
+    }));
   }
 
   function viewAndroid() {
@@ -235,7 +256,7 @@
     const pane = document.getElementById("connectPane");
     if (!pane) return;
     if (!state.devices.length) {
-      pane.innerHTML = `<div class="card">
+      pane.innerHTML = `${modeBar()}<div class="card">
           <div class="row" style="justify-content:space-between"><h2 style="font-size:22px">Connect the iPhone</h2><span class="pill"><span class="dot wait"></span>Waiting for device</span></div>
           <ol class="steps">
             <li><div>Plug the iPhone into this computer with a <b>USB cable</b> (use a data cable, not a charge-only one).</div></li>
@@ -245,10 +266,12 @@
           ${others.length ? `<p class="trust-box">${others.map((o) => esc(o.deviceClass)).join(", ")} detected — only iPhones are supported for now.</p>` : ""}
           ${state.devError ? `<p class="dim" style="font-size:12px;margin-top:12px">${esc(state.devError)}</p>` : ""}
         </div>`;
+      bindModeBar(pane, () => renderDevices(others));
       return;
     }
-    pane.innerHTML = `<div class="card"><h2 style="font-size:22px">${state.devices.length > 1 ? "Choose a device" : "iPhone detected"}</h2>
+    pane.innerHTML = `${modeBar()}<div class="card"><h2 style="font-size:22px">${state.devices.length > 1 ? "Choose a device" : "iPhone detected"}</h2>
       ${state.devices.map(deviceCard).join("")}</div>`;
+    bindModeBar(pane, () => renderDevices(others));
     pane.querySelectorAll("[data-pair]").forEach((b) => b.addEventListener("click", () => pairLoop(b.dataset.pair)));
     pane.querySelectorAll("[data-scan]").forEach((b) => b.addEventListener("click", () => startScan({ udid: b.dataset.scan })));
   }
@@ -300,9 +323,10 @@
   // ------------------------------------------------------------ scan
   async function startScan(req) {
     try {
-      await api("/api/ios/scan", req);
-      state.manual = {};
-      state.notes = "";
+      if (!state.manualTests.length) state.manualTests = await api("/api/ios/manual-tests").catch(() => []);
+      await api("/api/ios/scan", Object.assign({ mode: state.mode }, req));
+      if (state.manualFor !== "pending") { state.manual = {}; state.notes = ""; }
+      state.manualFor = req.udid || req.demo;
       state.tab = "summary";
       go("#/scan");
     } catch (e) { toast("Could not start scan: " + e.message); }
@@ -343,6 +367,13 @@
     if (s.status === "done") {
       clearTimers();
       state.result = s.result;
+      if (Object.values(state.manual).some((m) => m.status) || state.notes) {
+        try {
+          const results = Object.entries(state.manual).filter(([, m]) => m.status).map(([id, m]) => ({ id, status: m.status, note: m.note || "" }));
+          const res = await api("/api/ios/manual", { results, notes: state.notes });
+          if (res) state.result = res;
+        } catch (e) { /* keep automatic result */ }
+      }
       setTimeout(() => go("#/result"), 350);
     } else if (s.status === "error") {
       clearTimers();
@@ -376,14 +407,16 @@
     const checks = r.checks || [];
     const autoN = checks.filter((x) => x.category !== "Hands-on tests").length;
     const fails = checks.filter((x) => x.status === "fail").length;
-    const handsDone = Object.values(state.manual).filter((m) => m.status).length;
+    const handTests = testsFor(r.mode || "used");
+    const handsDone = doneCount(handTests);
+    const handsName = r.mode === "new" ? "New-iPhone checklist" : "Hands-on tests";
     const sub = [idv("iOS") && "iOS " + idv("iOS"), idv("Capacity"), idv("Model number"), idv("Part number")].filter(Boolean).join(" · ");
     $app.innerHTML = `
       <section class="card res-head fade-in">
         <div style="position:relative;width:150px;height:150px">${ring(r.score, 150, 13, color)}
           <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><b style="font-size:40px;line-height:1">${r.score}</b><div class="muted" style="font-size:12px">score</div></div></div></div>
         <div>
-          <h1>${esc(r.modelName)}${r.snapshot && r.snapshot.demo ? '<span class="demo-flag">DEMO</span>' : ""}</h1>
+          <h1>${esc(r.modelName)}${r.snapshot && r.snapshot.demo ? '<span class="demo-flag">DEMO</span>' : ""}<span class="mode-flag ${r.mode === "new" ? "new" : ""}">${r.mode === "new" ? "NEW-DEVICE MODE" : "USED-DEVICE MODE"}</span></h1>
           <div class="sub">${esc(sub)}</div>
           <div class="verdict ${esc(r.verdict)}">${r.verdict === "good" ? "✓" : r.verdict === "caution" ? "!" : "✕"} ${esc(r.verdictText)}</div>
           <div class="counts">
@@ -391,7 +424,7 @@
             <span class="count"><i class="st warn" style="width:10px;height:10px"></i><b>${c.warn || 0}</b> warnings</span>
             <span class="count"><i class="st fail" style="width:10px;height:10px"></i><b>${c.fail || 0}</b> failed</span>
             <span class="count"><i class="st info" style="width:10px;height:10px"></i><b>${c.info || 0}</b> info</span>
-            <span class="count">✋ <b>${handsDone}/${state.manualTests.length}</b> hands-on</span>
+            <span class="count">✋ <b>${handsDone}/${handTests.length}</b> ${r.mode === "new" ? "checklist" : "hands-on"}</span>
           </div>
         </div>
         <div class="head-actions">
@@ -401,7 +434,7 @@
         </div>
       </section>
       <nav class="tabs" id="tabs">
-        ${[["summary", "Summary"], ["checks", "All checks", autoN, fails], ["battery", "Battery"], ["hands", "Hands-on tests", `${handsDone}/${state.manualTests.length}`], ["device", "Device & specs"], ["apps", "Apps", (r.snapshot.apps || []).length], ["raw", "Raw data"]]
+        ${[["summary", "Summary"], ["checks", "All checks", autoN, fails], ["battery", "Battery"], ["hands", handsName, `${handsDone}/${handTests.length}`], ["device", "Device & specs"], ["apps", "Apps", (r.snapshot.apps || []).length], ["raw", "Raw data"]]
           .map(([id, label, n, f]) => `<button class="tab ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}${n !== undefined ? `<span class="n ${f ? "f" : ""}">${n}</span>` : ""}</button>`).join("")}
       </nav>
       <section id="tabBody" class="fade-in"></section>`;
@@ -430,6 +463,7 @@
     const fn = { summary: tabSummary, checks: tabChecks, battery: tabBattery, hands: tabHands, device: tabDevice, apps: tabApps, raw: tabRaw }[state.tab] || tabSummary;
     body.innerHTML = fn();
     body.classList.remove("fade-in"); void body.offsetWidth; body.classList.add("fade-in");
+    state.rerender = renderResult;
     if (state.tab === "hands") bindHands();
     if (state.tab === "apps") bindApps();
     if (state.tab === "summary") {
@@ -464,11 +498,12 @@
     const checks = r.checks || [];
     const issues = checks.filter((c) => c.status === "fail" || c.status === "warn")
       .sort((a, b) => ORDER[a.status] - ORDER[b.status] || SEV[a.severity] - SEV[b.severity]);
-    const cats = ["Identity & authenticity", "Ownership & locks", "Software integrity", "Battery", "Hardware & diagnostics", "Hands-on tests"];
+    const cats = (r.mode === "new" ? ["New-device checks"] : []).concat(["Identity & authenticity", "Ownership & locks", "Software integrity", "Battery", "Hardware & diagnostics", "Hands-on tests"]);
     const b = r.battery || {};
     const st = r.storage || {};
     const usedPct = st.totalBytes && st.usedBytes ? Math.round(st.usedBytes / st.totalBytes * 100) : 0;
-    const handsLeft = state.manualTests.length - Object.values(state.manual).filter((m) => m.status).length;
+    const hTests = testsFor(r.mode || "used");
+    const handsLeft = hTests.length - doneCount(hTests);
     return `
       <div class="grid2">
         <div class="card">
@@ -484,7 +519,7 @@
             <div class="stat"><span>Storage</span><b>${esc(st.totalLabel || "—")}</b><small>${st.usedLabel ? esc(st.usedLabel) + " used" : ""}</small>
               <div class="meter"><div style="width:${usedPct}%;background:var(--grad)"></div></div></div>
           </div>
-          ${handsLeft > 0 ? `<div class="card" style="border-color:rgba(129,140,248,.4)"><h3>✋ ${handsLeft} hands-on tests left</h3><p class="muted" style="margin:0 0 12px">Some things (screen, cameras, Face ID, speakers, parts history) can only be verified on the phone itself.</p><button class="btn small primary" onclick="location.hash='#/result';document.querySelector('[data-tab=hands]').click()">Start hands-on tests</button></div>` : ""}
+          ${handsLeft > 0 ? `<div class="card" style="border-color:rgba(129,140,248,.4)"><h3>${r.mode === "new" ? "📦" : "✋"} ${handsLeft} ${r.mode === "new" ? "new-iPhone checklist items" : "hands-on tests"} left</h3><p class="muted" style="margin:0 0 12px">${r.mode === "new" ? "Box seal, box label vs phone, Apple warranty status, first start and more can only be verified by you." : "Some things (screen, cameras, Face ID, speakers, parts history) can only be verified on the phone itself."}</p><button class="btn small primary" onclick="document.querySelector('[data-tab=hands]').click()">${r.mode === "new" ? "Open checklist" : "Start hands-on tests"}</button></div>` : ""}
           <div class="card"><h3>Before you pay</h3><ul class="muted" style="margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13px">
             <li>Check the serial number's warranty/coverage status with Apple.</li>
             <li>Check the IMEI is not blacklisted (lost/stolen) with your carrier.</li>
@@ -496,9 +531,10 @@
       <div class="grid3">${cats.map((cat) => {
         const list = checks.filter((c) => c.category === cat);
         const worst = list.reduce((w, c) => (ORDER[c.status] < ORDER[w] ? c.status : w), "pass");
+        const label = cat === "Hands-on tests" && r.mode === "new" ? "New-iPhone checklist" : cat;
         const sub = cat === "Hands-on tests" && !list.length ? "Not started" : `${list.filter((c) => c.status === "pass").length}/${list.length} passed`;
         return `<div class="card cat-card" data-cat="${esc(cat)}"><div class="cat-icon">${CAT_ICON[cat] || "•"}</div>
-          <div style="flex:1;min-width:0"><div class="row" style="justify-content:space-between"><b>${esc(cat)}</b>${list.length ? `<span class="st ${worst}" style="width:20px;height:20px;font-size:10px">${ICON[worst]}</span>` : ""}</div>
+          <div style="flex:1;min-width:0"><div class="row" style="justify-content:space-between"><b>${esc(label)}</b>${list.length ? `<span class="st ${worst}" style="width:20px;height:20px;font-size:10px">${ICON[worst]}</span>` : ""}</div>
           <div class="muted" style="font-size:12.5px">${sub}</div><div class="bar">${list.map((c) => `<i class="${c.status}"></i>`).join("")}</div></div></div>`;
       }).join("")}</div>`;
   }
@@ -508,7 +544,8 @@
     const cats = [...new Set(checks.map((c) => c.category))];
     return cats.map((cat) => {
       const list = checks.filter((c) => c.category === cat).sort((a, b) => ORDER[a.status] - ORDER[b.status]);
-      return `<div class="cat-heading" id="cat-${slug(cat)}">${CAT_ICON[cat] || ""} ${esc(cat)}</div><div class="check-list">${list.map((c) => checkRow(c, c.status === "fail")).join("")}</div>`;
+      const label = cat === "Hands-on tests" && state.result.mode === "new" ? "New-iPhone checklist" : cat;
+      return `<div class="cat-heading" id="cat-${slug(cat)}">${CAT_ICON[cat] || ""} ${esc(label)}</div><div class="check-list">${list.map((c) => checkRow(c, c.status === "fail")).join("")}</div>`;
     }).join("") + (Object.keys(state.result.snapshot.errors || {}).length ? `<div class="cat-heading">Could not be read</div><div class="card dim mono">${Object.entries(state.result.snapshot.errors).map(([k, v]) => `<div>${esc(k)}: ${esc(v)}</div>`).join("")}</div>` : "");
   }
 
@@ -536,22 +573,32 @@
   }
 
   // hands-on
-  function tabHands() {
-    const done = Object.values(state.manual).filter((m) => m.status).length;
+  function checklistHTML(tests, opts) {
+    const done = doneCount(tests);
     let lastGroup = "";
-    return `<div class="card" style="margin-bottom:16px"><div class="row" style="justify-content:space-between"><div><h3>Guided hands-on tests</h3><p class="muted" style="margin:0">Do each test on the phone and mark the result. Results are added to the score and the report.</p></div><b>${done}/${state.manualTests.length}</b></div>
-      <div class="progress-line" style="margin-top:12px"><div style="width:${done / Math.max(1, state.manualTests.length) * 100}%"></div></div></div>
-      <div class="check-list">${state.manualTests.map((t) => {
+    return `<div class="card" style="margin-bottom:16px"><div class="row" style="justify-content:space-between"><div><h3>${esc(opts.title)}</h3><p class="muted" style="margin:0">${esc(opts.intro)}</p></div>
+        <div class="row"><b style="font-size:18px">${done}/${tests.length}</b><button class="btn small" id="resetChecklist">Reset</button></div></div>
+      <div class="progress-line" style="margin-top:12px"><div style="width:${done / Math.max(1, tests.length) * 100}%"></div></div></div>
+      <div class="check-list">${tests.map((t) => {
         const m = state.manual[t.id] || {};
         const g = t.group !== lastGroup ? `<div class="group-label" style="margin-top:${lastGroup ? 14 : 0}px">${esc(t.group)}</div>` : "";
         lastGroup = t.group;
-        return `${g}<div class="card mt" data-mt="${esc(t.id)}"><div><b>${esc(t.title)}</b> <span class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-left:6px">${esc(t.severity)}</span>
-          <ol>${t.steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+        return `${g}<div class="card mt ${m.status ? "marked-" + m.status : ""}" data-mt="${esc(t.id)}"><div><b>${esc(t.title)}</b> <span class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-left:6px">${esc(t.severity)}</span>
+          <ol>${t.steps.map((st) => `<li>${esc(st)}</li>`).join("")}</ol>
+          ${t.link ? `<button class="btn small" data-open="${esc(t.link)}" style="margin-top:8px">Open Apple coverage check ↗</button>` : ""}
           <input type="text" placeholder="Note (optional)" value="${esc(m.note || "")}" data-note="${esc(t.id)}"></div>
-          <div class="seg">${["pass", "fail", "skip"].map((s) => `<button class="${s} ${m.status === s ? "on" : ""}" data-set="${s}">${s === "pass" ? "✓ Pass" : s === "fail" ? "✕ Fail" : "Skip"}</button>`).join("")}</div></div>`;
+          <div class="seg">${["pass", "fail", "skip"].map((st) => `<button class="${st} ${m.status === st ? "on" : ""}" data-set="${st}">${st === "pass" ? "✓ Pass" : st === "fail" ? "✕ Fail" : "Skip"}</button>`).join("")}</div></div>`;
       }).join("")}</div>
       <div class="section-title">Your notes for the report</div>
       <textarea id="notes" placeholder="e.g. small scratch on the back glass, original box included, agreed price…">${esc(state.notes)}</textarea>`;
+  }
+
+  function tabHands() {
+    const r = state.result;
+    const isNew = r.mode === "new";
+    return checklistHTML(testsFor(r.mode || "used"), isNew
+      ? { title: "New-iPhone checklist", intro: "Everything to confirm before paying for a phone sold as brand new. Results are added to the score and the report." }
+      : { title: "Guided hands-on tests", intro: "Do each test on the phone and mark the result. Results are added to the score and the report." });
   }
 
   let manualTimer;
@@ -560,9 +607,9 @@
     manualTimer = setTimeout(async () => {
       try {
         const results = Object.entries(state.manual).filter(([, m]) => m.status).map(([id, m]) => ({ id, status: m.status, note: m.note || "" }));
-        const res = await api("/api/ios/manual", { results, notes: state.notes });
+        const res = state.result ? await api("/api/ios/manual", { results, notes: state.notes }) : null;
         if (res) state.result = res;
-        if (rerender) renderResult();
+        if (rerender) (state.rerender || renderResult)();
       } catch (e) { toast("Could not save test result: " + e.message); }
     }, rerender ? 0 : 400);
   }
@@ -585,6 +632,9 @@
     }));
     const n = document.getElementById("notes");
     if (n) n.addEventListener("input", () => { state.notes = n.value; pushManual(false); });
+    const rs = document.getElementById("resetChecklist");
+    if (rs) rs.addEventListener("click", () => { if (confirm("Clear all checklist results?")) { state.manual = {}; state.notes = ""; pushManual(true); } });
+    bindOpen(document.getElementById("app"));
   }
 
   // device & specs
@@ -646,6 +696,27 @@
   function tabRaw() {
     return `<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:10px"><h3>Raw data read from the device</h3><button class="btn small" data-copy="${esc(JSON.stringify(state.result.snapshot, null, 2))}">Copy JSON</button></div>
       <pre class="raw">${esc(JSON.stringify(state.result.snapshot, null, 2))}</pre></div>`;
+  }
+
+  // ------------------------------------------------------------ new-iPhone checklist (no scan needed)
+  async function viewChecklist() {
+    crumbs([{ label: "Home", href: "#/" }, { label: "New iPhone checklist" }]);
+    if (!state.manualTests.length) state.manualTests = await api("/api/ios/manual-tests").catch(() => []);
+    if (state.result && state.result.mode !== "new") { state.result = null; state.manual = {}; state.notes = ""; }
+    if (!state.result) state.manualFor = "pending";
+    const draw = () => {
+      const tests = testsFor("new");
+      $app.innerHTML = `<div class="fade-in">
+        <div class="card new-hero"><div><span class="badge live">📦 New-device mode</span>
+          <h2 style="font-size:26px;margin-top:10px">Buying a brand-new iPhone</h2>
+          <p class="muted" style="margin:6px 0 0;max-width:720px">Go through this list at the shop or with the seller. Start with the box before it is opened. Then connect the phone with a USB cable: the app adds automatic checks that prove it was never used (battery cycles, retail part number, no previous apps or data, clean crash history), and everything you tick here goes into the same report.</p></div>
+          <button class="btn primary big" id="goScan">Connect iPhone & run automatic checks ›</button></div>
+        <div style="margin-top:18px">${checklistHTML(tests, { title: "New-iPhone checklist", intro: "Mark each item Pass or Fail as you check it." })}</div></div>`;
+      document.getElementById("goScan").onclick = () => { setMode("new"); state.manualFor = state.result ? state.manualFor : "pending"; go("#/iphone"); };
+      bindHands();
+    };
+    state.rerender = draw;
+    draw();
   }
 
   // ------------------------------------------------------------ specs browser
