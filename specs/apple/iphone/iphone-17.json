@@ -1,0 +1,111 @@
+{
+  "id": "iphone-17",
+  "name": "iPhone 17",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "17",
+  "tier": "standard",
+  "releaseDate": "2025-09-19",
+  "productTypes": [
+    "iPhone18,3"
+  ],
+  "hardwareModels": [
+    "V57AP"
+  ],
+  "regulatoryModels": [
+    "A3258",
+    "A3519",
+    "A3520",
+    "A3521"
+  ],
+  "chip": "A19",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Mist Blue",
+    "Sage",
+    "Lavender"
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2622x1206",
+    "ppi": 460,
+    "maxRefreshHz": 120,
+    "alwaysOn": true,
+    "peakBrightnessNits": 3000
+  },
+  "battery": {
+    "designCapacityMah": [
+      3692
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 40,
+    "wirelessCharging": "MagSafe up to 25W, Qi2 up to 25W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "eSIM only (dual eSIM) in eSIM-only regions (A3258, A3519); nano-SIM + eSIM elsewhere",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico",
+      "Bahrain",
+      "Canada",
+      "Guam",
+      "Japan",
+      "Kuwait",
+      "Mexico",
+      "Oman",
+      "Qatar",
+      "Saudi Arabia",
+      "United Arab Emirates",
+      "U.S. Virgin Islands"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion Main",
+      "48MP Fusion Ultra Wide"
+    ],
+    "front": "18MP Center Stage",
+    "lidar": false
+  },
+  "features": [
+    "Dynamic Island",
+    "Always-On display",
+    "ProMotion 120Hz",
+    "Action button",
+    "Camera Control",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Ultra Wideband (2nd gen)",
+    "Apple N1 wireless chip",
+    "Apple Intelligence",
+    "Thread"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 177,
+  "launchIOS": "26.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/125089",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://www.macrumors.com/2025/09/09/iphone-17-and-17-pro-battery-capacities/",
+    "https://www.macworld.com/article/2901629/entire-iphone-17-ranges-battery-specs-revealed-in-massive-leak.html"
+  ],
+  "notes": "Only one battery capacity (3692 mAh) has been reported; a separate nano-SIM variant capacity is not confirmed."
+}

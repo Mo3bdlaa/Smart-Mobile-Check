@@ -1,0 +1,77 @@
+{
+  "id": "iphone-6-plus",
+  "name": "iPhone 6 Plus",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "6",
+  "tier": "plus",
+  "releaseDate": "2014-09-19",
+  "productTypes": [
+    "iPhone7,1"
+  ],
+  "hardwareModels": [
+    "N56AP"
+  ],
+  "regulatoryModels": [
+    "A1522",
+    "A1524",
+    "A1593"
+  ],
+  "chip": "A8",
+  "cpuArchitecture": "arm64",
+  "ramGB": 1,
+  "storageOptionsGB": [
+    16,
+    64,
+    128
+  ],
+  "colors": [
+    "Space Gray",
+    "Silver",
+    "Gold"
+  ],
+  "display": {
+    "sizeInches": 5.5,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1920x1080",
+    "ppi": 401,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 500
+  },
+  "battery": {
+    "designCapacityMah": [
+      2915
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "8MP iSight"
+    ],
+    "front": "1.2MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3.5 mm headphone jack"
+  ],
+  "weightGrams": 172,
+  "launchIOS": "8.0",
+  "maxIOS": "12",
+  "sources": [
+    "https://support.apple.com/en-us/111940",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "No IP rating. Last supported major version iOS 12."
+}

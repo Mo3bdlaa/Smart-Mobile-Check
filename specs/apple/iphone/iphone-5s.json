@@ -1,0 +1,82 @@
+{
+  "id": "iphone-5s",
+  "name": "iPhone 5s",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "5s",
+  "tier": "standard",
+  "releaseDate": "2013-09-20",
+  "productTypes": [
+    "iPhone6,1",
+    "iPhone6,2"
+  ],
+  "hardwareModels": [
+    "N51AP",
+    "N53AP"
+  ],
+  "regulatoryModels": [
+    "A1453",
+    "A1457",
+    "A1518",
+    "A1528",
+    "A1530",
+    "A1533"
+  ],
+  "chip": "A7",
+  "cpuArchitecture": "arm64",
+  "ramGB": 1,
+  "storageOptionsGB": [
+    16,
+    32,
+    64
+  ],
+  "colors": [
+    "Space Gray",
+    "Silver",
+    "Gold"
+  ],
+  "display": {
+    "sizeInches": 4.0,
+    "technology": "Retina LCD (IPS)",
+    "resolution": "1136x640",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 500
+  },
+  "battery": {
+    "designCapacityMah": [
+      1560
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "8MP iSight"
+    ],
+    "front": "1.2MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3.5 mm headphone jack"
+  ],
+  "weightGrams": 112,
+  "launchIOS": "7.0",
+  "maxIOS": "12",
+  "sources": [
+    "https://support.apple.com/en-us/111973",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "iPhone6,1 (N51AP) = A1453/A1533 (GSM/CDMA, Americas); iPhone6,2 (N53AP) = A1457/A1518/A1528/A1530 (global). No IP rating. Last supported major version iOS 12."
+}

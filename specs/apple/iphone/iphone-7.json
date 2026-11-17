@@ -1,0 +1,84 @@
+{
+  "id": "iphone-7",
+  "name": "iPhone 7",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "7",
+  "tier": "standard",
+  "releaseDate": "2016-09-16",
+  "productTypes": [
+    "iPhone9,1",
+    "iPhone9,3"
+  ],
+  "hardwareModels": [
+    "D10AP",
+    "D101AP"
+  ],
+  "regulatoryModels": [
+    "A1660",
+    "A1778",
+    "A1779",
+    "A1780"
+  ],
+  "chip": "A10 Fusion",
+  "cpuArchitecture": "arm64",
+  "ramGB": 2,
+  "storageOptionsGB": [
+    32,
+    128,
+    256
+  ],
+  "colors": [
+    "Black",
+    "Jet Black",
+    "Gold",
+    "Rose Gold",
+    "Silver",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 4.7,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1334x750",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      1960
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide"
+    ],
+    "front": "7MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch"
+  ],
+  "ipRating": "IP67 (1 m, 30 min)",
+  "weightGrams": 138,
+  "launchIOS": "10.0",
+  "maxIOS": "15",
+  "sources": [
+    "https://support.apple.com/en-us/111943",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "iPhone9,1 (D10AP) = A1660/A1779/A1780 (Qualcomm modem); iPhone9,3 (D101AP) = A1778 (Intel modem)."
+}

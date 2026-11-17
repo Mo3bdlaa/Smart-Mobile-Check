@@ -1,0 +1,92 @@
+{
+  "id": "iphone-14-plus",
+  "name": "iPhone 14 Plus",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "14",
+  "tier": "plus",
+  "releaseDate": "2022-10-07",
+  "productTypes": [
+    "iPhone14,8"
+  ],
+  "hardwareModels": [
+    "D28AP"
+  ],
+  "regulatoryModels": [
+    "A2632",
+    "A2885",
+    "A2886",
+    "A2887",
+    "A2888"
+  ],
+  "chip": "A15 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 6,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Midnight",
+    "Starlight",
+    "(PRODUCT)RED",
+    "Blue",
+    "Purple",
+    "Yellow"
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2778x1284",
+    "ppi": 458,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      4325
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 15W, Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM; eSIM only on US models; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "12MP Main",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Ultra Wideband"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 203,
+  "launchIOS": "16.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111854",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

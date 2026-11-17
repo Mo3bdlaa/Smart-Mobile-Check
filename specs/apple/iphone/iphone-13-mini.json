@@ -1,0 +1,87 @@
+{
+  "id": "iphone-13-mini",
+  "name": "iPhone 13 mini",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "13",
+  "tier": "mini",
+  "releaseDate": "2021-09-24",
+  "productTypes": [
+    "iPhone14,4"
+  ],
+  "hardwareModels": [
+    "D16AP"
+  ],
+  "regulatoryModels": [
+    "A2481",
+    "A2626",
+    "A2628",
+    "A2629",
+    "A2630"
+  ],
+  "chip": "A15 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 4,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Starlight",
+    "Midnight",
+    "Blue",
+    "Pink",
+    "Green",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 5.4,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2340x1080",
+    "ppi": 476,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      2406
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 12W, Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM (dual eSIM supported)",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "MagSafe",
+    "Ultra Wideband"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 141,
+  "launchIOS": "15.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111873",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

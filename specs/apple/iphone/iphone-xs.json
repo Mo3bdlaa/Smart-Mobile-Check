@@ -1,0 +1,83 @@
+{
+  "id": "iphone-xs",
+  "name": "iPhone XS",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "XS",
+  "tier": "standard",
+  "releaseDate": "2018-09-21",
+  "productTypes": [
+    "iPhone11,2"
+  ],
+  "hardwareModels": [
+    "D321AP"
+  ],
+  "regulatoryModels": [
+    "A1920",
+    "A2097",
+    "A2098",
+    "A2099",
+    "A2100"
+  ],
+  "chip": "A12 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 4,
+  "storageOptionsGB": [
+    64,
+    256,
+    512
+  ],
+  "colors": [
+    "Gold",
+    "Silver",
+    "Space Gray"
+  ],
+  "display": {
+    "sizeInches": 5.8,
+    "technology": "Super Retina HD OLED",
+    "resolution": "2436x1125",
+    "ppi": 458,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      2658
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 18,
+    "wirelessCharging": "Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM + eSIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Telephoto 2x"
+    ],
+    "front": "7MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch"
+  ],
+  "ipRating": "IP68 (2 m, 30 min)",
+  "weightGrams": 177,
+  "launchIOS": "12.0",
+  "maxIOS": "18",
+  "sources": [
+    "https://support.apple.com/en-us/111881",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "Battery label 2658 mAh (Wikipedia lists 2659 mAh). Not supported by iOS 26; last major version iOS 18."
+}

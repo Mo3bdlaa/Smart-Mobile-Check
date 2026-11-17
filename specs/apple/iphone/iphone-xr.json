@@ -1,0 +1,83 @@
+{
+  "id": "iphone-xr",
+  "name": "iPhone XR",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "XR",
+  "tier": "standard",
+  "releaseDate": "2018-10-26",
+  "productTypes": [
+    "iPhone11,8"
+  ],
+  "hardwareModels": [
+    "N841AP"
+  ],
+  "regulatoryModels": [
+    "A1984",
+    "A2105",
+    "A2106",
+    "A2107",
+    "A2108"
+  ],
+  "chip": "A12 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 3,
+  "storageOptionsGB": [
+    64,
+    128,
+    256
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Blue",
+    "Yellow",
+    "Coral",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Liquid Retina HD LCD (IPS)",
+    "resolution": "1792x828",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      2942
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 18,
+    "wirelessCharging": "Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM + eSIM; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide"
+    ],
+    "front": "7MP TrueDepth",
+    "lidar": false
+  },
+  "features": [],
+  "ipRating": "IP67 (1 m, 30 min)",
+  "weightGrams": 194,
+  "launchIOS": "12.0",
+  "maxIOS": "18",
+  "sources": [
+    "https://support.apple.com/en-us/111868",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "Not supported by iOS 26; last major version iOS 18."
+}

@@ -1,0 +1,86 @@
+{
+  "id": "iphone-12-mini",
+  "name": "iPhone 12 mini",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "12",
+  "tier": "mini",
+  "releaseDate": "2020-11-13",
+  "productTypes": [
+    "iPhone13,1"
+  ],
+  "hardwareModels": [
+    "D52gAP"
+  ],
+  "regulatoryModels": [
+    "A2176",
+    "A2398",
+    "A2399",
+    "A2400"
+  ],
+  "chip": "A14 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 4,
+  "storageOptionsGB": [
+    64,
+    128,
+    256
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "(PRODUCT)RED",
+    "Green",
+    "Blue",
+    "Purple"
+  ],
+  "display": {
+    "sizeInches": 5.4,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2340x1080",
+    "ppi": 476,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      2227
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 12W, Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "MagSafe",
+    "Ultra Wideband"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 135,
+  "launchIOS": "14.2",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111877",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "iphone-16e",
+  "name": "iPhone 16e",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "16",
+  "tier": "e",
+  "releaseDate": "2025-02-28",
+  "productTypes": [
+    "iPhone17,5"
+  ],
+  "hardwareModels": [
+    "V59AP"
+  ],
+  "regulatoryModels": [
+    "A3212",
+    "A3408",
+    "A3409",
+    "A3410"
+  ],
+  "chip": "A18",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Black",
+    "White"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2532x1170",
+    "ppi": 460,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      4005
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "Qi up to 7.5W (no MagSafe)"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": false,
+    "sim": "Nano-SIM + eSIM; eSIM only on US/Puerto Rico model (A3212)",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion Main"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "Action button",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Apple C1 modem",
+    "Apple Intelligence"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 167,
+  "launchIOS": "18.3",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/122208",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

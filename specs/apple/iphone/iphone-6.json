@@ -1,0 +1,78 @@
+{
+  "id": "iphone-6",
+  "name": "iPhone 6",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "6",
+  "tier": "standard",
+  "releaseDate": "2014-09-19",
+  "productTypes": [
+    "iPhone7,2"
+  ],
+  "hardwareModels": [
+    "N61AP"
+  ],
+  "regulatoryModels": [
+    "A1549",
+    "A1586",
+    "A1589"
+  ],
+  "chip": "A8",
+  "cpuArchitecture": "arm64",
+  "ramGB": 1,
+  "storageOptionsGB": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "colors": [
+    "Space Gray",
+    "Silver",
+    "Gold"
+  ],
+  "display": {
+    "sizeInches": 4.7,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1334x750",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 500
+  },
+  "battery": {
+    "designCapacityMah": [
+      1810
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "8MP iSight"
+    ],
+    "front": "1.2MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3.5 mm headphone jack"
+  ],
+  "weightGrams": 129,
+  "launchIOS": "8.0",
+  "maxIOS": "12",
+  "sources": [
+    "https://support.apple.com/en-us/111954",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "32 GB model added in 2017 (shipped with a later iOS). No IP rating. Last supported major version iOS 12."
+}

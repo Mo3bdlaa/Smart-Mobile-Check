@@ -1,0 +1,95 @@
+{
+  "id": "iphone-16",
+  "name": "iPhone 16",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "16",
+  "tier": "standard",
+  "releaseDate": "2024-09-20",
+  "productTypes": [
+    "iPhone17,3"
+  ],
+  "hardwareModels": [
+    "D47AP"
+  ],
+  "regulatoryModels": [
+    "A3081",
+    "A3286",
+    "A3287",
+    "A3288"
+  ],
+  "chip": "A18",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Pink",
+    "Teal",
+    "Ultramarine"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2556x1179",
+    "ppi": 460,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 2000
+  },
+  "battery": {
+    "designCapacityMah": [
+      3561
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 25W (30W adapter), Qi2"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM; eSIM only on US/Puerto Rico models; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "Dynamic Island",
+    "Action button",
+    "Camera Control",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Ultra Wideband (2nd gen)",
+    "Apple Intelligence",
+    "Thread"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 170,
+  "launchIOS": "18.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/121029",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

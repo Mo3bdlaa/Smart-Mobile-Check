@@ -1,0 +1,114 @@
+{
+  "id": "iphone-17-pro",
+  "name": "iPhone 17 Pro",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "17",
+  "tier": "pro",
+  "releaseDate": "2025-09-19",
+  "productTypes": [
+    "iPhone18,1"
+  ],
+  "hardwareModels": [
+    "V53AP"
+  ],
+  "regulatoryModels": [
+    "A3256",
+    "A3522",
+    "A3523",
+    "A3524"
+  ],
+  "chip": "A19 Pro",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 12,
+  "storageOptionsGB": [
+    256,
+    512,
+    1024
+  ],
+  "colors": [
+    "Silver",
+    "Cosmic Orange",
+    "Deep Blue"
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2622x1206",
+    "ppi": 460,
+    "maxRefreshHz": 120,
+    "alwaysOn": true,
+    "peakBrightnessNits": 3000
+  },
+  "battery": {
+    "designCapacityMah": [
+      4252,
+      3988
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 40,
+    "wirelessCharging": "MagSafe up to 25W, Qi2 up to 25W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 3 (10 Gb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "eSIM only (dual eSIM) in eSIM-only regions (A3256, A3522); nano-SIM + eSIM elsewhere (A3523, A3524)",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico",
+      "Bahrain",
+      "Canada",
+      "Guam",
+      "Japan",
+      "Kuwait",
+      "Mexico",
+      "Oman",
+      "Qatar",
+      "Saudi Arabia",
+      "United Arab Emirates",
+      "U.S. Virgin Islands"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion Main",
+      "48MP Fusion Ultra Wide",
+      "48MP Fusion Telephoto 4x (100 mm)"
+    ],
+    "front": "18MP Center Stage",
+    "lidar": true
+  },
+  "features": [
+    "Dynamic Island",
+    "Always-On display",
+    "ProMotion 120Hz",
+    "Action button",
+    "Camera Control",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "LiDAR Scanner",
+    "Ultra Wideband (2nd gen)",
+    "Apple N1 wireless chip",
+    "Vapor chamber cooling",
+    "Apple Intelligence",
+    "Thread"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 206,
+  "launchIOS": "26.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/125090",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://www.macrumors.com/2025/09/09/iphone-17-and-17-pro-battery-capacities/",
+    "https://www.macworld.com/article/2901629/entire-iphone-17-ranges-battery-specs-revealed-in-massive-leak.html"
+  ],
+  "notes": "Battery 4252 mAh on eSIM-only models, 3988 mAh on models with a nano-SIM tray."
+}

@@ -1,0 +1,81 @@
+{
+  "id": "iphone-x",
+  "name": "iPhone X",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "X",
+  "tier": "standard",
+  "releaseDate": "2017-11-03",
+  "productTypes": [
+    "iPhone10,3",
+    "iPhone10,6"
+  ],
+  "hardwareModels": [
+    "D22AP",
+    "D221AP"
+  ],
+  "regulatoryModels": [
+    "A1865",
+    "A1901",
+    "A1902"
+  ],
+  "chip": "A11 Bionic",
+  "cpuArchitecture": "arm64",
+  "ramGB": 3,
+  "storageOptionsGB": [
+    64,
+    256
+  ],
+  "colors": [
+    "Silver",
+    "Space Gray"
+  ],
+  "display": {
+    "sizeInches": 5.8,
+    "technology": "Super Retina HD OLED",
+    "resolution": "2436x1125",
+    "ppi": 458,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      2716
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 18,
+    "wirelessCharging": "Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Telephoto 2x"
+    ],
+    "front": "7MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch"
+  ],
+  "ipRating": "IP67 (1 m, 30 min)",
+  "weightGrams": 174,
+  "launchIOS": "11.0.1",
+  "maxIOS": "16",
+  "sources": [
+    "https://support.apple.com/en-us/111864",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "iPhone10,3 (D22AP) = A1865/A1902 (Qualcomm modem); iPhone10,6 (D221AP) = A1901 (Intel modem)."
+}

@@ -1,0 +1,85 @@
+{
+  "id": "iphone-8-plus",
+  "name": "iPhone 8 Plus",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "8",
+  "tier": "plus",
+  "releaseDate": "2017-09-22",
+  "productTypes": [
+    "iPhone10,2",
+    "iPhone10,5"
+  ],
+  "hardwareModels": [
+    "D21AP",
+    "D211AP"
+  ],
+  "regulatoryModels": [
+    "A1864",
+    "A1897",
+    "A1898",
+    "A1899"
+  ],
+  "chip": "A11 Bionic",
+  "cpuArchitecture": "arm64",
+  "ramGB": 3,
+  "storageOptionsGB": [
+    64,
+    128,
+    256
+  ],
+  "colors": [
+    "Gold",
+    "Silver",
+    "Space Gray",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 5.5,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1920x1080",
+    "ppi": 401,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      2691
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 18,
+    "wirelessCharging": "Qi up to 7.5W"
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Telephoto 2x"
+    ],
+    "front": "7MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch"
+  ],
+  "ipRating": "IP67 (1 m, 30 min)",
+  "weightGrams": 202,
+  "launchIOS": "11.0",
+  "maxIOS": "16",
+  "sources": [
+    "https://support.apple.com/en-us/111950",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "iPhone10,2 (D21AP) = A1864/A1898/A1899 (Qualcomm modem); iPhone10,5 (D211AP) = A1897 (Intel modem). 128 GB option added in 2019."
+}

@@ -1,0 +1,82 @@
+{
+  "id": "iphone-6s",
+  "name": "iPhone 6s",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "6s",
+  "tier": "standard",
+  "releaseDate": "2015-09-25",
+  "productTypes": [
+    "iPhone8,1"
+  ],
+  "hardwareModels": [
+    "N71AP",
+    "N71mAP"
+  ],
+  "regulatoryModels": [
+    "A1633",
+    "A1688",
+    "A1691",
+    "A1700"
+  ],
+  "chip": "A9",
+  "cpuArchitecture": "arm64",
+  "ramGB": 2,
+  "storageOptionsGB": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "colors": [
+    "Space Gray",
+    "Silver",
+    "Gold",
+    "Rose Gold"
+  ],
+  "display": {
+    "sizeInches": 4.7,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1334x750",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 500
+  },
+  "battery": {
+    "designCapacityMah": [
+      1715
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide"
+    ],
+    "front": "5MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch",
+    "3.5 mm headphone jack"
+  ],
+  "weightGrams": 143,
+  "launchIOS": "9.0",
+  "maxIOS": "15",
+  "sources": [
+    "https://support.apple.com/en-us/111952",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "N71AP and N71mAP are the two A9 board variants (Samsung / TSMC). 32 GB option added in 2016. No IP rating."
+}

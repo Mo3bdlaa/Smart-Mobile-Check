@@ -1,0 +1,100 @@
+{
+  "id": "iphone-15-pro",
+  "name": "iPhone 15 Pro",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "15",
+  "tier": "pro",
+  "releaseDate": "2023-09-22",
+  "productTypes": [
+    "iPhone16,1"
+  ],
+  "hardwareModels": [
+    "D83AP"
+  ],
+  "regulatoryModels": [
+    "A2848",
+    "A3101",
+    "A3102",
+    "A3104"
+  ],
+  "chip": "A17 Pro",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "colors": [
+    "Black Titanium",
+    "White Titanium",
+    "Blue Titanium",
+    "Natural Titanium"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2556x1179",
+    "ppi": 460,
+    "maxRefreshHz": 120,
+    "alwaysOn": true,
+    "peakBrightnessNits": 2000
+  },
+  "battery": {
+    "designCapacityMah": [
+      3274
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 15W, Qi2 up to 15W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 3 (10 Gb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM; eSIM only on US/Puerto Rico models; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Main",
+      "12MP Ultra Wide",
+      "12MP Telephoto 3x"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": true
+  },
+  "features": [
+    "Dynamic Island",
+    "Always-On display",
+    "ProMotion 120Hz",
+    "Action button",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "LiDAR Scanner",
+    "Ultra Wideband (2nd gen)",
+    "Apple Intelligence",
+    "Thread",
+    "Titanium frame"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 187,
+  "launchIOS": "17.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111829",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://www.macrumors.com/2024/02/20/apple-raises-iphone-15-advertised-battery-lifespan/"
+  ]
+}

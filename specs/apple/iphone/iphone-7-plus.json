@@ -1,0 +1,85 @@
+{
+  "id": "iphone-7-plus",
+  "name": "iPhone 7 Plus",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "7",
+  "tier": "plus",
+  "releaseDate": "2016-09-16",
+  "productTypes": [
+    "iPhone9,2",
+    "iPhone9,4"
+  ],
+  "hardwareModels": [
+    "D11AP",
+    "D111AP"
+  ],
+  "regulatoryModels": [
+    "A1661",
+    "A1784",
+    "A1785",
+    "A1786"
+  ],
+  "chip": "A10 Fusion",
+  "cpuArchitecture": "arm64",
+  "ramGB": 3,
+  "storageOptionsGB": [
+    32,
+    128,
+    256
+  ],
+  "colors": [
+    "Black",
+    "Jet Black",
+    "Gold",
+    "Rose Gold",
+    "Silver",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 5.5,
+    "technology": "Retina HD LCD (IPS)",
+    "resolution": "1920x1080",
+    "ppi": 401,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      2900
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Telephoto 2x"
+    ],
+    "front": "7MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3D Touch"
+  ],
+  "ipRating": "IP67 (1 m, 30 min)",
+  "weightGrams": 188,
+  "launchIOS": "10.0",
+  "maxIOS": "15",
+  "sources": [
+    "https://support.apple.com/en-us/111953",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "iPhone9,2 (D11AP) = A1661/A1785/A1786 (Qualcomm modem); iPhone9,4 (D111AP) = A1784 (Intel modem). Battery label 2900 mAh (11.1 Wh); some tables list 2915 mAh, which is the iPhone 6 Plus value."
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Mobile Check</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><rect x="7" y="2" width="18" height="28" rx="5" fill="none" stroke="url(#lg)" stroke-width="2.4"/><path d="M11.5 16.5l3.2 3.2 6-7" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-text">Smart Mobile Check</span>
+    </a>
+    <nav class="crumbs" id="crumbs"></nav>
+    <div class="top-actions">
+      <a class="ghost-btn" href="#/specs" title="Device spec database">Spec database</a>
+      <button class="ghost-btn" data-action="quit" title="Quit the app">Quit</button>
+    </div>
+  </header>
+  <main id="app" class="app"></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

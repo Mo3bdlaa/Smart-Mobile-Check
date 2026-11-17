@@ -1,0 +1,92 @@
+{
+  "id": "iphone-15-plus",
+  "name": "iPhone 15 Plus",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "15",
+  "tier": "plus",
+  "releaseDate": "2023-09-22",
+  "productTypes": [
+    "iPhone15,5"
+  ],
+  "hardwareModels": [
+    "D38AP"
+  ],
+  "regulatoryModels": [
+    "A2847",
+    "A3093",
+    "A3094",
+    "A3096"
+  ],
+  "chip": "A16 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 6,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Black",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Pink"
+  ],
+  "display": {
+    "sizeInches": 6.7,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2796x1290",
+    "ppi": 460,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 2000
+  },
+  "battery": {
+    "designCapacityMah": [
+      4383
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 15W, Qi2 up to 15W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM; eSIM only on US/Puerto Rico models; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Main",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "Dynamic Island",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Ultra Wideband (2nd gen)"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 201,
+  "launchIOS": "17.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111830",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://www.macrumors.com/2024/02/20/apple-raises-iphone-15-advertised-battery-lifespan/"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "iphone-13",
+  "name": "iPhone 13",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "13",
+  "tier": "standard",
+  "releaseDate": "2021-09-24",
+  "productTypes": [
+    "iPhone14,5"
+  ],
+  "hardwareModels": [
+    "D17AP"
+  ],
+  "regulatoryModels": [
+    "A2482",
+    "A2631",
+    "A2633",
+    "A2634",
+    "A2635"
+  ],
+  "chip": "A15 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 4,
+  "storageOptionsGB": [
+    128,
+    256,
+    512
+  ],
+  "colors": [
+    "Starlight",
+    "Midnight",
+    "Blue",
+    "Pink",
+    "Green",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2532x1170",
+    "ppi": 460,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      3227
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 15W, Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM (dual eSIM supported); dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "MagSafe",
+    "Ultra Wideband"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 174,
+  "launchIOS": "15.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111872",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

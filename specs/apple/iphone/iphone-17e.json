@@ -1,0 +1,100 @@
+{
+  "id": "iphone-17e",
+  "name": "iPhone 17e",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "17",
+  "tier": "e",
+  "releaseDate": "2026-03-11",
+  "productTypes": [
+    "iPhone18,5"
+  ],
+  "hardwareModels": [
+    "V159AP"
+  ],
+  "regulatoryModels": [
+    "A3575",
+    "A3634",
+    "A3635"
+  ],
+  "chip": "A19",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    256,
+    512
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Soft Pink"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2532x1170",
+    "ppi": 460,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 1200
+  },
+  "battery": {
+    "designCapacityMah": [
+      4005
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 15W, Qi2 up to 15W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": false,
+    "sim": "eSIM only in eSIM-only regions; nano-SIM + eSIM elsewhere",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico",
+      "Bahrain",
+      "Canada",
+      "Guam",
+      "Japan",
+      "Kuwait",
+      "Mexico",
+      "Oman",
+      "Qatar",
+      "Saudi Arabia",
+      "United Arab Emirates",
+      "U.S. Virgin Islands"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion Main"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "Action button",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Apple C1X modem",
+    "Apple Intelligence"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 169,
+  "launchIOS": "26.3",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/126470",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://www.sir-apfelot.de/apple-iphone-17e-akku-kapazitaet-in-wh-und-mah-69463/"
+  ],
+  "notes": "Battery capacity 4005 mAh is from teardown reporting; no separate eSIM/nano-SIM battery variant confirmed."
+}

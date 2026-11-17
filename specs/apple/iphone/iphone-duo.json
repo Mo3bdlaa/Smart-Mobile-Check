@@ -1,0 +1,100 @@
+{
+  "id": "iphone-duo",
+  "name": "iPhone Duo",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "Duo",
+  "tier": "standard",
+  "releaseDate": "2026-10-23",
+  "productTypes": [
+    "iPhone19,4"
+  ],
+  "hardwareModels": [
+    "V68AP"
+  ],
+  "regulatoryModels": [
+    "A3447",
+    "A3719",
+    "A3720",
+    "A3721"
+  ],
+  "chip": "A20 Pro",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 12,
+  "storageOptionsGB": [
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "colors": [
+    "Night Sky",
+    "Star White"
+  ],
+  "display": {
+    "sizeInches": 7.6,
+    "technology": "Super Retina XDR OLED (folding inner) + 5.4-inch outer OLED",
+    "resolution": "2670x1878",
+    "ppi": 430,
+    "maxRefreshHz": 120,
+    "alwaysOn": true,
+    "peakBrightnessNits": 3000
+  },
+  "battery": {
+    "designCapacityMah": [
+      4883
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 60,
+    "wirelessCharging": "MagSafe up to 25W, Qi2 up to 25W"
+  },
+  "biometrics": "Touch ID",
+  "port": "USB-C",
+  "usbSpec": "USB 3 (10 Gb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "eSIM only (dual eSIM) on US models; other regions not confirmed",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion Main",
+      "48MP Fusion Ultra Wide"
+    ],
+    "front": "12MP Center Stage (outer); under-display camera (inner)",
+    "lidar": false
+  },
+  "features": [
+    "Foldable display",
+    "Dynamic Island",
+    "Always-On display",
+    "ProMotion 120Hz",
+    "Camera Control",
+    "MagSafe",
+    "Apple Pencil (USB-C) support",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "Ultra Wideband (2nd gen)",
+    "Apple N1 wireless chip",
+    "Apple C2 modem",
+    "Apple Intelligence",
+    "Thread"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 254,
+  "launchIOS": "27.1",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/148588",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility",
+    "https://9to5mac.com/2026/10/18/iphone-duo-battery-capacity-comparison/"
+  ],
+  "notes": "Apple's first foldable iPhone; tier set to 'standard' because the schema has no foldable tier. Display fields describe the 7.6-inch inner display; outer display is 5.4-inch, 2034x1398 at 460 ppi. Battery is two cells (2962 + 1921 mAh) totalling 4883 mAh per Apple's EU regulatory document. Touch ID in the side button (no Face ID). eSIM-only status outside the US (A3719/A3720/A3721) not confirmed."
+}

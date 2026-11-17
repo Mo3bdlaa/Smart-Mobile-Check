@@ -1,0 +1,99 @@
+{
+  "id": "iphone-16-pro",
+  "name": "iPhone 16 Pro",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "16",
+  "tier": "pro",
+  "releaseDate": "2024-09-20",
+  "productTypes": [
+    "iPhone17,1"
+  ],
+  "hardwareModels": [
+    "D93AP"
+  ],
+  "regulatoryModels": [
+    "A3083",
+    "A3292",
+    "A3293",
+    "A3294"
+  ],
+  "chip": "A18 Pro",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 8,
+  "storageOptionsGB": [
+    128,
+    256,
+    512,
+    1024
+  ],
+  "colors": [
+    "Black Titanium",
+    "White Titanium",
+    "Natural Titanium",
+    "Desert Titanium"
+  ],
+  "display": {
+    "sizeInches": 6.3,
+    "technology": "Super Retina XDR OLED",
+    "resolution": "2622x1206",
+    "ppi": 460,
+    "maxRefreshHz": 120,
+    "alwaysOn": true,
+    "peakBrightnessNits": 2000
+  },
+  "battery": {
+    "designCapacityMah": [
+      3582
+    ],
+    "ratedCycles": 1000,
+    "wiredChargingW": 20,
+    "wirelessCharging": "MagSafe up to 25W (30W adapter), Qi2 up to 15W"
+  },
+  "biometrics": "Face ID",
+  "port": "USB-C",
+  "usbSpec": "USB 3 (10 Gb/s)",
+  "cellular": {
+    "generation": "5G",
+    "mmWave": "US only",
+    "sim": "Nano-SIM + eSIM; eSIM only on US/Puerto Rico models; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": [
+      "United States",
+      "Puerto Rico"
+    ]
+  },
+  "cameras": {
+    "rear": [
+      "48MP Fusion",
+      "48MP Ultra Wide",
+      "12MP Telephoto 5x"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": true
+  },
+  "features": [
+    "Dynamic Island",
+    "Always-On display",
+    "ProMotion 120Hz",
+    "Action button",
+    "Camera Control",
+    "MagSafe",
+    "Emergency SOS via satellite",
+    "Crash Detection",
+    "LiDAR Scanner",
+    "Ultra Wideband (2nd gen)",
+    "Apple Intelligence",
+    "Thread"
+  ],
+  "ipRating": "IP68 (6 m, 30 min)",
+  "weightGrams": 199,
+  "launchIOS": "18.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/121031",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}

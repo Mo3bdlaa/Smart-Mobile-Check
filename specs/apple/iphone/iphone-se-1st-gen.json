@@ -1,0 +1,80 @@
+{
+  "id": "iphone-se-1st-gen",
+  "name": "iPhone SE (1st generation)",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "SE",
+  "tier": "se",
+  "releaseDate": "2016-03-31",
+  "productTypes": [
+    "iPhone8,4"
+  ],
+  "hardwareModels": [
+    "N69AP",
+    "N69uAP"
+  ],
+  "regulatoryModels": [
+    "A1662",
+    "A1723",
+    "A1724"
+  ],
+  "chip": "A9",
+  "cpuArchitecture": "arm64",
+  "ramGB": 2,
+  "storageOptionsGB": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "colors": [
+    "Space Gray",
+    "Silver",
+    "Gold",
+    "Rose Gold"
+  ],
+  "display": {
+    "sizeInches": 4.0,
+    "technology": "Retina LCD (IPS)",
+    "resolution": "1136x640",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 500
+  },
+  "battery": {
+    "designCapacityMah": [
+      1624
+    ],
+    "ratedCycles": 500
+  },
+  "biometrics": "Touch ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide"
+    ],
+    "front": "1.2MP FaceTime HD",
+    "lidar": false
+  },
+  "features": [
+    "3.5 mm headphone jack"
+  ],
+  "weightGrams": 113,
+  "launchIOS": "9.3",
+  "maxIOS": "15",
+  "sources": [
+    "https://support.apple.com/en-us/112005",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models"
+  ],
+  "notes": "N69AP and N69uAP are the two A9 board variants (Samsung / TSMC). 32 GB and 128 GB options added in 2017. No IP rating."
+}

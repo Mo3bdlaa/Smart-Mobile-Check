@@ -1,0 +1,84 @@
+{
+  "id": "iphone-11",
+  "name": "iPhone 11",
+  "brand": "Apple",
+  "platform": "ios",
+  "series": "11",
+  "tier": "standard",
+  "releaseDate": "2019-09-20",
+  "productTypes": [
+    "iPhone12,1"
+  ],
+  "hardwareModels": [
+    "N104AP"
+  ],
+  "regulatoryModels": [
+    "A2111",
+    "A2221",
+    "A2223"
+  ],
+  "chip": "A13 Bionic",
+  "cpuArchitecture": "arm64e",
+  "ramGB": 4,
+  "storageOptionsGB": [
+    64,
+    128,
+    256
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Green",
+    "Yellow",
+    "Purple",
+    "(PRODUCT)RED"
+  ],
+  "display": {
+    "sizeInches": 6.1,
+    "technology": "Liquid Retina HD LCD (IPS)",
+    "resolution": "1792x828",
+    "ppi": 326,
+    "maxRefreshHz": 60,
+    "alwaysOn": false,
+    "peakBrightnessNits": 625
+  },
+  "battery": {
+    "designCapacityMah": [
+      3110
+    ],
+    "ratedCycles": 500,
+    "wiredChargingW": 18,
+    "wirelessCharging": "Qi up to 7.5W"
+  },
+  "biometrics": "Face ID",
+  "port": "Lightning",
+  "usbSpec": "USB 2 (480 Mb/s)",
+  "cellular": {
+    "generation": "4G",
+    "mmWave": false,
+    "sim": "Nano-SIM + eSIM; dual nano-SIM on China mainland/Hong Kong/Macao models",
+    "esimOnlyRegions": []
+  },
+  "cameras": {
+    "rear": [
+      "12MP Wide",
+      "12MP Ultra Wide"
+    ],
+    "front": "12MP TrueDepth",
+    "lidar": false
+  },
+  "features": [
+    "Ultra Wideband"
+  ],
+  "ipRating": "IP68 (2 m, 30 min)",
+  "weightGrams": 194,
+  "launchIOS": "13.0",
+  "maxIOS": null,
+  "sources": [
+    "https://support.apple.com/en-us/111865",
+    "https://support.apple.com/en-us/108044",
+    "https://theapplewiki.com/wiki/Models",
+    "https://en.wikipedia.org/wiki/List_of_iPhone_models",
+    "https://appleinsider.com/articles/26/06/08/ios-27-keeps-iphone-11-and-newer-compatibility"
+  ]
+}
