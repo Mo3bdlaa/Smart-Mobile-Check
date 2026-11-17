@@ -7,9 +7,13 @@ printable report.
 
 The **iPhone route works end to end**. The Android route is on the roadmap (see [docs/ROADMAP.md](docs/ROADMAP.md)).
 
+**Languages:** Arabic is the default. The interface uses simple Arabic with a right-to-left layout, and the check
+results, hands-on tests, new-iPhone checklist and saved reports are all in Arabic too. Switch to English with the
+button in the top bar; the choice is remembered.
+
 ## Download & run
 
-1. Download [`releases/SmartMobileCheck-0.1.2-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
+1. Download [`releases/SmartMobileCheck-0.2.0-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
 2. Install Apple's USB driver **once**. Use the **Apple Devices** app from the Microsoft Store (recommended) or **iTunes**.
    The app detects whether it is missing and links to it.
 3. Double-click the `.exe`. Windows SmartScreen may warn because the file is not code-signed: click *More info → Run anyway*.
@@ -85,7 +89,7 @@ Builds cross-compile from any OS. No CGO and no Windows machine are required.
 
 ```bash
 go install github.com/tc-hib/go-winres@latest   # optional: icon + manifest + version info
-./build.sh 0.1.2                                 # -> dist/SmartMobileCheck-0.1.2-windows-x64.exe
+./build.sh 0.2.0                                 # -> dist/SmartMobileCheck-0.2.0-windows-x64.exe
 go test ./...                                    # check-engine and report tests
 go run ./cmd/smartcheck --browser                # run locally (UI in the browser)
 ```

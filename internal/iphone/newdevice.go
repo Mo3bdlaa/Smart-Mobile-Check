@@ -16,8 +16,12 @@ func (e *evaluator) newDeviceChecks(b BatteryReport) {
 			e.add(Check{ID: "new-retail", Category: CatNew, Title: "New retail unit", Status: Pass, Actual: full,
 				Summary: "Part number starts with \"" + prefix + "\" — sold new by Apple or an authorised reseller."})
 		} else {
+			meaning := e.db.Reference.PartPrefixes[prefix]
+			if meaning == "" {
+				meaning = "unusual part-number prefix"
+			}
 			e.add(Check{ID: "new-retail", Category: CatNew, Title: "New retail unit", Status: Fail, Severity: Critical, Actual: full,
-				Summary: "Not a new retail unit: " + strings.ToLower(e.db.Reference.PartPrefixes[prefix]) + ".",
+				Summary: "Not a new retail unit: " + strings.ToLower(meaning) + ".",
 				Advice:  "A phone sold as \"new\" must have a part number starting with M. Ask for a refund or a lower refurbished price."})
 		}
 	}

@@ -99,6 +99,7 @@ type Check struct {
 
 // KV is a labelled value for display.
 type KV struct {
+	Key   string `json:"key,omitempty"`
 	Label string `json:"label"`
 	Value string `json:"value"`
 	Mono  bool   `json:"mono,omitempty"`
@@ -138,4 +139,5 @@ type Result struct {
 	GeneratedAt time.Time      `json:"generatedAt"`
 	AppVersion  string         `json:"appVersion"`
 	Mode        string         `json:"mode"`
+	Lang        string         `json:"lang,omitempty"`
 }

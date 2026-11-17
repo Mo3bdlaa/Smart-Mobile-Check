@@ -9,6 +9,21 @@ import (
 	"github.com/mo3bdlaa/smart-mobile-check/internal/specs"
 )
 
+func TestArabicReport(t *testing.T) {
+	db := specs.Load(smartcheck.Specs, "")
+	r := iphone.Localize(iphone.EvaluateMode(iphone.DemoSnapshot("new"), db, "test", iphone.ModeNew), "ar")
+	out, err := HTML(r, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	s := string(out)
+	for _, want := range []string{`dir="rtl"`, "فحص شراء آيفون جديد", "فحوصات الجهاز الجديد", "الجهاز أصلي وسليم"} {
+		if !strings.Contains(s, want) {
+			t.Errorf("Arabic report missing %q", want)
+		}
+	}
+}
+
 func TestHTMLReport(t *testing.T) {
 	db := specs.Load(smartcheck.Specs, "")
 	for _, p := range []string{"healthy", "tampered"} {

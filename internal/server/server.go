@@ -171,6 +171,7 @@ func (s *Server) handleScan(w http.ResponseWriter, r *http.Request) {
 		s.mu.Lock()
 		st := s.scan
 		s.mu.Unlock()
+		st.Result = iphone.Localize(st.Result, r.URL.Query().Get("lang"))
 		writeJSON(w, st)
 		return
 	}
@@ -259,7 +260,7 @@ func (s *Server) handleManual(w http.ResponseWriter, r *http.Request) {
 	if s.scan.base != nil {
 		s.scan.Result = iphone.ApplyManual(s.scan.base, s.manual)
 	}
-	writeJSON(w, s.scan.Result)
+	writeJSON(w, iphone.Localize(s.scan.Result, r.URL.Query().Get("lang")))
 }
 
 func (s *Server) handleDemoProfiles(w http.ResponseWriter, r *http.Request) {
@@ -286,10 +287,11 @@ func (s *Server) handleSave(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Format string `json:"format"`
 		Open   bool   `json:"open"`
+		Lang   string `json:"lang"`
 	}
 	_ = readJSON(r, &req)
 	s.mu.Lock()
-	res := s.scan.Result
+	res := iphone.Localize(s.scan.Result, req.Lang)
 	notes := s.notes
 	s.mu.Unlock()
 	if res == nil {

@@ -13,6 +13,11 @@ type ManualTest struct {
 	Modes []string `json:"modes"`
 	// Link is an optional app link target (see /api/open), e.g. "coverage".
 	Link string `json:"link,omitempty"`
+
+	// Arabic presentation.
+	GroupAr string   `json:"groupAr,omitempty"`
+	TitleAr string   `json:"titleAr,omitempty"`
+	StepsAr []string `json:"stepsAr,omitempty"`
 }
 
 var (

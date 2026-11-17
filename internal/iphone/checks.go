@@ -929,7 +929,7 @@ func (e *evaluator) identity(model string) []KV {
 	var kv []KV
 	addKV := func(label, value string, mono bool) {
 		if strings.TrimSpace(value) != "" {
-			kv = append(kv, KV{Label: label, Value: value, Mono: mono})
+			kv = append(kv, KV{Key: label, Label: label, Value: value, Mono: mono})
 		}
 	}
 	addKV("Model", model, false)
