@@ -956,6 +956,19 @@ func (e *evaluator) storageInfo() map[string]any {
 		return nil
 	}
 	out := map[string]any{"totalBytes": total, "totalLabel": humanBytes(total)}
+	if e.spec != nil {
+		gb := total / 1e9
+		for _, o := range e.spec.StorageOptionsGB {
+			marketed := float64(o)
+			if o >= 1024 {
+				marketed = float64(o) / 1024 * 1000
+			}
+			if gb <= marketed*1.03 && gb >= marketed*0.85 {
+				out["totalLabel"] = gbLabel(o)
+				out["marketedGB"] = o
+			}
+		}
+	}
 	if avail > 0 {
 		used := total - avail
 		out["freeBytes"] = avail

@@ -1,1 +1,1 @@
-91fa398ccaa41d0d6902e7ddc9eecf3924ef880e1c2a4aac24c8d4a193bb2d4a  SmartMobileCheck-0.1.0-windows-x64.exe
+1174a734f7b3dfa0c47da0a5074e0735b5473270df35f6e2e7d4fcadd6a58ea2  SmartMobileCheck-0.1.1-windows-x64.exe

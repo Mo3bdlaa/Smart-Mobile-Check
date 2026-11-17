@@ -9,7 +9,7 @@ The **iPhone route works end to end**. The Android route is on the roadmap (see 
 
 ## Download & run
 
-1. Download [`releases/SmartMobileCheck-0.1.0-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
+1. Download [`releases/SmartMobileCheck-0.1.1-windows-x64.exe`](releases/) (SHA-256 in `releases/SHA256SUMS.txt`).
 2. Install Apple's USB driver **once**. Use the **Apple Devices** app from the Microsoft Store (recommended) or **iTunes**.
    The app detects whether it is missing and links to it.
 3. Double-click the `.exe`. Windows SmartScreen may warn because the file is not code-signed: click *More info → Run anyway*.
@@ -58,10 +58,25 @@ Builds cross-compile from any OS. No CGO and no Windows machine are required.
 
 ```bash
 go install github.com/tc-hib/go-winres@latest   # optional: icon + manifest + version info
-./build.sh 0.1.0                                 # -> dist/SmartMobileCheck-0.1.0-windows-x64.exe
+./build.sh 0.1.1                                 # -> dist/SmartMobileCheck-0.1.1-windows-x64.exe
 go test ./...                                    # check-engine and report tests
 go run ./cmd/smartcheck --browser                # run locally (UI in the browser)
 ```
+
+## Testing without an iPhone
+
+`internal/fakedevice` is a protocol-level iPhone simulator. It emulates Apple's USB service (usbmuxd) and a connected
+iPhone: pairing with the Trust prompt, encrypted lockdown sessions, diagnostics, installed apps, management profiles,
+the file service and crash logs. The real scanning code runs against it unchanged.
+
+- `go test ./...` runs a full trust → scan → evaluate cycle against a genuine and a tampered simulated iPhone.
+- Interactive use:
+  ```bash
+  go run ./tools/fakeiphone -profile genuine      # or -profile tampered; listens on 127.0.0.1:27015
+  USBMUXD_SOCKET_ADDRESS=tcp://127.0.0.1:27015 go run ./cmd/smartcheck --browser
+  ```
+  On Windows, stop the *Apple Mobile Device Service* first. The simulator uses the same port, so the `.exe` connects
+  to it directly.
 
 ## Project layout
 
@@ -71,6 +86,7 @@ internal/iphone/      device collector (USB/lockdown services), check engine, de
 internal/specs/       spec database loader (embedded + external override folder)
 internal/server/      local HTTP API on 127.0.0.1 (loopback only)
 internal/report/      standalone HTML report renderer
+internal/fakedevice/  iPhone + usbmuxd protocol simulator used by tests and tools/fakeiphone
 web/                  user interface (HTML/CSS/JS, embedded, works offline)
 specs/                device specification database (embedded)
 releases/             prebuilt Windows executables
