@@ -28,11 +28,14 @@ type Server struct {
 	Web     fs.FS
 	Opener  func(target string) error
 	Quit    func()
+	AppData string
 
 	mu     sync.Mutex
 	scan   scanState
 	manual map[string]iphone.ManualResult
 	notes  string
+
+	and androidState
 }
 
 type scanState struct {
@@ -66,6 +69,7 @@ func (s *Server) Listen() (string, error) {
 	mux.HandleFunc("/api/specs", s.handleSpecs)
 	mux.HandleFunc("/api/report/save", s.handleSave)
 	mux.HandleFunc("/api/open", s.handleOpen)
+	s.registerAndroid(mux)
 	mux.HandleFunc("/api/quit", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost || s.Quit == nil {
 			http.Error(w, "not allowed", http.StatusMethodNotAllowed)
@@ -129,7 +133,7 @@ func (s *Server) handleEnv(w http.ResponseWriter, r *http.Request) {
 		"version":       s.Version,
 		"os":            runtime.GOOS,
 		"serviceOK":     err == nil,
-		"specCount":     len(s.DB.All()),
+		"specCount":     len(s.DB.All()) + len(s.DB.Android()),
 		"specWarnings":  s.DB.Warnings,
 		"externalSpecs": s.DB.External,
 		"reportsDir":    reportsDir(),
@@ -285,18 +289,32 @@ func reportsDir() string {
 
 func (s *Server) handleSave(w http.ResponseWriter, r *http.Request) {
 	var req struct {
-		Format string `json:"format"`
-		Open   bool   `json:"open"`
-		Lang   string `json:"lang"`
+		Format   string `json:"format"`
+		Open     bool   `json:"open"`
+		Lang     string `json:"lang"`
+		Platform string `json:"platform"`
 	}
 	_ = readJSON(r, &req)
-	s.mu.Lock()
-	res := iphone.Localize(s.scan.Result, req.Lang)
-	notes := s.notes
-	s.mu.Unlock()
-	if res == nil {
-		http.Error(w, "no scan result yet", http.StatusBadRequest)
-		return
+	var res any
+	var data0 report.Data
+	var notes string
+	if req.Platform == "android" {
+		ar, n := s.androidResult(req.Lang)
+		if ar == nil {
+			http.Error(w, "no scan result yet", http.StatusBadRequest)
+			return
+		}
+		res, data0, notes = ar, report.FromAndroid(ar), n
+	} else {
+		s.mu.Lock()
+		ir := iphone.Localize(s.scan.Result, req.Lang)
+		notes = s.notes
+		s.mu.Unlock()
+		if ir == nil {
+			http.Error(w, "no scan result yet", http.StatusBadRequest)
+			return
+		}
+		res, data0 = ir, report.FromIPhone(ir)
 	}
 	dir := reportsDir()
 	if err := os.MkdirAll(dir, 0o755); err != nil {
@@ -310,13 +328,13 @@ func (s *Server) handleSave(w http.ResponseWriter, r *http.Request) {
 		ext = "json"
 		data, err = json.MarshalIndent(map[string]any{"result": res, "notes": notes}, "", "  ")
 	} else {
-		data, err = report.HTML(res, notes)
+		data, err = report.HTML(data0, notes)
 	}
 	if err != nil {
 		writeJSON(w, map[string]any{"ok": false, "error": err.Error()})
 		return
 	}
-	path := filepath.Join(dir, report.FileName(res, ext))
+	path := filepath.Join(dir, report.FileName(data0, ext))
 	if err := os.WriteFile(path, data, 0o644); err != nil {
 		writeJSON(w, map[string]any{"ok": false, "error": err.Error()})
 		return

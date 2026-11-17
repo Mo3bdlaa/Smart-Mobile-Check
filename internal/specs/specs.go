@@ -123,6 +123,74 @@ type DB struct {
 	Reference Reference
 	Warnings  []string
 	External  string
+
+	android         []*AndroidDevice
+	androidByModel  map[string]*AndroidDevice
+	androidByDevice map[string]*AndroidDevice
+}
+
+// AndroidDevice is one Android model family in the specification database.
+type AndroidDevice struct {
+	ID               string    `json:"id"`
+	Name             string    `json:"name"`
+	Brand            string    `json:"brand"`
+	Platform         string    `json:"platform"`
+	ReleaseDate      string    `json:"releaseDate,omitempty"`
+	Models           []string  `json:"models"`
+	Devices          []string  `json:"devices,omitempty"`
+	BoardPlatforms   []string  `json:"boardPlatforms,omitempty"`
+	SocModels        []string  `json:"socModels,omitempty"`
+	Chip             string    `json:"chip,omitempty"`
+	RAMGB            []float64 `json:"ramGB,omitempty"`
+	StorageOptionsGB []int     `json:"storageOptionsGB,omitempty"`
+	Display          Display   `json:"display"`
+	Battery          struct {
+		DesignCapacityMah []int `json:"designCapacityMah,omitempty"`
+		TypicalMah        int   `json:"typicalMah,omitempty"`
+		RatedCycles       int   `json:"ratedCycles,omitempty"`
+		WiredChargingW    any   `json:"wiredChargingW,omitempty"`
+		WirelessCharging  any   `json:"wirelessCharging,omitempty"`
+	} `json:"battery"`
+	Biometrics    string   `json:"biometrics,omitempty"`
+	Port          string   `json:"port,omitempty"`
+	Cellular      Cellular `json:"cellular"`
+	Cameras       Cameras  `json:"cameras"`
+	Features      []string `json:"features,omitempty"`
+	LaunchAndroid string   `json:"launchAndroid,omitempty"`
+	UpdatePolicy  string   `json:"updatePolicy,omitempty"`
+	MaxAndroid    *string  `json:"maxAndroid"`
+	WeightGrams   float64  `json:"weightGrams,omitempty"`
+	Sources       []string `json:"sources,omitempty"`
+	Notes         string   `json:"notes,omitempty"`
+	Origin        string   `json:"origin,omitempty"`
+}
+
+// normModel normalises a model number for lookup ("SM-S928B/DS" -> "sm-s928b").
+func normModel(m string) string {
+	m = strings.ToLower(strings.TrimSpace(m))
+	if i := strings.Index(m, "/"); i > 0 {
+		m = m[:i]
+	}
+	return m
+}
+
+// AndroidByModel finds the spec for ro.product.model, falling back to the
+// device codename (ro.product.device).
+func (db *DB) AndroidByModel(model, device string) *AndroidDevice {
+	if a := db.androidByModel[normModel(model)]; a != nil {
+		return a
+	}
+	if a := db.androidByDevice[strings.ToLower(strings.TrimSpace(device))]; a != nil {
+		return a
+	}
+	return nil
+}
+
+// Android returns every Android model in the database.
+func (db *DB) Android() []*AndroidDevice {
+	out := make([]*AndroidDevice, len(db.android))
+	copy(out, db.android)
+	return out
 }
 
 // Load reads the built-in specs and then the optional external folder.
@@ -130,6 +198,8 @@ func Load(builtin fs.FS, externalDir string) *DB {
 	db := &DB{byType: map[string]*Device{}}
 	byID := map[string]*Device{}
 	var order []string
+	androidByID := map[string]*AndroidDevice{}
+	var androidOrder []string
 
 	add := func(d *Device) {
 		if _, ok := byID[d.ID]; !ok {
@@ -146,6 +216,23 @@ func Load(builtin fs.FS, externalDir string) *DB {
 			raw, err := fs.ReadFile(fsys, path)
 			if err != nil {
 				db.Warnings = append(db.Warnings, fmt.Sprintf("%s: %v", path, err))
+				return nil
+			}
+			if strings.HasPrefix(filepath.ToSlash(path), "android/") {
+				var a AndroidDevice
+				if err := json.Unmarshal(raw, &a); err != nil {
+					db.Warnings = append(db.Warnings, fmt.Sprintf("%s (%s): %v", path, origin, err))
+					return nil
+				}
+				if a.ID == "" || (len(a.Models) == 0 && len(a.Devices) == 0) {
+					db.Warnings = append(db.Warnings, fmt.Sprintf("%s (%s): missing id or models", path, origin))
+					return nil
+				}
+				a.Origin = origin
+				if _, ok := androidByID[a.ID]; !ok {
+					androidOrder = append(androidOrder, a.ID)
+				}
+				androidByID[a.ID] = &a
 				return nil
 			}
 			if strings.Contains(filepath.ToSlash(path), "reference/") {
@@ -191,6 +278,24 @@ func Load(builtin fs.FS, externalDir string) *DB {
 	}
 	sort.SliceStable(db.devices, func(i, j int) bool {
 		return db.devices[i].ReleaseDate > db.devices[j].ReleaseDate
+	})
+	db.androidByModel = map[string]*AndroidDevice{}
+	db.androidByDevice = map[string]*AndroidDevice{}
+	for _, id := range androidOrder {
+		a := androidByID[id]
+		db.android = append(db.android, a)
+		for _, m := range a.Models {
+			db.androidByModel[normModel(m)] = a
+		}
+		for _, d := range a.Devices {
+			db.androidByDevice[strings.ToLower(strings.TrimSpace(d))] = a
+		}
+	}
+	sort.SliceStable(db.android, func(i, j int) bool {
+		if db.android[i].Brand != db.android[j].Brand {
+			return db.android[i].Brand < db.android[j].Brand
+		}
+		return db.android[i].ReleaseDate > db.android[j].ReleaseDate
 	})
 	return db
 }

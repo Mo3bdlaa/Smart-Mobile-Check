@@ -16,7 +16,9 @@
 - Spec data refresh: per-region model numbers and battery variants
 - Code-signing the executable
 
-## v0.3 — Android route
+## v0.3 — Android route (first version done)
+Done: ADB client, Google platform-tools download, clone/lock/root/battery/hardware checks, hands-on tests,
+Arabic, simulator and tests. Next:
 - Bundle `adb` (platform-tools) inside the executable; guide the user to enable USB debugging
 - Checks: FRP/Google account lock, root (su binaries, Magisk), bootloader lock state / verified boot,
   Knox warranty bit (Samsung), battery health and cycles (`dumpsys battery`, `/sys/class/power_supply`),

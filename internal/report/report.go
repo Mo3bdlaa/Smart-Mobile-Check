@@ -8,16 +8,63 @@ import (
 	"strings"
 	"time"
 
+	"github.com/mo3bdlaa/smart-mobile-check/internal/android"
+	"github.com/mo3bdlaa/smart-mobile-check/internal/inspect"
 	"github.com/mo3bdlaa/smart-mobile-check/internal/iphone"
 )
 
 type group struct {
 	Name   string
-	Checks []iphone.Check
+	Checks []inspect.Check
+}
+
+// Data is the platform-neutral content of a report.
+type Data struct {
+	Platform    string
+	ModelName   string
+	Serial      string
+	Score       int
+	Verdict     string
+	VerdictText string
+	Counts      map[inspect.Status]int
+	Identity    []inspect.KV
+	Battery     inspect.BatteryReport
+	Checks      []inspect.Check
+	Mode        string
+	Lang        string
+	AppVersion  string
+	Demo        bool
+	Errors      map[string]string
+	GeneratedAt time.Time
+}
+
+// FromIPhone converts an iPhone result.
+func FromIPhone(r *iphone.Result) Data {
+	d := Data{Platform: "ios", ModelName: r.ModelName, Score: r.Score, Verdict: r.Verdict, VerdictText: r.VerdictText,
+		Counts: r.Counts, Identity: r.Identity, Battery: r.Battery, Checks: r.Checks, Mode: r.Mode, Lang: r.Lang,
+		AppVersion: r.AppVersion, GeneratedAt: r.GeneratedAt}
+	if r.Snapshot != nil {
+		d.Demo, d.Errors = r.Snapshot.Demo, r.Snapshot.Errors
+		if s, ok := r.Snapshot.Lockdown["SerialNumber"].(string); ok {
+			d.Serial = s
+		}
+	}
+	return d
+}
+
+// FromAndroid converts an Android result.
+func FromAndroid(r *android.Result) Data {
+	d := Data{Platform: "android", ModelName: r.ModelName, Score: r.Score, Verdict: r.Verdict, VerdictText: r.VerdictText,
+		Counts: r.Counts, Identity: r.Identity, Battery: r.Battery, Checks: r.Checks, Mode: r.Mode, Lang: r.Lang,
+		AppVersion: r.AppVersion, GeneratedAt: r.GeneratedAt}
+	if r.Snapshot != nil {
+		d.Demo, d.Errors, d.Serial = r.Snapshot.Demo, r.Snapshot.Errors, r.Snapshot.Serial
+	}
+	return d
 }
 
 type view struct {
-	R        *iphone.Result
+	R        Data
 	Groups   []group
 	Date     string
 	Ring     float64
@@ -27,13 +74,13 @@ type view struct {
 	Unreadab []string
 }
 
-// HTML renders the result.
-func HTML(r *iphone.Result, buyerNotes string) ([]byte, error) {
+// HTML renders a report.
+func HTML(r Data, buyerNotes string) ([]byte, error) {
 	v := view{R: r, Date: r.GeneratedAt.Format("2 Jan 2006, 15:04"), Notes: buyerNotes}
 	if r.GeneratedAt.IsZero() {
 		v.Date = time.Now().Format("2 Jan 2006, 15:04")
 	}
-	for _, cat := range iphone.Categories {
+	for _, cat := range inspect.Categories {
 		g := group{Name: cat}
 		for _, c := range r.Checks {
 			if c.Category == cat {
@@ -42,7 +89,7 @@ func HTML(r *iphone.Result, buyerNotes string) ([]byte, error) {
 		}
 		if len(g.Checks) > 0 {
 			v.Groups = append(v.Groups, g)
-			if cat == iphone.CatHands {
+			if cat == inspect.CatHands {
 				v.Hands = true
 			}
 		}
@@ -56,10 +103,8 @@ func HTML(r *iphone.Result, buyerNotes string) ([]byte, error) {
 	default:
 		v.Color = "#dc2626"
 	}
-	if r.Snapshot != nil {
-		for k, e := range r.Snapshot.Errors {
-			v.Unreadab = append(v.Unreadab, k+": "+e)
-		}
+	for k, e := range r.Errors {
+		v.Unreadab = append(v.Unreadab, k+": "+e)
 	}
 	t, err := tpl.Clone()
 	if err != nil {
@@ -96,13 +141,11 @@ func HTML(r *iphone.Result, buyerNotes string) ([]byte, error) {
 }
 
 // FileName builds a safe report file name.
-func FileName(r *iphone.Result, ext string) string {
-	model := strings.NewReplacer(" ", "-", "/", "-").Replace(r.ModelName)
+func FileName(r Data, ext string) string {
+	model := strings.NewReplacer(" ", "-", "/", "-", "\\", "-", ":", "-", "\"", "").Replace(r.ModelName)
 	serial := ""
-	if r.Snapshot != nil {
-		if s, ok := r.Snapshot.Lockdown["SerialNumber"].(string); ok {
-			serial = "_" + s
-		}
+	if r.Serial != "" {
+		serial = "_" + strings.NewReplacer("/", "-", "\\", "-", ":", "-").Replace(r.Serial)
 	}
 	return fmt.Sprintf("%s%s_%s.%s", model, serial, time.Now().Format("2006-01-02_1504"), ext)
 }
@@ -111,6 +154,8 @@ var reportAr = map[string]string{
 	"Smart Mobile Check · Inspection report": "Smart Mobile Check · تقرير فحص",
 	"New-iPhone purchase check":              "فحص شراء آيفون جديد",
 	"Used-iPhone purchase check":             "فحص شراء آيفون مستعمل",
+	"New Android phone purchase check":       "فحص شراء موبايل أندرويد جديد",
+	"Used Android phone purchase check":      "فحص شراء موبايل أندرويد مستعمل",
 	"DEMO DATA":                              "بيانات تجريبية",
 	"passed":                                 "ناجح",
 	"warnings":                               "تحذيرات",
@@ -147,22 +192,22 @@ var funcs = template.FuncMap{
 	"L":    func(s string) string { return s },
 	"dir":  func() string { return "ltr" },
 	"lang": func() string { return "en" },
-	"icon": func(s iphone.Status) string {
+	"icon": func(s inspect.Status) string {
 		switch s {
-		case iphone.Pass:
+		case inspect.Pass:
 			return "✔"
-		case iphone.Warn:
+		case inspect.Warn:
 			return "!"
-		case iphone.Fail:
+		case inspect.Fail:
 			return "✖"
-		case iphone.Skip:
+		case inspect.Skip:
 			return "–"
 		}
 		return "i"
 	},
 	"pct":   func(f float64) string { return fmt.Sprintf("%.0f%%", f) },
 	"upper": strings.ToUpper,
-	"cnt":   func(m map[iphone.Status]int, k string) int { return m[iphone.Status(k)] },
+	"cnt":   func(m map[inspect.Status]int, k string) int { return m[inspect.Status(k)] },
 }
 
 var tpl = template.Must(template.New("r").Funcs(funcs).Parse(`<!doctype html>
@@ -191,7 +236,7 @@ footer{margin-top:32px;color:var(--mute);font-size:12px;text-align:center}
  <circle cx="65" cy="65" r="52" fill="none" stroke="{{.Color}}" stroke-width="12" stroke-linecap="round" stroke-dasharray="{{.Ring}} 400" transform="rotate(-90 65 65)"/>
  <text x="65" y="72" text-anchor="middle" font-size="30" font-weight="700" fill="#0f172a">{{.R.Score}}</text></svg>
  <div><div class="sub">{{L "Smart Mobile Check · Inspection report"}}</div><h1>{{.R.ModelName}}</h1>
- <div class="sub">{{if eq .R.Mode "new"}}{{L "New-iPhone purchase check"}}{{else}}{{L "Used-iPhone purchase check"}}{{end}} · {{.Date}}{{if .R.Snapshot}}{{if .R.Snapshot.Demo}} · {{L "DEMO DATA"}}{{end}}{{end}}</div>
+ <div class="sub">{{if eq .R.Platform "android"}}{{if eq .R.Mode "new"}}{{L "New Android phone purchase check"}}{{else}}{{L "Used Android phone purchase check"}}{{end}}{{else}}{{if eq .R.Mode "new"}}{{L "New-iPhone purchase check"}}{{else}}{{L "Used-iPhone purchase check"}}{{end}}{{end}} · {{.Date}}{{if .R.Demo}} · {{L "DEMO DATA"}}{{end}}</div>
  <div class="verdict">{{.R.VerdictText}}</div>
  <div class="sub" style="margin-top:8px">{{cnt .R.Counts "pass"}} {{L "passed"}} · {{cnt .R.Counts "warn"}} {{L "warnings"}} · {{cnt .R.Counts "fail"}} {{L "failed"}}{{if not .Hands}} · {{L "hands-on tests not recorded"}}{{end}}</div></div>
 </header>

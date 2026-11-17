@@ -1,6 +1,10 @@
 package iphone
 
-import "time"
+import (
+	"time"
+
+	"github.com/mo3bdlaa/smart-mobile-check/internal/inspect"
+)
 
 // AppEntry is an installed application reported by installation_proxy.
 type AppEntry struct {
@@ -63,65 +67,26 @@ type Snapshot struct {
 	Demo           bool                      `json:"demo,omitempty"`
 }
 
-// Status of a single check.
-type Status string
-
-const (
-	Pass Status = "pass"
-	Warn Status = "warn"
-	Fail Status = "fail"
-	Info Status = "info"
-	Skip Status = "skip"
+// Shared inspection types (see package inspect).
+type (
+	Status        = inspect.Status
+	Severity      = inspect.Severity
+	Check         = inspect.Check
+	KV            = inspect.KV
+	BatteryReport = inspect.BatteryReport
 )
 
-// Severity tells how much a failed/warned check matters for the verdict.
-type Severity string
-
 const (
-	Critical Severity = "critical"
-	Major    Severity = "major"
-	Minor    Severity = "minor"
-	Note     Severity = "info"
+	Pass     = inspect.Pass
+	Warn     = inspect.Warn
+	Fail     = inspect.Fail
+	Info     = inspect.Info
+	Skip     = inspect.Skip
+	Critical = inspect.Critical
+	Major    = inspect.Major
+	Minor    = inspect.Minor
+	Note     = inspect.Note
 )
-
-// Check is the result of one validation.
-type Check struct {
-	ID       string   `json:"id"`
-	Category string   `json:"category"`
-	Title    string   `json:"title"`
-	Status   Status   `json:"status"`
-	Severity Severity `json:"severity"`
-	Summary  string   `json:"summary"`
-	Expected string   `json:"expected,omitempty"`
-	Actual   string   `json:"actual,omitempty"`
-	Advice   string   `json:"advice,omitempty"`
-}
-
-// KV is a labelled value for display.
-type KV struct {
-	Key   string `json:"key,omitempty"`
-	Label string `json:"label"`
-	Value string `json:"value"`
-	Mono  bool   `json:"mono,omitempty"`
-}
-
-// BatteryReport is the computed battery picture.
-type BatteryReport struct {
-	Available         bool    `json:"available"`
-	HealthPercent     float64 `json:"healthPercent,omitempty"`
-	CycleCount        int     `json:"cycleCount"`
-	RatedCycles       int     `json:"ratedCycles,omitempty"`
-	DesignCapacity    int     `json:"designCapacity,omitempty"`
-	FullChargeCap     int     `json:"fullChargeCapacity,omitempty"`
-	ExpectedDesign    []int   `json:"expectedDesign,omitempty"`
-	TemperatureC      float64 `json:"temperatureC,omitempty"`
-	VoltageV          float64 `json:"voltageV,omitempty"`
-	ChargePercent     int     `json:"chargePercent,omitempty"`
-	IsCharging        bool    `json:"isCharging"`
-	Serial            string  `json:"serial,omitempty"`
-	HealthSource      string  `json:"healthSource,omitempty"`
-	ExternalConnected bool    `json:"externalConnected"`
-}
 
 // Result is the full outcome of a scan.
 type Result struct {
@@ -139,5 +104,6 @@ type Result struct {
 	GeneratedAt time.Time      `json:"generatedAt"`
 	AppVersion  string         `json:"appVersion"`
 	Mode        string         `json:"mode"`
+	Platform    string         `json:"platform"`
 	Lang        string         `json:"lang,omitempty"`
 }

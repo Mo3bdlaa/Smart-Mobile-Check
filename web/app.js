@@ -22,6 +22,11 @@
     demoProfiles: [],
     mode: (() => { try { return localStorage.getItem("smc-mode") || "used"; } catch (e) { return "used"; } })(),
     manualFor: null,  // "pending" when the checklist was started before scanning
+    platform: "ios",  // ios | android
+    mtPlatform: "",
+    aDemo: [],
+    aDevices: [],
+    aError: "",
   };
   /** L returns the text for the current language. */
   const L = (en, ar) => (state.lang === "ar" ? ar : en);
@@ -66,7 +71,7 @@
     "Battery": "البطارية", "Hardware & diagnostics": "الهاردوير والأعطال", "Hands-on tests": "الاختبارات اليدوية", "New-device checks": "فحوصات الجهاز الجديد",
   };
   const catName = (cat, mode) => {
-    if (cat === "Hands-on tests" && mode === "new") return L("New-iPhone checklist", "قائمة الآيفون الجديد");
+    if (cat === "Hands-on tests" && mode === "new") return state.platform === "android" ? L("New-phone checklist", "قائمة الموبايل الجديد") : L("New-iPhone checklist", "قائمة الآيفون الجديد");
     return L(cat, CAT_AR[cat] || cat);
   };
   const SEV_AR = { critical: "خطير", major: "مهم", minor: "بسيط", info: "معلومة" };
@@ -79,6 +84,15 @@
   const every = (fn, ms) => { fn(); timers.push(setInterval(fn, ms)); };
   const clearTimers = () => { timers.forEach(clearInterval); timers = []; };
 
+  const P = () => (state.platform === "android" ? "/api/android" : "/api/ios");
+  const connectHash = () => (state.platform === "android" ? "#/android" : "#/iphone");
+  const platformName = () => (state.platform === "android" ? "Android" : "iPhone");
+  async function ensureTests() {
+    if (state.mtPlatform !== state.platform || !state.manualTests.length) {
+      state.manualTests = await api(P() + "/manual-tests").catch(() => []);
+      state.mtPlatform = state.platform;
+    }
+  }
   const setMode = (m) => { state.mode = m; try { localStorage.setItem("smc-mode", m); } catch (e) { /* ignore */ } };
   const testsFor = (mode) => state.manualTests.filter((t) => (t.modes || ["used", "new"]).includes(mode));
   const doneCount = (tests) => tests.filter((t) => state.manual[t.id] && state.manual[t.id].status).length;
@@ -86,9 +100,9 @@
   const tGroup = (t) => (isAr() && t.groupAr ? t.groupAr : t.group);
   const tSteps = (t) => (isAr() && t.stepsAr && t.stepsAr.length ? t.stepsAr : t.steps);
   const modeBar = () => `<div class="mode-bar"><span class="muted">${L("I'm buying a", "أنا بشتري")}</span>
-      <div class="seg mode-seg">${["used", "new"].map((m) => `<button class="${state.mode === m ? "on mode" : ""}" data-mode="${m}">${m === "new" ? L("New / sealed iPhone", "آيفون جديد متبرشم") : L("Used iPhone", "آيفون مستعمل")}</button>`).join("")}</div>
+      <div class="seg mode-seg">${["used", "new"].map((m) => `<button class="${state.mode === m ? "on mode" : ""}" data-mode="${m}">${state.platform === "android" ? (m === "new" ? L("New / sealed phone", "موبايل جديد متبرشم") : L("Used phone", "موبايل مستعمل")) : (m === "new" ? L("New / sealed iPhone", "آيفون جديد متبرشم") : L("Used iPhone", "آيفون مستعمل"))}</button>`).join("")}</div>
       <span class="dim" style="font-size:12px">${state.mode === "new"
-        ? L("Adds checks that prove the phone was never used, plus the new-iPhone checklist.", "بيضيف فحوصات بتتأكد إن الموبايل ما اتستعملش قبل كده، ومعاها قائمة الآيفون الجديد.")
+        ? L("Adds checks that prove the phone was never used, plus the new-phone checklist.", "بيضيف فحوصات بتتأكد إن الموبايل ما اتستعملش قبل كده، ومعاها قائمة الموبايل الجديد.")
         : L("Full inspection for a second-hand phone.", "فحص كامل لموبايل مستعمل.")}</span></div>`;
   const bindModeBar = (root, after) => root.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { setMode(b.dataset.mode); after(); }));
 
@@ -178,13 +192,20 @@
             <li>${L("Kernel panic & missing-sensor analysis", "قراءة سجل الأعطال والقطع المفصولة")}</li>
           </ul>
         </div>
-        <div class="platform disabled" data-go="#/android" tabindex="0" role="button">
-          <div class="glow" style="background:#22c55e;opacity:.15"></div>
-          <span class="badge soon">${L("Coming soon", "قريباً")}</span>
-          <svg width="38" height="38" viewBox="0 0 24 24" fill="#93a0b8" style="margin-top:18px"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.4 11.4 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+        <div class="platform" data-go="#/android" tabindex="0" role="button">
+          <div class="glow" style="background:#22c55e;opacity:.35"></div>
+          <span class="badge live"><span class="dot ok"></span> ${L("Available", "متاح")}</span>
+          <span class="go btn small primary">${L("Start ›", "ابدأ ‹")}</span>
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="#3ddc84" style="margin-top:18px"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.4 11.4 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
           <h2>Android</h2>
-          <p>${L("Samsung, Google Pixel, Xiaomi and more over ADB.", "سامسونج وجوجل بيكسل وشاومي وغيرهم.")}</p>
-          <ul><li>${L("FRP / account lock", "قفل حساب جوجل (FRP)")}</li><li>${L("Root & bootloader state", "الروت وحالة البوت لودر")}</li><li>${L("Battery & hardware diagnostics", "فحص البطارية والهاردوير")}</li></ul>
+          <p>${L("Samsung, Google Pixel, Xiaomi and more — over USB debugging.", "سامسونج وجوجل بيكسل وشاومي وغيرهم — عن طريق تصحيح USB.")}</p>
+          <ul>
+            <li>${L("Google / Samsung / Xiaomi account lock (FRP)", "قفل حساب جوجل وسامسونج وشاومي (FRP)")}</li>
+            <li>${L("Fake / clone phone detection (chip, RAM, storage)", "كشف الموبايلات التقليد (المعالج والرامات والمساحة)")}</li>
+            <li>${L("Root, unlocked bootloader & Knox status", "الروت والبوت لودر المفتوح وحالة Knox")}</li>
+            <li>${L("Company management (MDM) & Knox Guard", "إدارة الشركات (MDM) وقفل Knox Guard")}</li>
+            <li>${L("Battery, sensors, cameras & crash history", "البطارية والحساسات والكاميرات وسجل الأعطال")}</li>
+          </ul>
         </div>
       </section>
       <a class="new-banner fade-in" href="#/checklist">
@@ -203,10 +224,12 @@
     await loadEnv();
     renderEnvStrip();
     if (!state.demoProfiles.length) state.demoProfiles = await api("/api/demo/profiles").catch(() => []);
+    if (!state.aDemo.length) state.aDemo = await api("/api/android/demo/profiles").catch(() => []);
     const ds = document.getElementById("demoStrip");
     if (!ds) return;
     ds.innerHTML = `<span class="muted" style="align-self:center">${L("No phone at hand? Try a demo:", "مفيش موبايل معاك؟ جرّب مثال:")}</span>` +
-      state.demoProfiles.map((p) => `<button class="btn small" data-demo="${esc(p.id)}" title="${esc(demoDesc(p))}">${esc(demoTitle(p))}</button>`).join("");
+      state.demoProfiles.map((p) => `<button class="btn small" data-demo="${esc(p.id)}" title="${esc(demoDesc(p))}">${esc(demoTitle(p))}</button>`).join("") +
+      state.aDemo.map((p) => `<button class="btn small" data-platform="android" data-demo="${esc(p.id)}" title="${esc(p.desc)}">🤖 ${esc(isAr() ? p.titleAr : p.title)}</button>`).join("");
     bindDemo();
   }
 
@@ -224,23 +247,148 @@
   }
   function bindDemo() {
     $app.querySelectorAll("[data-demo]").forEach((b) => b.addEventListener("click", () => {
-      const p = state.demoProfiles.find((x) => x.id === b.dataset.demo);
+      state.platform = b.dataset.platform || "ios";
+      const list = state.platform === "android" ? state.aDemo : state.demoProfiles;
+      const p = list.find((x) => x.id === b.dataset.demo);
       if (p && p.mode) setMode(p.mode);
       startScan({ demo: b.dataset.demo });
     }));
   }
 
-  function viewAndroid() {
-    crumbs([HOME(), { label: "Android" }]);
-    $app.innerHTML = `<div class="card fade-in" style="max-width:640px;margin:40px auto;text-align:center">
-      <h2 style="font-size:22px">${L("Android support is on the way", "دعم أندرويد جاي قريب")}</h2>
-      <p class="muted">${L("The Android route (ADB-based checks for FRP lock, root, bootloader, battery and hardware) will be added in a future version. The iPhone route is fully available now.",
-        "فحص الأندرويد (قفل جوجل، الروت، البوت لودر، البطارية والهاردوير) هيتضاف في نسخة جاية. فحص الآيفون شغّال كامل دلوقتي.")}</p>
-      <div class="row" style="justify-content:center;margin-top:14px"><a class="btn primary" href="#/iphone">${L("Inspect an iPhone", "افحص آيفون")}</a><a class="btn" href="#/">${L("Back", "رجوع")}</a></div></div>`;
+  // ------------------------------------------------------------ Android connect
+  const androidSVG = () => phoneSVG(150).replace('<rect x="55" y="24" width="40" height="11" rx="5.5" fill="#000"/>', '<circle cx="75" cy="30" r="6" fill="#000"/>').replace(/#6366f1/g, "#22c55e");
+
+  async function viewAndroid() {
+    state.platform = "android";
+    crumbs([HOME(), { label: "Android" }, { label: L("Connect", "التوصيل") }]);
+    $app.innerHTML = `<div class="connect fade-in">
+        <div class="card phone-art">${androidSVG()}</div>
+        <div id="connectPane"><div class="card"><div class="row"><span class="spinner"></span> ${L("Preparing Android tools…", "بنجهّز أدوات أندرويد…")}</div></div></div>
+      </div>`;
+    if (!state.aDemo.length) state.aDemo = await api("/api/android/demo/profiles").catch(() => []);
+    const t = await api("/api/android/tools").catch((e) => ({ error: String(e) }));
+    if (!t.serverRunning) return renderNoTools(t);
+    every(pollAndroid, 2000);
+  }
+
+  function aDemoButtons() {
+    return state.aDemo.map((p) => `<button class="btn small" data-platform="android" data-demo="${esc(p.id)}">${esc(isAr() ? p.titleAr : p.title)}</button>`).join("");
+  }
+
+  function renderNoTools(t, busy, err) {
+    const pane = document.getElementById("connectPane");
+    if (!pane) return;
+    pane.innerHTML = `<div class="notice" style="border-color:rgba(245,158,11,.4);background:rgba(245,158,11,.07)">
+        <h3 style="color:#fde68a">${L("One-time setup: Android tools", "إعداد لمرة واحدة: أدوات أندرويد")}</h3>
+        <p class="muted" style="margin:6px 0 0">${L("To talk to Android phones the app uses Google's official ADB tool (free, about 9 MB). Download it once — it is saved on this computer for next time.",
+          "علشان البرنامج يكلّم موبايلات أندرويد بيستخدم أداة ADB الرسمية من جوجل (مجانية، حوالي 9 ميجا). نزّلها مرة واحدة بس وهتتحفظ على الكمبيوتر.")}</p>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <div class="row">
+          <button class="btn primary" id="dlTools" ${busy ? "disabled" : ""}>${busy ? `<span class="spinner"></span> ${L("Downloading…", "جاري التحميل…")}` : L("Download from Google", "نزّلها من جوجل")}</button>
+          <button class="btn" id="recheckTools">${L("Check again", "اتأكد تاني")}</button>
+        </div>
+        ${err ? `<p class="trust-box" style="margin-top:12px">${esc(err)}</p>` : ""}
+        <p class="dim" style="margin-top:12px;font-size:12px">${L("Source", "المصدر")}: <span class="mono">${esc(t.downloadUrl || "dl.google.com")}</span>${t.error ? ` · <span class="mono">${esc(t.error)}</span>` : ""}</p>
+      </div>
+      <div class="row" style="margin-top:14px"><span class="muted">${L("Just exploring?", "عايز تجرّب بس؟")}</span>${aDemoButtons()}</div>`;
+    document.getElementById("dlTools").onclick = async () => {
+      renderNoTools(t, true);
+      try {
+        const r = await api("/api/android/tools/download", {});
+        if (r.ok) { toast(L("Android tools ready", "أدوات أندرويد جاهزة")); return viewAndroid(); }
+        renderNoTools(t, false, r.error || L("Download failed", "التحميل فشل"));
+      } catch (e) { renderNoTools(t, false, String(e)); }
+    };
+    document.getElementById("recheckTools").onclick = () => viewAndroid();
+    bindDemo();
+  }
+
+  async function pollAndroid() {
+    try {
+      const r = await api("/api/android/devices");
+      state.aError = r.ok ? "" : r.error;
+      state.aDevices = r.devices || [];
+    } catch (e) { state.aError = String(e); }
+    renderAndroidDevices();
+  }
+
+  function androidSteps() {
+    return `<ol class="steps">
+      <li><div>${L('Open <b>Settings › About phone › Software information</b> and tap <b>Build number</b> 7 times until it says "Developer mode turned on". (Xiaomi: tap <b>OS version</b> 7 times. Pixel: <b>Settings › About phone › Build number</b>.)',
+        'افتح <b>الإعدادات › حول الهاتف › معلومات البرنامج</b> ودوس على <b>رقم الإصدار</b> 7 مرات لحد ما يقول "تم تفعيل وضع المطوّر". (شاومي: دوس على <b>إصدار النظام</b> 7 مرات. بيكسل: <b>الإعدادات › حول الهاتف › رقم الإصدار</b>.)')}</div></li>
+      <li><div>${L("Go to <b>Settings › Developer options</b> and turn on <b>USB debugging</b>.", "ارجع لـ<b>الإعدادات › خيارات المطوّر</b> وفعّل <b>تصحيح USB</b>.")}</div></li>
+      <li><div>${L('Connect the phone with a <b>USB data cable</b>. If asked, choose <b>File transfer</b>.', 'وصّل الموبايل بـ<b>كابل USB بينقل بيانات</b>. لو سألك، اختار <b>نقل الملفات</b>.')}</div></li>
+      <li><div>${L('On the phone, tap <b>Allow</b> on "Allow USB debugging?" (tick <b>Always allow</b>).', 'هيظهر على الموبايل "السماح بتصحيح USB؟" — علّم <b>السماح دائماً</b> ودوس <b>سماح</b>.')}</div></li>
+    </ol>`;
+  }
+
+  function renderAndroidDevices() {
+    const pane = document.getElementById("connectPane");
+    if (!pane) return;
+    const devs = state.aDevices;
+    const drivers = `<div class="row" style="margin-top:14px"><span class="muted" style="font-size:12.5px">${L("Computer doesn't see the phone? Install its USB driver:", "الكمبيوتر مش شايف الموبايل؟ نزّل تعريف USB:")}</span>
+      <button class="btn small" data-open="samsung-driver">${L("Samsung driver", "تعريف سامسونج")}</button>
+      <button class="btn small" data-open="google-driver">${L("Google / Pixel driver", "تعريف جوجل / بيكسل")}</button>
+      <button class="btn small" data-open="oem-drivers">${L("Other brands", "شركات تانية")}</button></div>`;
+    if (!devs.length) {
+      pane.innerHTML = `${modeBar()}<div class="card">
+          <div class="row" style="justify-content:space-between"><h2 style="font-size:22px">${L("Connect the Android phone", "وصّل موبايل الأندرويد")}</h2><span class="pill"><span class="dot wait"></span>${L("Waiting for device", "مستنيين الموبايل")}</span></div>
+          ${androidSteps()}
+          ${drivers}
+          ${state.aError ? `<p class="dim" style="font-size:12px;margin-top:12px">${esc(state.aError)}</p>` : ""}
+          <p class="dim" style="font-size:12px;margin-top:10px">${L("Read-only: the app only reads information, it does not change anything on the phone. Turn USB debugging off when you're done.", "البرنامج بيقرا بس، مش بيغيّر أي حاجة في الموبايل. اقفل تصحيح USB بعد ما تخلص.")}</p>
+        </div>
+        <div class="row" style="margin-top:14px"><span class="muted">${L("Just exploring?", "عايز تجرّب بس؟")}</span>${aDemoButtons()}</div>`;
+      bindModeBar(pane, renderAndroidDevices);
+      bindOpen(pane);
+      bindDemo();
+      return;
+    }
+    pane.innerHTML = `${modeBar()}<div class="card"><h2 style="font-size:22px">${devs.length > 1 ? L("Choose a device", "اختار الموبايل") : L("Android phone detected", "تم العثور على الموبايل")}</h2>
+      ${devs.map(androidCard).join("")}</div>${drivers}`;
+    bindModeBar(pane, renderAndroidDevices);
+    bindOpen(pane);
+    pane.querySelectorAll("[data-scan]").forEach((b) => b.addEventListener("click", () => { state.platform = "android"; startScan({ udid: b.dataset.scan }); }));
+  }
+
+  function androidCard(d) {
+    let action = "", note = "", ok = false, label = "";
+    switch (d.state) {
+      case "device":
+        ok = true;
+        label = L("Connected — ready to scan", "متوصّل — جاهز للفحص");
+        action = `<button class="btn primary big" data-scan="${esc(d.serial)}">${L("Start full scan", "ابدأ الفحص الكامل")}</button>`;
+        break;
+      case "unauthorized":
+        label = L("Waiting for permission", "مستنيين السماح");
+        note = `<div class="trust-box">${L('Look at the phone and tap <b>Allow</b> on "Allow USB debugging?" (tick "Always allow"). If it doesn\'t appear, unplug and reconnect the cable.', 'بص على الموبايل ودوس <b>سماح</b> على "السماح بتصحيح USB؟" (علّم "السماح دائماً"). لو ماظهرش، شيل الكابل ووصّله تاني.')}</div>`;
+        action = `<button class="btn" disabled><span class="spinner"></span> ${L("Waiting…", "مستنيين…")}</button>`;
+        break;
+      case "offline":
+        label = L("Offline", "غير متصل");
+        note = `<div class="trust-box">${L("Unplug and reconnect the cable, then unlock the phone.", "شيل الكابل ووصّله تاني وافتح قفل الموبايل.")}</div>`;
+        break;
+      default:
+        label = d.state;
+        note = `<div class="trust-box">${L("The phone is in a special mode or needs a USB driver.", "الموبايل في وضع خاص أو محتاج تعريف USB.")}</div>`;
+    }
+    const name = d.modelName || d.model || "Android";
+    return `<div class="device-card">
+        ${androidSVG().replace('width="150" height="300"', 'width="38" height="76"')}
+        <div class="meta">
+          <h3>${esc(name)}</h3>
+          <div class="sub">${d.model ? esc(d.model) + " · " : ""}${d.device ? esc(d.device) + " · " : ""}<span class="mono">${esc(d.serial)}</span></div>
+          <div class="sub" style="margin-top:4px"><span class="dot ${ok ? "ok" : "wait"}" style="display:inline-block;margin-inline-end:6px"></span>${esc(label)}</div>
+          ${note}
+        </div>
+        ${action}
+      </div>`;
   }
 
   // ------------------------------------------------------------ connect
   async function viewConnect() {
+    state.platform = "ios";
     crumbs([HOME(), { label: "iPhone" }, { label: L("Connect", "التوصيل") }]);
     $app.innerHTML = `<div class="connect fade-in">
         <div class="card phone-art">${phoneSVG(150)}</div>
@@ -380,8 +528,8 @@
   // ------------------------------------------------------------ scan
   async function startScan(req) {
     try {
-      if (!state.manualTests.length) state.manualTests = await api("/api/ios/manual-tests").catch(() => []);
-      await api("/api/ios/scan", Object.assign({ mode: state.mode }, req));
+      await ensureTests();
+      await api(P() + "/scan", Object.assign({ mode: state.mode }, req));
       if (state.manualFor !== "pending") { state.manual = {}; state.notes = ""; }
       state.manualFor = req.udid || req.demo;
       state.tab = "summary";
@@ -389,13 +537,16 @@
     } catch (e) { toast(L("Could not start scan: ", "ماقدرناش نبدأ الفحص: ") + e.message); }
   }
 
-  const STEP_LABELS = () => isAr()
+  const STEP_LABELS = () => state.platform === "android" ? (isAr()
+    ? ["قراءة بيانات الجهاز", "قراءة البطارية", "فحص الرامات والمساحة والشاشة", "فحص الحسابات والأقفال", "فحص التطبيقات", "البحث عن روت وبوت لودر مفتوح", "فحص الحساسات والكاميرات", "قراءة سجل الأعطال", "تجهيز النتيجة"]
+    : ["Reading device identity", "Reading battery", "Checking memory, storage & screen", "Checking accounts & locks", "Auditing installed apps", "Checking for root & bootloader unlock", "Testing sensors & cameras", "Reading crash history", "Evaluating results"])
+    : isAr()
     ? ["قراءة بيانات الجهاز", "قراءة البطارية", "فحص الهاردوير", "قياس المساحة", "فحص التطبيقات", "فحص الإدارة وملفات التعريف", "البحث عن جيلبريك", "قراءة سجل الأعطال", "تجهيز النتيجة"]
     : ["Reading device identity", "Reading battery gauge", "Running hardware diagnostics", "Measuring storage",
       "Auditing installed apps", "Checking management & profiles", "Probing for jailbreak services", "Analysing crash & panic logs", "Evaluating results"];
 
   function viewScan() {
-    crumbs([HOME(), { label: "iPhone", href: "#/iphone" }, { label: L("Scanning", "جاري الفحص") }]);
+    crumbs([HOME(), { label: platformName(), href: connectHash() }, { label: L("Scanning", "جاري الفحص") }]);
     $app.innerHTML = `<div class="scan fade-in">
         <div class="scan-ring" id="scanRing"></div>
         <div><h2 style="font-size:24px">${L("Scanning the iPhone", "جاري فحص الآيفون")}</h2>
@@ -408,7 +559,7 @@
 
   async function pollScan() {
     let s;
-    try { s = await api(withLang("/api/ios/scan")); } catch (e) { return; }
+    try { s = await api(withLang(P() + "/scan")); } catch (e) { return; }
     state.scan = s;
     const labels = STEP_LABELS();
     const total = s.total || labels.length;
@@ -431,7 +582,7 @@
       if (Object.values(state.manual).some((m) => m.status) || state.notes) {
         try {
           const results = Object.entries(state.manual).filter(([, m]) => m.status).map(([id, m]) => ({ id, status: m.status, note: m.note || "" }));
-          const res = await api(withLang("/api/ios/manual"), { results, notes: state.notes });
+          const res = await api(withLang(P() + "/manual"), { results, notes: state.notes });
           if (res) state.result = res;
         } catch (e) { /* keep automatic result */ }
       }
@@ -440,18 +591,19 @@
       clearTimers();
       document.getElementById("scanErr").innerHTML = `<div class="notice" style="margin-top:16px"><h3>${L("Scan failed", "الفحص ماكملش")}</h3>
         <p class="muted mono">${esc(s.error)}</p><p class="muted">${L("Make sure the iPhone is unlocked, trusted and still connected, then try again.", "اتأكد إن الآيفون مفتوح وموثوق ولسه متوصّل، وجرّب تاني.")}</p>
-        <div class="row" style="margin-top:10px"><a class="btn primary" href="#/iphone">${L("Back to device", "رجوع للموبايل")}</a></div></div>`;
+        <div class="row" style="margin-top:10px"><a class="btn primary" href="${connectHash()}">${L("Back to device", "رجوع للموبايل")}</a></div></div>`;
     }
   }
 
   // ------------------------------------------------------------ result
   async function viewResult() {
     if (!state.result || state.result.lang !== (isAr() ? "ar" : undefined)) {
-      try { const s = await api(withLang("/api/ios/scan")); if (s.result) state.result = s.result; } catch (e) { /* ignore */ }
+      try { const s = await api(withLang(P() + "/scan")); if (s.result) state.result = s.result; } catch (e) { /* ignore */ }
     }
-    if (!state.result) return go("#/iphone");
-    if (!state.manualTests.length) state.manualTests = await api("/api/ios/manual-tests").catch(() => []);
-    crumbs([HOME(), { label: "iPhone", href: "#/iphone" }, { label: state.result.modelName }]);
+    if (!state.result) return go(connectHash());
+    if (state.result.platform) state.platform = state.result.platform;
+    await ensureTests();
+    crumbs([HOME(), { label: platformName(), href: connectHash() }, { label: state.result.modelName }]);
     renderResult();
   }
 
@@ -469,8 +621,10 @@
     const fails = checks.filter((x) => x.status === "fail").length;
     const handTests = testsFor(r.mode || "used");
     const handsDone = doneCount(handTests);
-    const handsName = r.mode === "new" ? L("New-iPhone checklist", "قائمة الآيفون الجديد") : L("Hands-on tests", "الاختبارات اليدوية");
-    const sub = [idv("iOS") && "iOS " + idv("iOS"), idv("Capacity"), idv("Model number"), idv("Part number")].filter(Boolean).join(" · ");
+    const handsName = r.mode === "new" ? (r.platform === "android" ? L("New-phone checklist", "قائمة الموبايل الجديد") : L("New-iPhone checklist", "قائمة الآيفون الجديد")) : L("Hands-on tests", "الاختبارات اليدوية");
+    const sub = (r.platform === "android"
+      ? [idv("Android") && "Android " + idv("Android").split(" ")[0], idv("Capacity"), idv("RAM") && idv("RAM") + " RAM", idv("Model number"), idv("Region / CSC")]
+      : [idv("iOS") && "iOS " + idv("iOS"), idv("Capacity"), idv("Model number"), idv("Part number")]).filter(Boolean).join(" · ");
     $app.innerHTML = `
       <section class="card res-head fade-in">
         <div style="position:relative;width:150px;height:150px">${ring(r.score, 150, 13, color)}
@@ -490,7 +644,7 @@
         <div class="head-actions">
           <button class="btn primary" id="saveHtml">${L("Save report", "احفظ التقرير")}</button>
           <div class="row"><button class="btn small" id="saveJson">${L("Export JSON", "تصدير JSON")}</button><button class="btn small" data-open="reports">${L("Reports folder", "فولدر التقارير")}</button></div>
-          <a class="btn small" href="#/iphone">${L("New scan", "فحص جديد")}</a>
+          <a class="btn small" href="${connectHash()}">${L("New scan", "فحص جديد")}</a>
         </div>
       </section>
       <nav class="tabs" id="tabs">
@@ -513,7 +667,7 @@
 
   async function saveReport(format) {
     try {
-      const r = await api("/api/report/save", { format, open: format === "html", lang: state.lang });
+      const r = await api("/api/report/save", { format, open: format === "html", lang: state.lang, platform: state.platform });
       if (r.ok) toast(L("Saved: ", "اتحفظ: ") + r.path); else toast(L("Could not save: ", "ماقدرناش نحفظ: ") + r.error);
     } catch (e) { toast(L("Could not save: ", "ماقدرناش نحفظ: ") + e.message); }
   }
@@ -577,19 +731,20 @@
         </div>
         <div style="display:grid;gap:18px;align-content:start">
           <div class="grid2">
-            <div class="stat"><span>${L("Battery health", "صحة البطارية")}</span><b>${b.available && b.healthPercent ? Math.round(b.healthPercent) + "%" : "—"}</b><small>${b.available ? b.cycleCount + " " + L("cycles", "دورة شحن") : L("not readable", "مش متاحة")}</small>
+            <div class="stat"><span>${L("Battery health", "صحة البطارية")}</span><b>${b.available && b.healthPercent ? Math.round(b.healthPercent) + "%" : "—"}</b><small>${!b.available ? L("not readable", "مش متاحة") : r.platform === "android" && !b.cyclesKnown ? L("cycles not shared by phone", "الدورات مش متاحة") : b.cycleCount + " " + L("cycles", "دورة شحن")}</small>
               <div class="meter"><div style="width:${b.healthPercent || 0}%;background:${(b.healthPercent || 0) >= 85 ? "var(--pass)" : (b.healthPercent || 0) >= 80 ? "var(--warn)" : "var(--fail)"}"></div></div></div>
             <div class="stat"><span>${L("Storage", "المساحة")}</span><b>${bdi(st.totalLabel || "—")}</b><small>${st.usedLabel ? bdi(st.usedLabel) + " " + L("used", "مستخدمة") : ""}</small>
               <div class="meter"><div style="width:${usedPct}%;background:var(--grad)"></div></div></div>
           </div>
-          ${handsLeft > 0 ? `<div class="card" style="border-color:rgba(129,140,248,.4)"><h3>${isNew ? "📦" : "✋"} ${isNew ? L(`${handsLeft} new-iPhone checklist items left`, `فاضل ${handsLeft} بند في قائمة الآيفون الجديد`) : L(`${handsLeft} hands-on tests left`, `فاضل ${handsLeft} اختبار يدوي`)}</h3>
-            <p class="muted" style="margin:0 0 12px">${isNew ? L("Box seal, box label vs phone, Apple warranty status, first start and more can only be verified by you.", "برشام العلبة، وبيانات العلبة، والضمان، وأول تشغيل — حاجات لازم تتأكد منها بنفسك.") : L("Some things (screen, cameras, Face ID, speakers, parts history) can only be verified on the phone itself.", "في حاجات (الشاشة، الكاميرات، Face ID، السماعات، سجل القطع) لازم تجرّبها بنفسك على الموبايل.")}</p>
+          ${handsLeft > 0 ? `<div class="card" style="border-color:rgba(129,140,248,.4)"><h3>${isNew ? "📦" : "✋"} ${isNew ? (r.platform === "android" ? L(`${handsLeft} new-phone checklist items left`, `فاضل ${handsLeft} بند في قائمة الموبايل الجديد`) : L(`${handsLeft} new-iPhone checklist items left`, `فاضل ${handsLeft} بند في قائمة الآيفون الجديد`)) : L(`${handsLeft} hands-on tests left`, `فاضل ${handsLeft} اختبار يدوي`)}</h3>
+            <p class="muted" style="margin:0 0 12px">${isNew ? L("Box seal, box label vs phone, Apple warranty status, first start and more can only be verified by you.", "برشام العلبة، وبيانات العلبة، والضمان، وأول تشغيل — حاجات لازم تتأكد منها بنفسك.") : (r.platform === "android" ? L("Some things (screen, cameras, fingerprint, speakers, accounts after reset) can only be verified on the phone itself.", "في حاجات (الشاشة، الكاميرات، البصمة، السماعات، الحسابات بعد الضبط) لازم تجرّبها بنفسك على الموبايل.") : L("Some things (screen, cameras, Face ID, speakers, parts history) can only be verified on the phone itself.", "في حاجات (الشاشة، الكاميرات، Face ID، السماعات، سجل القطع) لازم تجرّبها بنفسك على الموبايل."))}</p>
             <button class="btn small primary" id="openHands">${isNew ? L("Open checklist", "افتح القائمة") : L("Start hands-on tests", "ابدأ الاختبارات اليدوية")}</button></div>` : ""}
           <div class="card"><h3>${L("Before you pay", "قبل ما تدفع")}</h3><ul class="muted" style="margin:6px 0 0;padding-inline-start:18px;display:grid;gap:4px;font-size:13px">
-            <li>${L("Check the serial number's warranty/coverage status with Apple.", "افحص الضمان بالرقم التسلسلي على موقع Apple.")}</li>
+            ${r.platform === "android" ? `<li>${L("Dial *#06# and compare the IMEI with the box.", "اطلب ‎*#06#‎ وقارن الـ IMEI بالعلبة.")}</li>
+            <li>${L("Make sure all accounts are removed and the phone is factory-reset in front of you.", "اتأكد إن كل الحسابات اتمسحت والموبايل اتعمله ضبط مصنع قدامك.")}</li>` : `<li>${L("Check the serial number's warranty/coverage status with Apple.", "افحص الضمان بالرقم التسلسلي على موقع Apple.")}</li>`}
             <li>${L("Check the IMEI is not blacklisted (lost/stolen) with your carrier.", "اتأكد إن الـ IMEI مش مبلّغ عنه (مسروق أو ضايع).")}</li>
-            <li>${L("Make sure the seller has signed out of their Apple Account and erased the phone.", "اتأكد إن البائع عمل تسجيل خروج من حساب Apple ومسح الموبايل.")}</li></ul>
-            <div class="row" style="margin-top:12px"><button class="btn small" data-open="coverage">${L("Apple coverage check", "افحص الضمان")}</button>${idv("Serial number") ? `<button class="btn small" data-copy="${esc(idv("Serial number"))}">${L("Copy serial", "انسخ السيريال")}</button>` : ""}${idv("IMEI") ? `<button class="btn small" data-copy="${esc(idv("IMEI"))}">${L("Copy IMEI", "انسخ الـ IMEI")}</button>` : ""}</div></div>
+            ${r.platform === "android" ? "" : `<li>${L("Make sure the seller has signed out of their Apple Account and erased the phone.", "اتأكد إن البائع عمل تسجيل خروج من حساب Apple ومسح الموبايل.")}</li>`}</ul>
+            <div class="row" style="margin-top:12px">${r.platform === "android" ? "" : `<button class="btn small" data-open="coverage">${L("Apple coverage check", "افحص الضمان")}</button>`}${idv("Serial number") ? `<button class="btn small" data-copy="${esc(idv("Serial number"))}">${L("Copy serial", "انسخ السيريال")}</button>` : ""}${idv("IMEI") ? `<button class="btn small" data-copy="${esc(idv("IMEI"))}">${L("Copy IMEI", "انسخ الـ IMEI")}</button>` : ""}</div></div>
         </div>
       </div>
       <div class="section-title">${L("Categories", "الأقسام")}</div>
@@ -626,13 +781,15 @@
           <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><b style="font-size:44px;line-height:1">${h ? Math.round(h) + "%" : "—"}</b><div class="muted">${L("maximum capacity", "أقصى سعة")}</div></div></div></div>
         <div>
           <div class="grid2">
-            <div class="stat"><span>${L("Charge cycles", "دورات الشحن")}</span><b>${b.cycleCount}</b><small>${L(`rated ${b.ratedCycles} cycles to 80%`, `عمرها الرسمي ${b.ratedCycles} دورة لحد 80%`)}</small><div class="meter"><div style="width:${cyc}%;background:${cyc < 60 ? "var(--pass)" : cyc < 100 ? "var(--warn)" : "var(--fail)"}"></div></div></div>
+            <div class="stat"><span>${L("Charge cycles", "دورات الشحن")}</span><b>${state.result.platform === "android" && !b.cyclesKnown ? "—" : b.cycleCount}</b><small>${L(`rated ${b.ratedCycles} cycles to 80%`, `عمرها الرسمي ${b.ratedCycles} دورة لحد 80%`)}</small><div class="meter"><div style="width:${cyc}%;background:${cyc < 60 ? "var(--pass)" : cyc < 100 ? "var(--warn)" : "var(--fail)"}"></div></div></div>
             <div class="stat"><span>${L("Full charge capacity", "السعة الحالية")}</span><b><bdi>${b.fullChargeCapacity || "—"} mAh</bdi></b><small>${L("design", "سعة المصنع")} ${bdi((b.designCapacity || "—") + " mAh")}${b.expectedDesign ? " · " + L("factory spec", "المواصفات") + " " + bdi(b.expectedDesign.join("/") + " mAh") : ""}</small></div>
             <div class="stat"><span>${L("Temperature", "الحرارة")}</span><b>${bdi(b.temperatureC ? b.temperatureC.toFixed(1) + " °C" : "—")}</b><small>${bdi(b.voltageV ? b.voltageV.toFixed(2) + " V" : "")}</small></div>
             <div class="stat"><span>${L("Current charge", "الشحن الحالي")}</span><b>${b.chargePercent ? b.chargePercent + "%" : "—"}</b><small>${b.isCharging ? L("charging", "بيشحن") : b.externalConnected ? L("plugged in", "متوصّل بالشاحن") : L("on battery", "على البطارية")}</small></div>
           </div>
           ${b.serial ? `<p class="muted" style="margin-top:12px;font-size:12.5px">${L("Battery gauge serial", "رقم شريحة البطارية")}: <span class="mono">${esc(b.serial)}</span></p>` : ""}
-          <p class="dim" style="font-size:12px">${L("Apple rates iPhone 15 and later at 1000 cycles, earlier models at 500 cycles, to retain 80% capacity.", "حسب Apple: من آيفون 15 وطالع البطارية بتستحمل 1000 دورة، والأقدم 500 دورة، قبل ما تنزل لـ 80%.")}</p>
+          <p class="dim" style="font-size:12px">${state.result.platform === "android"
+            ? L("Some Android phones do not share cycles or capacity over USB — check the battery screen in the hands-on tests.", "بعض موبايلات أندرويد مش بتدّي الدورات أو السعة بالكابل — شوف شاشة البطارية في الاختبارات اليدوية.")
+            : L("Apple rates iPhone 15 and later at 1000 cycles, earlier models at 500 cycles, to retain 80% capacity.", "حسب Apple: من آيفون 15 وطالع البطارية بتستحمل 1000 دورة، والأقدم 500 دورة، قبل ما تنزل لـ 80%.")}</p>
         </div></div>
       <div class="section-title">${L("Battery checks", "فحوصات البطارية")}</div><div class="check-list">${bc.map((c) => checkRow(c, c.status !== "pass")).join("")}</div>`;
   }
@@ -662,7 +819,7 @@
   function tabHands() {
     const r = state.result;
     return checklistHTML(testsFor(r.mode || "used"), r.mode === "new"
-      ? { title: L("New-iPhone checklist", "قائمة الآيفون الجديد"), intro: L("Everything to confirm before paying for a phone sold as brand new. Results are added to the score and the report.", "كل اللي لازم تتأكد منه قبل ما تدفع في موبايل جديد. النتيجة بتتحسب في الدرجة وفي التقرير.") }
+      ? { title: r.platform === "android" ? L("New-phone checklist", "قائمة الموبايل الجديد") : L("New-iPhone checklist", "قائمة الآيفون الجديد"), intro: L("Everything to confirm before paying for a phone sold as brand new. Results are added to the score and the report.", "كل اللي لازم تتأكد منه قبل ما تدفع في موبايل جديد. النتيجة بتتحسب في الدرجة وفي التقرير.") }
       : { title: L("Guided hands-on tests", "الاختبارات اليدوية"), intro: L("Do each test on the phone and mark the result. Results are added to the score and the report.", "اعمل كل اختبار على الموبايل وعلّم النتيجة. النتيجة بتتحسب في الدرجة وفي التقرير.") });
   }
 
@@ -672,7 +829,7 @@
     manualTimer = setTimeout(async () => {
       try {
         const results = Object.entries(state.manual).filter(([, m]) => m.status).map(([id, m]) => ({ id, status: m.status, note: m.note || "" }));
-        const res = state.result ? await api(withLang("/api/ios/manual"), { results, notes: state.notes }) : null;
+        const res = state.result ? await api(withLang(P() + "/manual"), { results, notes: state.notes }) : null;
         if (res) state.result = res;
         if (rerender) (state.rerender || renderResult)();
       } catch (e) { toast(L("Could not save test result: ", "ماقدرناش نحفظ النتيجة: ") + e.message); }
@@ -707,8 +864,31 @@
     const r = state.result;
     const kv = (r.identity || []).map((k) => `<div class="kv"><span>${esc(k.label)}</span><span class="${k.mono ? "mono" : ""}">${bdi(k.value)}${k.mono ? `<button class="copy" title="${L("Copy", "نسخ")}" data-copy="${esc(k.value)}">⧉</button>` : ""}</span></div>`).join("");
     const s = r.spec;
-    let specHtml = `<div class="card"><h3>${L("Not in the spec database", "الموديل مش موجود في قاعدة المواصفات")}</h3><p class="muted">${L("Add a JSON file for", "ضيف ملف JSON لـ")} <span class="mono">${esc(idv("Identifier"))}</span> ${L("to a <span class=\"mono\">specs</span> folder next to the app to enable spec cross-checks.", "في فولدر <span class=\"mono\">specs</span> جنب البرنامج علشان يقارن المواصفات.")}</p></div>`;
-    if (s) {
+    let specHtml = `<div class="card"><h3>${L("Not in the spec database", "الموديل مش موجود في قاعدة المواصفات")}</h3><p class="muted">${L("Add a JSON file for", "ضيف ملف JSON لـ")} <span class="mono">${esc(idv("Identifier") || idv("Model number"))}</span> ${L("to a <span class=\"mono\">specs</span> folder next to the app to enable spec cross-checks.", "في فولدر <span class=\"mono\">specs</span> جنب البرنامج علشان يقارن المواصفات.")}</p></div>`;
+    if (s && r.platform === "android") {
+      const pr = r.snapshot.props || {};
+      const rows = [
+        [L("Model numbers", "أرقام الموديل"), (s.models || []).join(", "), pr["ro.product.model"]],
+        [L("Codename", "الاسم الكودي"), (s.devices || []).join(", "), pr["ro.product.device"]],
+        [L("Chip", "المعالج"), [s.chip, (s.boardPlatforms || []).join("/")].filter(Boolean).join(" · "), [pr["ro.board.platform"], pr["ro.soc.model"]].filter(Boolean).join(" · ")],
+        [L("RAM", "الرامات"), (s.ramGB || []).map((g) => g + " GB").join(" / "), idv("RAM")],
+        [L("Storage options", "المساحات المتاحة"), (s.storageOptionsGB || []).map((g) => (g >= 1024 ? g / 1024 + " TB" : g + " GB")).join(" / "), idv("Capacity")],
+        [L("Display", "الشاشة"), [s.display?.sizeInches && s.display.sizeInches + '"', s.display?.technology, s.display?.resolution, s.display?.maxRefreshHz && s.display.maxRefreshHz + " Hz"].filter(Boolean).join(" · "), r.snapshot.screenSize],
+        [L("Battery (design)", "البطارية (سعة المصنع)"), [(s.battery?.designCapacityMah || []).map((x) => x + " mAh").join(" / "), s.battery?.typicalMah && "typ. " + s.battery.typicalMah + " mAh"].filter(Boolean).join(" · "), r.battery?.designCapacity ? r.battery.designCapacity + " mAh" : ""],
+        [L("Android", "أندرويد"), (s.launchAndroid ? "Android " + s.launchAndroid : "") + (s.maxAndroid ? " – " + s.maxAndroid : L(" – current", " – لحد دلوقتي")), idv("Android")],
+        [L("Update policy", "سياسة التحديثات"), s.updatePolicy, ""],
+        [L("Biometrics", "البصمة"), s.biometrics, ""],
+        [L("Port", "المنفذ"), s.port, ""],
+        [L("Cellular", "الشبكة"), [s.cellular?.generation, s.cellular?.sim].filter(Boolean).join(" · "), ""],
+        [L("Rear cameras", "الكاميرات الخلفية"), (s.cameras?.rear || []).join(" · "), ""],
+        [L("Front camera", "الكاميرا الأمامية"), s.cameras?.front, ""],
+        [L("Released", "تاريخ النزول"), s.releaseDate, ""],
+        [L("Features", "المميزات"), (s.features || []).join(", "), ""],
+      ].filter((x) => x[1]);
+      specHtml = `<div class="card"><div class="row" style="justify-content:space-between"><h3>${esc(s.name)} — ${L("factory specification", "مواصفات المصنع")}</h3><span class="badge">${esc(s.origin || "")}</span></div>
+        <table class="cmp"><thead><tr><th>${L("Item", "البند")}</th><th>${L("Factory spec", "المواصفات")}</th><th>${L("Read from device", "من الموبايل")}</th></tr></thead><tbody>
+        ${rows.map(([a, b, c]) => `<tr><td>${esc(a)}</td><td>${bdi(b)}</td><td class="mono">${esc(c || "")}</td></tr>`).join("")}</tbody></table></div>`;
+    } else if (s) {
       const ld = r.snapshot.lockdown || {};
       const rows = [
         [L("Identifier", "المعرّف"), (s.productTypes || []).join(", "), ld.ProductType],
@@ -766,8 +946,9 @@
   // ------------------------------------------------------------ new-iPhone checklist (no scan needed)
   async function viewChecklist() {
     crumbs([HOME(), { label: L("New iPhone checklist", "قائمة الآيفون الجديد") }]);
-    if (!state.manualTests.length) state.manualTests = await api("/api/ios/manual-tests").catch(() => []);
-    if (state.result && state.result.mode !== "new") { state.result = null; state.manual = {}; state.notes = ""; }
+    state.platform = "ios";
+    await ensureTests();
+    if (state.result && (state.result.mode !== "new" || state.result.platform === "android")) { state.result = null; state.manual = {}; state.notes = ""; }
     if (!state.result) state.manualFor = "pending";
     const draw = () => {
       const tests = testsFor("new");
@@ -791,8 +972,10 @@
     if (!state.specs) {
       $app.innerHTML = `<div class="card"><div class="row"><span class="spinner"></span>${L("Loading…", "جاري التحميل…")}</div></div>`;
       state.specs = await api("/api/specs");
+      const a = await api("/api/android/specs").catch(() => ({ devices: [] }));
+      state.specs.android = (a.devices || []).map((d) => Object.assign({ productTypes: d.models, regulatoryModels: [] }, d));
     }
-    const devs = state.specs.devices || [];
+    const devs = (state.specs.devices || []).concat(state.specs.android || []);
     if (id) {
       const d = devs.find((x) => x.id === id);
       if (!d) return go("#/specs");
@@ -807,7 +990,7 @@
         .map((d) => `<a class="spec-item" href="#/specs/${encodeURIComponent(d.id)}"><b>${esc(d.name)}</b><span>${esc((d.productTypes || []).join(", "))} · ${esc(d.chip || "")}</span><br><span>${esc((d.releaseDate || "").slice(0, 4))} · ${esc((d.storageOptionsGB || []).map((g) => (g >= 1024 ? g / 1024 + "TB" : g + "GB")).join("/"))}</span></a>`).join("");
     };
     $app.innerHTML = `<div class="fade-in"><div class="row" style="justify-content:space-between;margin-bottom:16px"><div><h2 style="font-size:26px">${L("Device spec database", "قاعدة مواصفات الأجهزة")}</h2>
-      <p class="muted" style="margin:4px 0 0">${devs.length} ${L("models. Built into the app; add or override models by placing JSON files in a <span class=\"mono\">specs</span> folder next to the .exe", "موديل جوه البرنامج. تقدر تضيف أو تعدّل موديلات بملفات JSON في فولدر <span class=\"mono\">specs</span> جنب البرنامج")}${state.specs.external ? ` (${L("loaded", "متحمّل")}: <span class="mono">${esc(state.specs.external)}</span>)` : ""}.</p></div>
+      <p class="muted" style="margin:4px 0 0">${(state.specs.devices || []).length} iPhone · ${(state.specs.android || []).length} Android · ${L("models. Built into the app; add or override models by placing JSON files in a <span class=\"mono\">specs</span> folder next to the .exe", "موديل جوه البرنامج. تقدر تضيف أو تعدّل موديلات بملفات JSON في فولدر <span class=\"mono\">specs</span> جنب البرنامج")}${state.specs.external ? ` (${L("loaded", "متحمّل")}: <span class="mono">${esc(state.specs.external)}</span>)` : ""}.</p></div>
       <input type="search" id="specSearch" placeholder="${L("Search name, identifier, A-number, chip…", "دوّر بالاسم أو رقم الموديل أو المعالج…")}" style="width:320px" value="${esc(state.specFilter)}"></div>
       ${(state.specs.warnings || []).length ? `<div class="trust-box" style="margin-bottom:14px">${state.specs.warnings.map(esc).join("<br>")}</div>` : ""}
       <div class="spec-list" id="specGrid"></div></div>`;
@@ -826,7 +1009,7 @@
     state.lang = isAr() ? "en" : "ar";
     try { localStorage.setItem("smc-lang", state.lang); } catch (e) { /* ignore */ }
     if (state.result) {
-      try { const s = await api(withLang("/api/ios/scan")); if (s.result) state.result = s.result; } catch (e) { /* ignore */ }
+      try { const s = await api(withLang(P() + "/scan")); if (s.result) state.result = s.result; } catch (e) { /* ignore */ }
     }
     route();
   });

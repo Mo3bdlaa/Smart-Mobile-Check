@@ -35,7 +35,7 @@ func main() {
 	exe, _ := os.Executable()
 	external := filepath.Join(filepath.Dir(exe), "specs")
 	db := specs.Load(smartcheck.Specs, external)
-	log.Printf("loaded %d device specs (%d warnings)", len(db.All()), len(db.Warnings))
+	log.Printf("loaded %d iPhone and %d Android specs (%d warnings)", len(db.All()), len(db.Android()), len(db.Warnings))
 	for _, w := range db.Warnings {
 		log.Printf("spec warning: %s", w)
 	}
@@ -44,7 +44,7 @@ func main() {
 	if err != nil {
 		fatal(err)
 	}
-	srv := &server.Server{Version: Version, DB: db, Web: web, Opener: openExternal, Quit: func() { os.Exit(0) }}
+	srv := &server.Server{Version: Version, DB: db, Web: web, Opener: openExternal, Quit: func() { os.Exit(0) }, AppData: logDir}
 	url, err := srv.Listen()
 	if err != nil {
 		fatal(err)

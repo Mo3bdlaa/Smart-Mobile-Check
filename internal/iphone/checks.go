@@ -11,24 +11,25 @@ import (
 	"strings"
 	"time"
 
+	"github.com/mo3bdlaa/smart-mobile-check/internal/inspect"
 	"github.com/mo3bdlaa/smart-mobile-check/internal/specs"
 )
 
 // Check categories, in display order.
 const (
-	CatIdentity = "Identity & authenticity"
-	CatOwner    = "Ownership & locks"
-	CatSoftware = "Software integrity"
-	CatBattery  = "Battery"
-	CatHardware = "Hardware & diagnostics"
-	CatHands    = "Hands-on tests"
-	CatNew      = "New-device checks"
+	CatIdentity = inspect.CatIdentity
+	CatOwner    = inspect.CatOwner
+	CatSoftware = inspect.CatSoftware
+	CatBattery  = inspect.CatBattery
+	CatHardware = inspect.CatHardware
+	CatHands    = inspect.CatHands
+	CatNew      = inspect.CatNew
 )
 
 // Purchase modes.
 const (
-	ModeUsed = "used"
-	ModeNew  = "new"
+	ModeUsed = inspect.ModeUsed
+	ModeNew  = inspect.ModeNew
 )
 
 // Categories lists the categories in display order.
@@ -99,6 +100,7 @@ func EvaluateMode(s *Snapshot, db *specs.DB, appVersion, mode string) *Result {
 		AppVersion:  appVersion,
 		Storage:     e.storageInfo(),
 		Mode:        mode,
+		Platform:    "ios",
 	}
 	if e.spec != nil {
 		res.Spec = e.spec
@@ -113,53 +115,9 @@ func EvaluateMode(s *Snapshot, db *specs.DB, appVersion, mode string) *Result {
 
 // Score computes counts, score and verdict from the checks.
 func Score(r *Result) {
-	r.Counts = map[Status]int{}
-	score := 100.0
-	critical := false
-	majorFail := false
-	for _, c := range r.Checks {
-		r.Counts[c.Status]++
-		switch c.Status {
-		case Fail:
-			switch c.Severity {
-			case Critical:
-				score -= 45
-				critical = true
-			case Major:
-				score -= 20
-				majorFail = true
-			case Minor:
-				score -= 8
-			}
-		case Warn:
-			switch c.Severity {
-			case Critical:
-				score -= 15
-			case Major:
-				score -= 8
-			case Minor:
-				score -= 3
-			}
-		}
-	}
-	if score < 0 {
-		score = 0
-	}
-	r.Score = int(math.Round(score))
-	switch {
-	case critical:
-		r.Verdict = "risk"
-		r.VerdictText = "Do not buy — a critical problem was found"
-	case r.Score >= 85 && !majorFail:
-		r.Verdict = "good"
-		r.VerdictText = "Looks genuine and healthy"
-	case r.Score >= 60:
-		r.Verdict = "caution"
-		r.VerdictText = "Buy with caution — review the warnings"
-	default:
-		r.Verdict = "risk"
-		r.VerdictText = "High risk — several problems were found"
-	}
+	o := inspect.Evaluate(r.Checks)
+	r.Counts, r.Score = o.Counts, o.Score
+	r.Verdict, r.VerdictText = inspect.VerdictText(o.Verdict, "en")
 }
 
 // ---------------------------------------------------------------- identity
